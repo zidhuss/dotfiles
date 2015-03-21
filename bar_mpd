@@ -7,6 +7,7 @@
 icoMUSIQUE="%{F$BASE02}%{B$CYAN} $icoMUSIC %{F-}%{B$BASE02}"
 
 while :; do
+    sleep 0.5
     # Is mopidy running?
     if  pidof -x mopidy && mpc status; then
         cur=`mpc current`
