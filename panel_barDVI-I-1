@@ -1,0 +1,79 @@
+#! /bin/sh
+#
+
+. panel_config
+
+while read -r line ; do
+	case $line in
+        a*)
+            # Arch info
+            archinfo="${line#?} %{B-}%{F-}"
+            ;;
+        R*)
+            # current ram usage
+            ram="${line#?} %{B-}%{F-}"
+            ;;
+        C*)
+            # current cpu usage
+            cpu="${line#?} %{B-}%{F-}"
+            ;;
+        c*)
+            # current song
+            music="${line#?} %{B-}%{F-}"
+            ;;
+        h*)
+            # hdd
+            hdd="${line#?} %{B-}%{F-}"
+            ;;
+        w*)
+            # wifi
+            wifi="${line#?} %{B-}%{F-}"
+            ;;
+        V*)
+            # volume output
+            volume="${line#?}%% %{B-}%{F-}"
+            ;;
+		T*)
+			# date and time output
+            clock="${line#?} %{B-}%{F-}"
+			;;
+		W*)
+			# bspwm internal state
+			wm_infos="%{F-}%{B-}"
+			IFS=':'
+			set -- ${line#?}
+			while [ $# -gt 0 ] ; do
+				item=$1
+				name=${item#?}
+				case $item in
+					O*)
+						# focused occupied desktop
+						wm_infos="${wm_infos}%{F$BASE3} ${icoOCC} %{-u}%{B-}%{F-}"
+						;;
+					F*)
+						# focused free desktop
+						wm_infos="${wm_infos}%{F$BASE3} ${icoFREE} %{-u}%{B-}%{F-}"
+						;;
+					U*)
+						# focused urgent desktop
+						wm_infos="${wm_infos}%{F$MAGENTA} ${icoOCC} %{-u}%{B-}%{F-}"
+						;;
+					o*)
+						# occupied desktop
+						wm_infos="${wm_infos}%{F$BASE01} ${icoOCC} %{B-}%{F-}"
+						;;
+					f*)
+						# free desktop
+						wm_infos="${wm_infos}%{F$BASE01} ${icoFREE} %{B-}%{F-}"
+						;;
+					u*)
+						# urgent desktop
+						wm_infos="${wm_infos}%{F$RED} ${icoOCC} %{B-}%{F-}"
+						;;
+				esac
+				shift
+			done
+			;;
+	esac
+	printf "%b\n" "%{l}${music}%{c}${wm_infos}%{r}${wifi} ${volume} ${clock}"
+done

@@ -1,0 +1,91 @@
+#!/bin/sh
+
+. panel_config
+
+clock() {
+    # Output clock format "Mon 01 Jan 2015 00:00"
+    dateo=`date '+%a %d %b %R'`
+    echo "%{F$BASE02}%{B$BLUE} $icoTIME %{F-}%{B$BASE02} $dateo"
+}
+
+volume() {
+    # Get current volume
+    vol=`amixer get Master | grep 'Front Left' | egrep -o "[0-9]+%" |\
+        rev | cut -c 2- | rev`
+
+    # Decide which icon and colour to show
+    if [ ! `amixer get Master | tail -1 | grep -oe off` ]; then
+        if [ $vol == 0 ]; then
+            volico="%{F$BASE02}%{B$ORANGE} $icoVOL0 %{F-}%{B$BASE02}"
+        else
+            volico="%{F$BASE02}%{B$VIOLET} $icoVOL %{F-}%{B$BASE02}"
+        fi
+    else
+        volico="%{F$BASE02}%{B$MAGENTA} $icoMUTE %{F-}%{B$BASE02}"
+    fi
+
+    # Change colour if volume is lower than 60
+    if [ $vol -lt 60 ]; then
+        vol="%{F$BASE00}%{B$BASE02}$vol"
+    fi
+
+    echo "$volico $vol"
+
+}
+
+cpu() {
+    # Output CPU usage as an integer
+    cpu=$(ps -eo pcpu | awk 'BEGIN {sum=0.0f} {sum+=$1} END {print sum}' | cut -c1-2)
+    echo "%{F$BASE02}%{B$ORANGE} $icoCPU %{F-}%{B$BASE02} $cpu%%"
+}
+
+hdd() {
+    # Show root partition % used and home volume remaining
+    HDDROOT=`df -h | grep /dev/sdb2 | awk '{print $5}'`
+    HDDHOME=`df -h | grep /dev/sdb3 | awk '{print $4}'`
+    echo "%{F$BASE02}%{B$BLUE} / %{F-}%{B$BASE02} $HDDROOT%% %{F$BASE02}%{B$CYAN} $icoSTORAGE %{F-}%{B$BASE02} $HDDHOME"
+
+}
+
+ram() {
+    # Show ram used / ram total
+    total=`free -mh | grep Mem | awk '{print $3}'`
+    free=`free -mh | grep Mem | awk '{print $2}'`
+    echo "%{F$BASE02}%{B$YELLOW} $icoRAM %{F-}%{B$BASE02} $total / $free"
+}
+
+
+wifi() {
+    # Show wifi ssid if connected.
+    dev="wlp0s29f7u2"
+    ssid="$(iwgetid -r)"
+    if [ ! $ssid ]; then
+        echo "%{F$BASE02}%{B$RED} $icoDISCO %{F-}%{B$BASE02} Disconnected"
+    else
+        echo "%{F$BASE02}%{B$CYAN} $icoCONN %{F-}%{B$BASE02} $ssid"
+    fi
+    # strength="$(iw dev $dev link | grep signal | egrep -o '[0-9]+')"
+    # echo -e "$ssid  $strength"
+
+}
+
+archinfo() {
+    # Other system information
+    hostname=`uname -n`
+    uptime=`uptime | sed 's/.* up *//;s/[0-9]* us.*//;s/ day, /d /;s/ days, /d /;s/:/h /;s/ min//;s/,/m/;s/ / /'`
+    packages=`pacman -Q | wc -l`
+
+    echo "%{F$BASE02}%{B$GREEN} $icoARCH %{F-}%{B$BASE02} $hostname %{F$BASE02}%{B$CYAN} $icoPACMAN %{F-}%{B$BASE02} $packages %{F$BASE02}%{B$BLUE} $icoUPTIME %{F-}%{B$BASE02} $uptime"
+}
+
+while true; do
+
+    printf "%s\n" "a$(archinfo)"
+    printf "%s\n" "R$(ram)"
+    printf "%s\n" "C$(cpu)"
+    printf "%b\n" "V$(volume)"
+    printf "%s\n" "w$(wifi)"
+    printf "%s\n" "T$(clock)"
+    printf "%s\n" "h$(hdd)"
+    sleep 0.5
+done
