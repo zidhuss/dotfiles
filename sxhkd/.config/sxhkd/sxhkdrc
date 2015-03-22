@@ -1,0 +1,144 @@
+# ⢉⠝ ⠄ ⢀⣸ ⣇⣸ ⡀⢀ ⢀⣀ ⢀⣀   ⢀⣀ ⡀⢀ ⣇⡀ ⡇⡠ ⢀⣸ ⡀⣀ ⢀⣀
+# ⠮⠤ ⠇ ⠣⠼ ⠇⠸ ⠣⠼ ⠭⠕ ⠭⠕   ⠭⠕ ⠜⠣ ⠇⠸ ⠏⠢ ⠣⠼ ⠏  ⠣⠤
+#
+# bspwm hotkeys
+#
+
+# Quit bspwm
+super + alt + Escape
+  killall panel && bspc quit
+
+# Close Window
+super + w
+  bspc window -c
+
+# Monocle mode
+super + t
+  bspc desktop -l next
+
+super + b
+  bspc desktop -B
+
+# Floating Mode and Fullscreen Mode on current window
+super + {s,f}
+  bspc window -t {floating,fullscreen}
+
+# Switch to previous window/desktop
+super + {grave,Tab}
+  bspc {window,desktop} -f last
+
+# Switch to last window
+super + apostrophe
+  bspc window -s last
+
+super + {o,i}
+  bspc control --record-history off; \
+  bspc window {older,newer} -f; \
+  bspc control --record-history on
+
+super + y
+  bspc window -w last.manual
+
+# Make window biggest
+super + m
+  bspc window -s biggest
+
+# Move windows position
+super + {_,shift + }{h,j,k,l}
+  bspc window -{f,s} {left,down,up,right}
+
+# Inverse of Super + C
+super + {_,shift + }c
+  bspc window -f {next,prev}
+
+# Move windows to different tiles
+super + {comma,period}
+  bspc desktop -C {backward,forward}
+
+# Switch between desktops
+super + bracket{left,right}
+  bspc desktop -f {prev,next}
+
+# Highlight area of selected window
+super + ctrl + {h,j,k,l}
+  bspc window -p {left,down,up,right}
+
+# Cancel selection
+super + ctrl + {_,shift + }space
+  bspc {window -p cancel,desktop -c}
+
+# Enlarge push
+super + alt + {h,j,k,l}
+  bspc window -e {left -10,down +10,up -10,right +10}
+
+# Enlarge pull
+super + alt + shift + {h,j,k,l}
+  bspc window -e {right -10,up +10,down -10,left +10}
+
+super + ctrl + {1-9}
+  bspc window -r 0.{1-9}
+
+# Move window to certain desktop
+super + {_,shift + }{1-9,0}
+  bspc {desktop -f,window -d} ^{1-9,10}
+
+~button1
+  bspc pointer -g focus
+
+super + button{1-3}
+  bspc pointer -g {move,resize_side,resize_corner}
+
+super + !button{1-3}
+  bspc pointer -t %i %i
+
+super + @button{1-3}
+  bspc pointer -u
+
+#
+# Media and Audio controls
+#
+
+# Toggle Mute
+XF86AudioMute
+  amixer sset Master toggle
+
+# Raise Volume
+XF86AudioRaiseVolume
+  amixer sset Master 5%+
+
+# Lower Volume
+XF86AudioLowerVolume
+  amixer sset Master 5%-
+
+# Stop music
+XF86AudioStop
+  mpc stop
+
+# Toggle play and pause
+XF86AudioPlay
+  mpc toggle
+
+# Play next track
+XF86AudioNext
+  mpc next
+
+# Play previous track
+XF86AudioPrev
+  mpc prev
+
+#
+# wm independent hotkeys
+#
+
+super + Return
+  urxvtc
+
+super + v
+  firefox
+
+super + space
+  dmenu_run -b -i -p "" -nb "#002b36" -nf "#93a1a1" -sf "#93a1a1" -sb "#073642" -fn "-*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-u"
+
+# make sxhkd reload its configuration files:
+super + Escape
+  pkill -USR1 -x sxhkd
