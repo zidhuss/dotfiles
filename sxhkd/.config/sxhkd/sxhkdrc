@@ -16,6 +16,7 @@ super + w
 super + t
   bspc desktop -l next
 
+# Balance windows
 super + b
   bspc desktop -B
 
@@ -47,19 +48,19 @@ super + m
 super + {_,shift + }{h,j,k,l}
   bspc window -{f,s} {left,down,up,right}
 
-# Inverse of Super + C
+# Scroll throw windows on desktop
 super + {_,shift + }c
   bspc window -f {next,prev}
 
-# Move windows to different tiles
+# Circulate windows
 super + {comma,period}
   bspc desktop -C {backward,forward}
 
-# Switch between desktops
+# Switch between desktops on monitor
 super + bracket{left,right}
   bspc desktop -f {prev,next}
 
-# Highlight area of selected window
+# Preselect side
 super + ctrl + {h,j,k,l}
   bspc window -p {left,down,up,right}
 
@@ -75,12 +76,17 @@ super + alt + {h,j,k,l}
 super + alt + shift + {h,j,k,l}
   bspc window -e {right -10,up +10,down -10,left +10}
 
+# Set ratio of split
 super + ctrl + {1-9}
   bspc window -r 0.{1-9}
 
 # Move window to certain desktop
 super + {_,shift + }{1-9,0}
   bspc {desktop -f,window -d} ^{1-9,10}
+
+#
+# Mouse Controls
+#
 
 ~button1
   bspc pointer -g focus
@@ -100,15 +106,15 @@ super + @button{1-3}
 
 # Toggle Mute
 XF86AudioMute
-  amixer sset Master toggle
+  pulseaudio-ctl mute
 
 # Raise Volume
 XF86AudioRaiseVolume
-  amixer sset Master 5%+
+  pulseaudio-ctl up
 
 # Lower Volume
 XF86AudioLowerVolume
-  amixer sset Master 5%-
+  pulseaudio-ctl down
 
 # Stop music
 XF86AudioStop
@@ -137,7 +143,7 @@ super + v
   firefox
 
 super + space
-  dmenu_run -b -i -p "" -nb "#002b36" -nf "#93a1a1" -sf "#93a1a1" -sb "#073642" -fn "-*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-u"
+  dmenu_run -b -i -p "open: " -nb "#2d2d2d" -nf "#d3d0c8" -sf "#d3d0c8" -sb "#393939" -fn "-*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-u"
 
 # make sxhkd reload its configuration files:
 super + Escape

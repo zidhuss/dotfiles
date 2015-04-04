@@ -35,7 +35,7 @@ Plugin 'tpope/vim-repeat'
 " Plugin 'klen/python-mode'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 " Plugin 'scrooloose/syntastic'
@@ -53,15 +53,18 @@ set tw=79
 set nowrap
 set fo-=t
 set colorcolumn=80
-highlight ColorColumn ctermbg=233
+highlight ColorColumn ctermbg=03
 
 " Show whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Colour scheme
-set t_Co=256
-colorscheme solarized
+" set t_Co=256
+set background=dark
+let base16colorspace=256
+colorscheme base16-eighties
+
 
 " Enable syntax highlighting
 filetype off
@@ -101,7 +104,7 @@ set autoread
 
 " Airline settings
 let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+let g:airline_theme='base16'
 let g:airline_section=' '
 let g:airline_left_sep = ' '
 let g:airline_right_sep = ' '
