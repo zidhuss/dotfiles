@@ -28,8 +28,8 @@ xset fp rehash
 pulseaudio --start
 
 # Set up monitors
-xrandr --addmode VGA-1 "1280x1024"
-xrandr --output DVI-I-1 --mode "1680x1050" --output VGA-1 --mode "1280x1024" --right-of DVI-I-1
+xrandr --addmode DVI-I-1 "1280x1024"
+xrandr --output VGA-1 --mode "1680x1050" --primary --output DVI-I-1 --mode "1280x1024" --right-of VGA-1
 # xrandr --output DVI-I-1 --off
 # xrandr --output VGA-1 --mode "1280x1024"
 

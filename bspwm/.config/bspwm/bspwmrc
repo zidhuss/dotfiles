@@ -24,8 +24,8 @@ bspc config focused_frame_opacity 1.00
 # bscp config urgent_border_color "#7e8e91"
 
 
-bspc monitor DVI-I-1 -d 1 2 3
-bspc monitor VGA-1 -d 4 5 6
+bspc monitor VGA-1 -d 1 2 3
+bspc monitor DVI-I-1 -d 4 5 6
 bspc rule -a Firefox desktop=^1
 bspc rule -a mupdf window=pseudo_tiled
 bspc rule -a Gimp desktop=^4 follow=on floating=on

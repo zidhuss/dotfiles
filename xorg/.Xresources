@@ -7,7 +7,7 @@
 URxvt*geometry: 80x24
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when
-*font: -*-terminesspowerline-medium-r-normal-*-12-*-*-*-c-*-*-1, -*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-u
+*font: -*-terminesspowerline-medium-r-normal-*-12-*-*-*-c-*-*-1 
 boldFont: --*-terminus-bold-r-normal-*-12-*-*-*-c-*-*-u
 
 
