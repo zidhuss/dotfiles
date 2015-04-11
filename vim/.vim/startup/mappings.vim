@@ -24,3 +24,8 @@ imap <C-s> <esc>:w<cr>
 
 " Write read only files
 cnoremap sudow w !sudo tee % >/dev/null<cr>:e!<cr><cr>
+
+" Clear search highlights
+nmap <silent> <leader>/ :nohlsearch<CR>
+
+    

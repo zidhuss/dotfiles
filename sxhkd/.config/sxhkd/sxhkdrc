@@ -100,6 +100,9 @@ super + e
 super + x
     bspc desktop -F vertical
 
+super + u
+    bspc window --toggle sticky
+
 #
 # Mouse Controls
 #
