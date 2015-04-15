@@ -40,7 +40,7 @@ Plugin 'Shougo/neocomplete'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'scrooloose/syntastic'
-" Plugin 'klen/python-mode'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 
