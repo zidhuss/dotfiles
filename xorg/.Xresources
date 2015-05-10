@@ -23,7 +23,7 @@ URxvt*cursorBlink: True
 ! Specifies the program to be started with a URL argument. Used by the "selection-popup" and "matcher" perl
 ! URxvt*url-launcher: string
 
-URxvt*cursorUnderline: True
+URxvt*cursorUnderline: False
 
 
 URxvt.perl-ext: default,url-select

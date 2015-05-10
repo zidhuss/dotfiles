@@ -48,11 +48,11 @@ while read -r line ; do
 				case $item in
 					O*)
 						# focused occupied desktop
-						wm_infos="${wm_infos}%{F$BASE3} ${icoOCC} %{-u}%{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$BASE05} ${icoOCC} %{-u}%{B-}%{F-}"
 						;;
 					F*)
 						# focused free desktop
-						wm_infos="${wm_infos}%{F$BASE3} ${icoFREE} %{-u}%{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$BASE05} ${icoFREE} %{-u}%{B-}%{F-}"
 						;;
 					U*)
 						# focused urgent desktop
@@ -60,11 +60,11 @@ while read -r line ; do
 						;;
 					o*)
 						# occupied desktop
-						wm_infos="${wm_infos}%{F$BASE01} ${icoOCC} %{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$BASE02} ${icoOCC} %{B-}%{F-}"
 						;;
 					f*)
 						# free desktop
-						wm_infos="${wm_infos}%{F$BASE01} ${icoFREE} %{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$BASE02} ${icoFREE} %{B-}%{F-}"
 						;;
 					u*)
 						# urgent desktop
@@ -75,5 +75,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%b\n" "%{l}${music}%{c}${wm_infos}%{r}${wifi} ${volume} ${clock}"
+	printf "%b\n" "%{l}${music} ${cpu} ${ram}%{c}${wm_infos}%{r}${wifi} ${volume} ${clock}"
 done

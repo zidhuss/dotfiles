@@ -128,11 +128,11 @@ XF86AudioMute
   pulseaudio-ctl mute
 
 # Raise Volume
-XF86AudioRaiseVolume
+super + Up
   pulseaudio-ctl up
 
 # Lower Volume
-XF86AudioLowerVolume
+super + Down
   pulseaudio-ctl down
 
 # Stop music
@@ -140,15 +140,15 @@ XF86AudioStop
   mpc stop
 
 # Toggle play and pause
-XF86AudioPlay
+XF86Search
   mpc toggle
 
 # Play next track
-XF86AudioNext
+super + Right
   mpc next
 
 # Play previous track
-XF86AudioPrev
+super + Left
   mpc prev
 
 #

@@ -1,28 +1,30 @@
 #! /bin/sh
-PANEL_FONT_FAMILY=""*-stlarch-medium-r-normal--10*","-*-terminesspowerline-medium-r-normal-*-12-*-*-*-c-*-*-1""
+FONT1="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+FONT2="-xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1"
 
 
-BASE03=#ff002b36
-BASE02=#ff073642
-BASE01=#ff586e75
-BASE00=#ff657b83
-BASE0=#ff839496
-BASE1=#ff93a1a1
-BASE2=#ffeee8d5
-BASE3=#fffdf6e3
+
+BASE00=#ff2d2d2d
+BASE01=#ff393939
+BASE02=#ff515151
+BASE03=#ff747369
+kASE04=#ffa09f93
+BASE05=#ffd3d0c8
+BASE06=#ffe8e6df
+BASE07=#fff2f0ec
 
 
-YELLOW=#ffb58900
-ORANGE=#ffcb4b16
-RED=#ffdc322f
-MAGENTA=#ffd33682
-VIOLET=#ff6c71c4
-BLUE=#ff268bd2
-CYAN=#ff2aa198
-GREEN=#ff859900
+YELLOW=#ffffcc66
+ORANGE=#fff99157
+RED=#fff2777a
+MAGENTA=#ffcc99cc
+VIOLET=#ffd27b53
+BLUE=#ff6699cc
+CYAN=#ff66cccc
+GREEN=#ff99cc99
 
-COLOR_FOREGROUND=$BASE1
-COLOR_BACKGROUND=$BASE03
+COLOR_FOREGROUND=$BASE05
+COLOR_BACKGROUND=$BASE00
 
 icoARCH=""
 icoPACMAN=""
@@ -46,4 +48,3 @@ icoDISCO=""
 icoSTORAGE=""
 icoCPU=""
 icoRAM=""
-

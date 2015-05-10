@@ -42,7 +42,8 @@ for i in $num_mon; do
 
     # Running bar
     cat "$PANEL_FIFO$i" | panel_bar$i |\
-        bar -g $CUR_MON_WIDTHx$PANEL_HEIGHT+$CUR_X_OFFSET+0 -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+        lemonbar -g $CUR_MON_WIDTHx$PANEL_HEIGHT+$CUR_X_OFFSET+0  \
+        -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" -f "$FONT1" -f "$FONT2" &
 
     # New X Offset
     CUR_X_OFFSET=$(expr $CUR_X_OFFSET + $CUR_MON_WIDTH)
