@@ -44,7 +44,7 @@ redshift &
 urxvtd &
 
 # Desktop Wallpaper
-feh --bg-tile ~/Pictures/Wallpapers/grid.png &
+feh --bg-tile ~/Pictures/Wallpapers/canvas.jpg &
 
 # Cursor and bell
 xsetroot -cursor_name left_ptr &

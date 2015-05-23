@@ -12,38 +12,70 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
-" Load bindings
-source ~/.vim/startup/mappings.vim
-
 
 " =====================================
 " Plugins and Vundle
 " =====================================
 
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set nocompatible
+" filetype off
+" set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Shougo/neocomplete'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'jamessan/vim-gnupg'
-Plugin 'scrooloose/syntastic'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'gmarik/Vundle.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'edkolev/tmuxline.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Shougo/neocomplete'
+Plug 'tpope/vim-unimpaired'
+Plug 'jamessan/vim-gnupg'
+Plug 'scrooloose/syntastic'
+Plug 'jiangmiao/auto-pairs'
 
-call vundle#end()
+Plug 'othree/html5.vim'
+Plug 'rstacruz/sparkup'
 
+" Plugin 'godlygeek/tabular'
+
+call plug#end()
+
+" =====================================
+" Mappings
+" =====================================
+
+" Unmap arrow keys
+no <down> <Nop>
+no <left> <Nop>
+no <right> <Nop>
+no <up> <Nop>
+ino <down> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+ino <up> <Nop>
+
+" Easier movement between panes
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-h> <c-w>h
+map <c-l> <c-w>l
+
+" Clipboard yank and paste
+map <leader>y "+y
+map <leader>p "+p
+
+" Faster saving
+nmap <c-s> :w<cr>
+imap <c-s> <esc>:w<cr>
+
+" Write over read-only files
+cnoremap sudow w !sudo tee % >/dev/null/<cr>:e!<cr><cr>
 
 " =====================================
 " Edit the look
@@ -105,7 +137,7 @@ set hidden
 set autoread
 
 " Airline settings
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_theme='base16'
 let g:airline_section=' '
 let g:airline_left_sep = ' '
@@ -134,8 +166,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -205,24 +237,6 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS

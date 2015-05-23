@@ -1,6 +1,8 @@
 #! /bin/sh
-FONT1="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+# FONT1="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
 FONT2="-xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1"
+FONT1="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+
 
 
 

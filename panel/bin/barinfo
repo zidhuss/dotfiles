@@ -6,6 +6,7 @@ clock() {
     # Output clock format "Mon 01 Jan 2015 00:00"
     dateo=`date '+%a %d %b %R'`
     echo "%{F$BLUE}%{B$BASE00} $icoTIME %{F-}%{B$BASE01} $dateo"
+
 }
 
 volume() {
