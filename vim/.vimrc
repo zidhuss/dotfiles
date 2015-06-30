@@ -75,7 +75,7 @@ nmap <c-s> :w<cr>
 imap <c-s> <esc>:w<cr>
 
 " Write over read-only files
-cnoremap sudow w !sudo tee % >/dev/null/<cr>:e!<cr><cr>
+cnoremap sudow w !sudo tee % >/dev/null<cr>:e!<cr><cr>
 
 " =====================================
 " Edit the look
@@ -259,4 +259,5 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 let g:UltiSnipsExpandTrigger="<C-j>"
 
+let g:sparkupArgs="--no-last-newline"
 

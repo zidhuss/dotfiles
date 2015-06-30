@@ -21,9 +21,17 @@ while read -r line ; do
             # current song
             music="${line#?} %{B-}%{F-}"
             ;;
+        s*)
+            # Music stopped
+            music="${line#?} %{B-}%{F-}"
+            ;;
         h*)
             # hdd
             hdd="${line#?} %{B-}%{F-}"
+            ;;
+        N*)
+            # hdd
+            mail="${line#?} %{B-}%{F-}"
             ;;
         w*)
             # wifi
@@ -75,5 +83,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%b\n" "%{l}${music} ${cpu} ${ram}%{c}${wm_infos}%{r}${wifi} ${volume} ${clock}"
+	printf "%b\n" "%{l}${music} ${mail}%{c}${wm_infos}%{r}${wifi} ${volume} ${clock}"
 done

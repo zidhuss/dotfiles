@@ -8,11 +8,12 @@ URxvt*geometry: 80x24
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when
 *font: -*-terminesspowerline-medium-r-normal-*-12-*-*-*-c-*-*-1 
-boldFont: --*-terminus-bold-r-normal-*-12-*-*-*-c-*-*-u
+! *font: -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+*boldFont:
 
 
 ! When font styles are not enabled, or this option is enabled (True, option -is, the default), bold/blink font
-URxvt*intensityStyles: false
+URxvt*intensityStyles: False
 
 ! True: enable the scrollbar [default]; option -sb. False: disable the scrollbar; option +sb.
 URxvt*scrollBar: False

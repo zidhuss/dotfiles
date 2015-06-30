@@ -141,7 +141,7 @@ XF86AudioStop
 
 # Toggle play and pause
 XF86Search
-  mpc toggle
+  mpc seek -02; mpc toggle
 
 # Play next track
 super + Right

@@ -12,6 +12,7 @@ while :; do
     if  pidof -x mopidy && mpc status; then
         cur=`mpc current`
 
+        # test -n "$cur" && echo c$cur | skroll -n 40 -d 0.2 -r || echo "- stopped -"
 
         # Check if a song is [playing, paused, else]
         # and set the corrent icon, color and message

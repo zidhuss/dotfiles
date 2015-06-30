@@ -9,6 +9,12 @@ clock() {
 
 }
 
+mail() {
+    newmail=`ls Mail/zidhussein-gmail/INBOX/new | wc -l`
+    echo "%{F$YELLOW}%{B$BASE00} $icoMAIL %{F-}%{B$BASE01} $newmail"
+
+}
+
 volume() {
     # Get current volume
     vol=`amixer get Master | grep 'Front Left' | egrep -o "[0-9]+%" |\
@@ -88,5 +94,6 @@ while true; do
     printf "%s\n" "w$(wifi)"
     printf "%s\n" "T$(clock)"
     printf "%s\n" "h$(hdd)"
+    printf "%s\n" "N$(mail)"
     sleep 0.5
 done
