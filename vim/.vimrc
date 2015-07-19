@@ -42,6 +42,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'othree/html5.vim'
 Plug 'rstacruz/sparkup'
 
+Plug 'fatih/vim-go'
+
 " Plugin 'godlygeek/tabular'
 
 call plug#end()
@@ -258,6 +260,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-m>"
 
 let g:sparkupArgs="--no-last-newline"
 
