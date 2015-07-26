@@ -24,6 +24,9 @@ while :; do
             echo "c$icoMUSIQUE - stopped -"
         fi
 
+        # Wait for next player command
+        mpc idle player
+
 
     else
         echo "c$icoMUSIQUE - Mopidy not running - "

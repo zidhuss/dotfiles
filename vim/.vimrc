@@ -39,10 +39,15 @@ Plug 'jamessan/vim-gnupg'
 Plug 'scrooloose/syntastic'
 Plug 'jiangmiao/auto-pairs'
 
+" HTML
 Plug 'othree/html5.vim'
 Plug 'rstacruz/sparkup'
 
+" Go
 Plug 'fatih/vim-go'
+
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
 
 " Plugin 'godlygeek/tabular'
 
@@ -263,4 +268,11 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-m>"
 
 let g:sparkupArgs="--no-last-newline"
+
+" Vim Go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
