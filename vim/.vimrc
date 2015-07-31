@@ -25,7 +25,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'gmarik/Vundle.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -38,6 +37,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'jamessan/vim-gnupg'
 Plug 'scrooloose/syntastic'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 " HTML
 Plug 'othree/html5.vim'
@@ -80,6 +80,9 @@ map <leader>p "+p
 " Faster saving
 nmap <c-s> :w<cr>
 imap <c-s> <esc>:w<cr>
+
+" FZF
+map <leader><cr> :FZF<cr>
 
 " Write over read-only files
 cnoremap sudow w !sudo tee % >/dev/null<cr>:e!<cr><cr>
@@ -276,3 +279,10 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+let g:fzf_action = {
+  \ 'ctrl-m': 'e',
+  \ 'ctrl-t': 'tabedit',
+  \ 'alt-j':  'botright split',
+  \ 'alt-k':  'topleft split',
+  \ 'alt-h':  'vertical topleft split',
+  \ 'alt-l':  'vertical botright split' }
