@@ -1,7 +1,6 @@
 #! /bin/sh
-# FONT1="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
-FONT2="-xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1"
-FONT1="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+FONT1="Fira\ Mono\ Medium\ for\ Powerline:size=8"
+FONT2="Material\ Icons:size=9"
 
 
 
@@ -28,26 +27,26 @@ GREEN=#ff99cc99
 COLOR_FOREGROUND=$BASE05
 COLOR_BACKGROUND=$BASE00
 
-icoARCH=""
-icoPACMAN=""
-icoUPTIME=""
+icoARCH=""
+icoPACMAN=""
+icoUPTIME=""
 
-icoFREE=""
-icoOCC=""
+icoFREE=""
+icoOCC=""
 
-icoPLAY=""
-icoPAUSE=""
-icoMUSIC=""
+icoPLAY=""
+icoPAUSE=""
+icoMUSIC=""
 
 icoVOL0=""
 icoVOL=""
 icoMUTE=""
 
-icoTIME=""
-icoCONN=""
-icoDISCO=""
+icoTIME=""
+icoCONN=""
+icoDISCO=""
 
-icoSTORAGE=""
-icoCPU=""
-icoRAM=""
-icoMAIL=""
+icoSTORAGE=""
+icoCPU=""
+icoRAM=""
+icoMAIL=""

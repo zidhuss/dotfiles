@@ -162,7 +162,7 @@ super + v
   firefox
 
 super + space
-  dmenu_run -b -i -p "open: " -nb "#2d2d2d" -nf "#d3d0c8" -sf "#d3d0c8" -sb "#393939" -fn "-*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-u"
+  dmenu_run -b -i -p "open: " -nb "#2d2d2d" -nf "#d3d0c8" -sf "#d3d0c8" -sb "#393939" -fn "xft:Fira Mono for Powerline:size=8"
 
 # make sxhkd reload its configuration files:
 super + Escape

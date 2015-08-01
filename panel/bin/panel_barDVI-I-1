@@ -39,7 +39,7 @@ while read -r line ; do
             ;;
         V*)
             # volume output
-            volume="${line#?}%% %{B-}%{F-}"
+            volume="${line#?}% %{B-}%{F-}"
             ;;
 		T*)
 			# date and time output

@@ -25,4 +25,3 @@ bspc rule -a Gimp desktop=^3 follow=on floating=on
 compton --config ~/.config/compton/compton.conf &
 sleep 2
 panel &
-

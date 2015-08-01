@@ -1,16 +1,22 @@
 ! Compile xft: Attempt to find a visual with the given bit depth; option -depth.
 ! URxvt*depth: 32
 
-
-
 ! Create the window with the specified X window geometry [default 80x24]; option -geometry.
 URxvt*geometry: 80x24
 
+! Font
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when
-*font: -*-terminesspowerline-medium-r-normal-*-12-*-*-*-c-*-*-1 
+*font: xft:Fira\ Mono\ for\ Powerline:size=8, xft:Terminess\ Powerline, xft:Siji, xft:Material Icons
+*letterSpace: -2
+
 ! *font: -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
 *boldFont:
-
 
 ! When font styles are not enabled, or this option is enabled (True, option -is, the default), bold/blink font
 URxvt*intensityStyles: False

@@ -1,0 +1,7 @@
+colorscheme base16-eighties
+source ~/.vimperator/plugins/fira.vimp
+
+
+
+noremap j 4j
+noremap k 4k

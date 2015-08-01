@@ -4,7 +4,7 @@
 . panel_config
 
 # Set the icon when no music is playing
-icoMUSIQUE="%{F$CYAN}%{B$BASE00} $icoMUSIC %{F-}%{B$BASE01}"
+icoMUSIQUE="%{F$BASE05}%{B$BASE01} $icoMUSIC %{F-}%{B$BASE00}"
 
 while :; do
     sleep 0.5
@@ -17,9 +17,9 @@ while :; do
         # Check if a song is [playing, paused, else]
         # and set the corrent icon, color and message
         if mpc status | grep -oe playing ; then
-            echo "c%{F$GREEN}%{B$BASE00} $icoPLAY %{F-}%{B$BASE01} $cur"
+            echo "c%{F$BASE05}%{B$BASE01} $icoPLAY %{F-}%{B$BASE00} $cur"
         elif mpc status | grep -oe paused ; then
-            echo "c%{F$CYAN}%{B$CBASE00} $icoPAUSE %{F-}%{B$BASE01} $cur"
+            echo "c%{F$BASE05}%{B$CBASE01} $icoPAUSE %{F-}%{B$BASE00} $cur"
         else
             echo "c$icoMUSIQUE - stopped -"
         fi
