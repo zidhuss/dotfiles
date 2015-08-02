@@ -38,6 +38,7 @@ Plug 'jamessan/vim-gnupg'
 Plug 'scrooloose/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'Yggdroot/indentLine'
 
 " HTML
 Plug 'othree/html5.vim'
