@@ -40,6 +40,7 @@ Plug 'scrooloose/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
 
 " HTML
 Plug 'othree/html5.vim'
@@ -149,7 +150,7 @@ set hidden
 set autoread
 
 " Airline settings
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
 let g:airline_section=' '
 let g:airline_left_sep = ' '
