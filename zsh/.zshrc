@@ -56,7 +56,7 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_GB.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -71,6 +71,9 @@ fi
 # Set default user for agnoster theme
 DEFAULT_USER=huss
 
+# Source variables
+source $ZSH/custom/variables.zsh
+
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -81,9 +84,10 @@ DEFAULT_USER=huss
 #
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# Fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
