@@ -25,7 +25,7 @@
 ### Segment drawing
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
-CURRENT_BG='#2d2d2d'
+CURRENT_BG='NONE'
 PRIMARY_FG=black
 
 # Characters
@@ -101,6 +101,13 @@ prompt_git() {
   fi
 }
 
+prompt_virtualenv() {
+  local virtualenv_path="$VIRTUAL_ENV"
+  if [[ -n $virtualenv_path ]]; then
+    prompt_segment 237 245 " ($(basename $virtualenv_path)) "
+  fi
+}
+
 # Dir: current working directory
 prompt_dir() {
   prompt_segment blue $PRIMARY_FG ' %~ '
@@ -125,6 +132,7 @@ prompt_agnoster_main() {
   RETVAL=$?
   CURRENT_BG='NONE'
   prompt_status
+  prompt_virtualenv
   prompt_context
   prompt_dir
   prompt_git
