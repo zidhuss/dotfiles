@@ -41,16 +41,25 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-eunuch'
 
 " HTML
 Plug 'othree/html5.vim'
 Plug 'rstacruz/sparkup'
 
+" CSS
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+
 " Go
 Plug 'fatih/vim-go'
 
+" Javascript
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
+
+" Python
+Plug 'davidhalter/jedi-vim'
 
 " Plugin 'godlygeek/tabular'
 
@@ -289,3 +298,6 @@ let g:fzf_action = {
   \ 'alt-k':  'topleft split',
   \ 'alt-h':  'vertical topleft split',
   \ 'alt-l':  'vertical botright split' }
+
+" Jedi
+let g:jedi#force_py_version = 3
