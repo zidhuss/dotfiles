@@ -1,9 +1,5 @@
-" ==VimperatorColorSchema==
-" name: Solarized Dark
-" ==/VimperatorColorSchema==
-
-" Solarized by Ethan Schoonover
-" http://ethanschoonover.com/solarized
+" Base16 Eighties vimperator theme
+" ZidHuss
 
 hi clear
 
