@@ -61,6 +61,10 @@ Plug 'pangloss/vim-javascript'
 " Python
 Plug 'davidhalter/jedi-vim'
 
+" Markdown
+Plug 'suan/vim-instant-markdown'
+Plug 'tpope/vim-markdown'
+
 " Plugin 'godlygeek/tabular'
 
 call plug#end()
