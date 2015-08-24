@@ -25,6 +25,9 @@ alias fuck='$(thefuck $(fc -ln -1))'
 # Lock the screen right now
 alias locknow='xautolock -locknow'
 
+# Verbose stow
+alias stow='stow -v2'
+
 # Go to Torrent folder
 alias torrents='cd ~/Downloads/torrents'
 alias ctorrents='cd ~/Downloads/torrents/complete'
