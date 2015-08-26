@@ -5,13 +5,13 @@
 clock() {
     # Output clock format "Mon 01 Jan 2015 00:00"
     dateo=`date '+%a %d %b %R'`
-    echo "%{F$BASE05}%{B$BASE01} $icoTIME %{F-}%{B$BASE00} $dateo"
+    echo "%{F$BASE03}%{B$BASE00} time %{F-}%{B$BASE00} $dateo"
 
 }
 
 mail() {
     newmail=`ls Mail/zidhussein-gmail/INBOX/new | wc -l`
-    echo "%{F$BASE05}%{B$BASE01} $icoMAIL %{F-}%{B$BASE00} $newmail"
+    echo "%{F$BASE03}%{B$BASE00} e-mail %{F-}%{B$BASE00} $newmail"
 
 }
 
@@ -23,12 +23,12 @@ volume() {
     # Decide which icon and colour to show
     if [ ! `amixer get Master | tail -1 | grep -oe off` ]; then
         if [ $vol == 0 ]; then
-            volico="%{F$BASE05}%{B$BASE01} $icoVOL0 %{F-}%{B$BASE00}"
+            volico="%{F$BASE03}%{B$BASE00} volume %{F-}%{B$BASE00}"
         else
-            volico="%{F$BASE05}%{B$BASE01} $icoVOL %{F-}%{B$BASE00}"
+            volico="%{F$BASE03}%{B$BASE00} volume %{F-}%{B$BASE00}"
         fi
     else
-        volico="%{F$BASE05}%{B$BASE01} $icoMUTE %{F-}%{B$BASE00}"
+        volico="%{F$BASE05}%{B$BASE01} MUTE %{F-}%{B$BASE00}"
     fi
 
     # Change colour if volume is lower than 60
@@ -43,14 +43,14 @@ volume() {
 cpu() {
     # Output CPU usage as an integer
     cpu=$(ps -eo pcpu | awk 'BEGIN {sum=0.0f} {sum+=$1} END {print sum}' | cut -c1-2)
-    echo "%{F$BASE05}%{B$BASE01} $icoCPU %{F-}%{B$BASE00} $cpu%"
+    echo "%{F$BASE03}%{B$BASE00} cpu %{F-}%{B$BASE00} $cpu%"
 }
 
 hdd() {
     # Show root partition % used and home volume remaining
     HDDROOT=`df -h | grep /dev/sdb2 | awk '{print $5}'`
     HDDHOME=`df -h | grep /dev/sdb3 | awk '{print $4}'`
-    echo "%{F$BASE05}%{B$BASE01} / %{F-}%{B$BASE00} $HDDROOT %{F$BASE05}%{B$BASE01} $icoSTORAGE %{F-}%{B$BASE00} $HDDHOME"
+    echo "%{F$BASE03}%{B$BASE00} root %{F-}%{B$BASE00} $HDDROOT %{F$BASE03}%{B$BASE00} home %{F-}%{B$BASE00} $HDDHOME"
 
 }
 
@@ -58,7 +58,7 @@ ram() {
     # Show ram used / ram total
     total=`free -mh | grep Mem | awk '{print $3}'`
     free=`free -mh | grep Mem | awk '{print $2}'`
-    echo "%{F$BASE05}%{B$BASE01} $icoRAM %{F-}%{B$BASE00} $total / $free"
+    echo "%{F$BASE03}%{B$BASE00} ram %{F-}%{B$BASE00} $total / $free"
 }
 
 
@@ -67,9 +67,9 @@ wifi() {
     dev="wlp0s29f7u2"
     ssid="$(iwgetid -r)"
     if [ ! $ssid ]; then
-        echo "%{F$BASE05}%{B$BASE01} $icoDISCO %{F-}%{B$BASE00} Disconnected"
+        echo "%{F$BASE03}%{B$BASE00} wifi %{F-}%{B$BASE00} Disconnected"
     else
-        echo "%{F$BASE05}%{B$BASE01} $icoCONN %{F-}%{B$BASE00} $ssid"
+        echo "%{F$BASE03}%{B$BASE00} wifi %{F-}%{B$BASE00} $ssid"
     fi
     # strength="$(iw dev $dev link | grep signal | egrep -o '[0-9]+')"
     # echo -e "$ssid  $strength"
@@ -82,7 +82,7 @@ archinfo() {
     uptime=`uptime | sed 's/.* up *//;s/[0-9]* us.*//;s/ day, /d /;s/ days, /d /;s/:/h /;s/ min//;s/,/m/;s/ / /'`
     # packages=`pacman -Q | wc -l`
 
-    echo "%{F$BASE05}%{B$BASE01} $icoUPTIME %{F-}%{B$BASE00} $uptime"
+    echo "%{F$BASE02}%{B$BASE00} uptime %{F-}%{B$BASE00} $uptime"
 }
 
 while true; do

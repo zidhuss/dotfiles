@@ -44,7 +44,7 @@ redshift &
 urxvtd &
 
 # Desktop Wallpaper
-feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/KpXzrEq.jpg &
+feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/desatwoods.jpg &
 
 # Cursor and bell
 xsetroot -cursor_name left_ptr &

@@ -5,14 +5,14 @@ FONT2="Material\ Icons:size=9"
 
 
 
-BASE00=#ff2d2d2d
-BASE01=#ff393939
-BASE02=#ff515151
-BASE03=#ff747369
-kASE04=#ffa09f93
-BASE05=#ffd3d0c8
-BASE06=#ffe8e6df
-BASE07=#fff2f0ec
+BASE00=#ff101010
+BASE01=#ff252525
+BASE02=#ff464646
+BASE03=#ff525252
+BASE04=#ffababab
+BASE05=#ffb9b9b9
+BASE06=#ffe3e3e3
+BASE07=#fff7f7f7
 
 
 YELLOW=#ffffcc66

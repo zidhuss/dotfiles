@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="huss"
+ZSH_THEME="zhann"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -86,7 +86,7 @@ source $ZSH/custom/variables.zsh
 alias zshconfig="vim ~/.zshrc"
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16/base16-eighties.dark.sh"
+BASE16_SHELL="$HOME/.config/base16/base16-grayscale.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Fuzzy finder
