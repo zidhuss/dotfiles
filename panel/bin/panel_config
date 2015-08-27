@@ -31,8 +31,8 @@ icoARCH=""
 icoPACMAN=""
 icoUPTIME=""
 
-icoFREE=""
-icoOCC=""
+icoFREE="○"
+icoOCC="●"
 
 icoPLAY=""
 icoPAUSE=""
