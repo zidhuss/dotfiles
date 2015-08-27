@@ -123,8 +123,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 " set t_Co=256
 set background=dark
 let base16colorspace=256
-colorscheme base16-grayscale
-
+colorscheme base16-grayscale-mod
 
 " Enable syntax highlighting
 filetype off
@@ -164,7 +163,7 @@ set autoread
 
 " Airline settings
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='base16'
+" let g:airline_theme='serene'
 let g:airline_section=' '
 let g:airline_left_sep = ' '
 let g:airline_right_sep = ' '
