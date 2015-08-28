@@ -1,35 +1,35 @@
 set font                        "fira mono 9"
 
 ## Base 16 Color Scheme
-set default-bg                  "#2d2d2d" #00
-set default-fg                  "#515151" #01
+set default-bg                  "#101010" #00
+set default-fg                  "#464646" #01
 
-set statusbar-fg                "#a09f93" #04
-set statusbar-bg                "#515151" #01
+set statusbar-fg                "#ababab" #04
+set statusbar-bg                "#464646" #01
 
-set inputbar-bg                 "#2d2d2d" #00 currently not used
-set inputbar-fg                 "#515151" #02
+set inputbar-bg                 "#101010" #00 currently not used
+set inputbar-fg                 "#464646" #02
 
-set notification-error-bg       "#f2777a" #08
-set notification-error-fg       "#2d2d2d" #00
+set notification-error-bg       "#7c7c7c" #08
+set notification-error-fg       "#101010" #00
 
-set notification-warning-bg     "#f2777a" #08
-set notification-warning-fg     "#2d2d2d" #00
+set notification-warning-bg     "#7c7c7c" #08
+set notification-warning-fg     "#101010" #00
 
-set highlight-color             "#ffcc66" #0A
-set highlight-active-color      "#6699cc" #0D
+set highlight-color             "#a0a0a0" #0A
+set highlight-active-color      "#686868" #0D
 
-set completion-highlight-fg     "#515151" #02
-set completion-highlight-bg     "#66cccc" #0C
+set completion-highlight-fg     "#464646" #02
+set completion-highlight-bg     "#868686" #0C
 
-set completion-bg               "#515151" #02
-set completion-fg               "#66cccc" #0C
+set completion-bg               "#464646" #02
+set completion-fg               "#868686" #0C
 
-set notification-bg             "#99cc99" #0B
-set notification-fg             "#2d2d2d" #00
+set notification-bg             "#8e8e8e" #0B
+set notification-fg             "#101010" #00
 
-set recolor-lightcolor          "#2d2d2d" #00
-set recolor-darkcolor           "#e8e6df" #06
+set recolor-lightcolor          "#101010" #00
+set recolor-darkcolor           "#e3e3e3" #06
 
 set recolor                     "false"
 
@@ -38,3 +38,4 @@ set recolor                     "false"
 set recolor-keephue             "true"
 
 # vim: filetype=conf
+
