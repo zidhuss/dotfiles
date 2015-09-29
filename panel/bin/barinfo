@@ -64,7 +64,7 @@ ram() {
 
 wifi() {
     # Show wifi ssid if connected.
-    dev="wlp0s29f7u2"
+    dev="wlp3s0"
     ssid="$(iwgetid -r)"
     if [ ! $ssid ]; then
         echo "%{F$BASE03}%{B$BASE00} wifi %{F-}%{B$BASE00} Disconnected"
@@ -85,6 +85,17 @@ archinfo() {
     echo "%{F$BASE02}%{B$BASE00} uptime %{F-}%{B$BASE00} $uptime"
 }
 
+battery() {
+    BATC=/sys/class/power_supply/BAT0/capacity
+    BATS=/sys/class/power_supply/BAT0/status
+
+    # Set colour
+    echo -n "%{F$BASE02}%{B$BASE00} "
+    test "`cat $BATS`" = "Charging" && echo -n 'charging' || echo -n 'discharging'
+    echo -n "%{F-}%{B$BASE00} "
+    sed -n p $BATC
+}
+
 while true; do
 
     printf "%s\n" "a$(archinfo)"
@@ -95,5 +106,6 @@ while true; do
     printf "%s\n" "T$(clock)"
     printf "%s\n" "h$(hdd)"
     printf "%s\n" "N$(mail)"
+    printf "%s\n" "B$(battery)"
     sleep 0.5
 done
