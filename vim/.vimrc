@@ -22,7 +22,6 @@ autocmd! bufwritepost .vimrc source %
 " set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/Vundle.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
@@ -66,6 +65,9 @@ Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-markdown'
 
 " Plugin 'godlygeek/tabular'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'reedes/vim-pencil'
 
 call plug#end()
 
@@ -99,6 +101,9 @@ imap <c-s> <esc>:w<cr>
 
 " FZF
 map <leader><cr> :FZF<cr>
+
+" Goyo
+map <Leader>g :Goyo<cr>
 
 " Write over read-only files
 cnoremap sudow w !sudo tee % >/dev/null<cr>:e!<cr><cr>
@@ -304,3 +309,7 @@ let g:fzf_action = {
 
 " Jedi
 let g:jedi#force_py_version = 3
+
+" Goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!

@@ -11,6 +11,6 @@ i3lock -i /tmp/screen_locked.png
 
 rm /tmp/screen_locked.png
 
-sudo chvt 1
+# sudo chvt 1
 # Turn the screen off after a delay.
 sleep 60; pgrep i3lock && xset dpms force off

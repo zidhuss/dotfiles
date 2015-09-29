@@ -50,9 +50,9 @@ set reverse_name    = yes
 
 set fast_reply
 
-send-hook '~f zidhussein@gmail.com' 'source ~/.mutt/smtp/zidhussein'
-send-hook '~f hmohammed1@pride.hofstra.edu' 'source ~/.mutt/smtp/hofstra'
-send-hook '~f h.mohammed4@edu.salford.ac.uk' 'source ~/.mutt/smtp/salford'
+send-hook '~f zidhussein\@gmail\.com' 'source ~/.mutt/smtp/zidhussein'
+send-hook '~f hmohammed1\@pride\.hofstra\.edu' 'source ~/.mutt/smtp/hofstra'
+send-hook '~f h.mohammed4\@edu\.salford\.ac\.uk' 'source ~/.mutt/smtp/salford'
 
 
 ###############################################################################

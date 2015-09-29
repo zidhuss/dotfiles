@@ -28,8 +28,7 @@ xset fp rehash
 pulseaudio --start
 
 # Set up monitors
-xrandr --addmode VGA-1 "1280x1024"
-xrandr --output DVI-I-1 --mode "1920x1200" --primary --output VGA-1 --mode "1280x1024" --right-of DVI-I-1
+xrandr --output LVDS1 --mode "1366x768" --primary
 
 # Mopidy
 mopidy &
@@ -44,7 +43,7 @@ redshift &
 urxvtd &
 
 # Desktop Wallpaper
-feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/desatwoods.jpg &
+feh --bg-fill --no-xinerama ~/Pictures/wallpapers/desatwoods.jpg &
 
 # Cursor and bell
 xsetroot -cursor_name left_ptr &

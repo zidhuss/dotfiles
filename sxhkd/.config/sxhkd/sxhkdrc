@@ -128,11 +128,11 @@ XF86AudioMute
   pulseaudio-ctl mute
 
 # Raise Volume
-super + Up
+XF86AudioRaiseVolume
   pulseaudio-ctl up
 
 # Lower Volume
-super + Down
+XF86AudioLowerVolume
   pulseaudio-ctl down
 
 # Stop music
@@ -150,6 +150,10 @@ super + Right
 # Play previous track
 super + Left
   mpc prev
+
+XF86MonBrightness{Up,Down}
+    xbacklight {-inc,-dec} 5
+
 
 #
 # wm independent hotkeys
