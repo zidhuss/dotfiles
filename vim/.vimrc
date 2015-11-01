@@ -60,6 +60,9 @@ Plug 'pangloss/vim-javascript'
 " Python
 Plug 'davidhalter/jedi-vim'
 
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+
 " Markdown
 Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-markdown'
@@ -291,6 +294,9 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-m>"
 
 let g:sparkupArgs="--no-last-newline"
+
+" Instant Markdown Autostart
+let g:instant_markdown_autostart = 0
 
 " Vim Go
 let g:go_highlight_functions = 1

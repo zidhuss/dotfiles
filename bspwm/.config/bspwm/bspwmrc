@@ -16,6 +16,7 @@ bspc config adaptive_raise true
 bspc config auto_cancel true
 
 bspc monitor LVDS1 -d 1 2 3 4 5
+bspc monitor HDMI1 -d 6
 
 bspc rule -a Firefox desktop=^2
 bspc rule -a mupdf window=pseudo_tiled
