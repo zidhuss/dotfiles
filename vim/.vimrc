@@ -72,6 +72,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'reedes/vim-pencil'
 
+" Java
+Plug 'tfnico/vim-gradle'
+
 call plug#end()
 
 " =====================================
@@ -315,6 +318,9 @@ let g:fzf_action = {
 
 " Jedi
 let g:jedi#force_py_version = 3
+
+" HTML, JS, CSS indent 2 spaces
+autocmd FileType html,css :setlocal sw=2 ts=2 sts=2
 
 " Goyo
 autocmd! User GoyoEnter Limelight

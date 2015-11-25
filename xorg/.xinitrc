@@ -42,6 +42,9 @@ redshift &
 # Terminal daemon
 urxvtd &
 
+# Make Java programs behave correctly
+wmname LG3D
+
 # Desktop Wallpaper
 feh --bg-fill --no-xinerama ~/Pictures/wallpapers/desatwoods.jpg &
 

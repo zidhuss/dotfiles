@@ -47,12 +47,13 @@ set use_from = yes
 set from = "zidhussein@gmail.com"
 set send_charset="utf-8"
 set reverse_name    = yes
+set sendmail="/usr/bin/msmtp"
 
 set fast_reply
 
-send-hook '~f zidhussein\@gmail\.com' 'source ~/.mutt/smtp/zidhussein'
-send-hook '~f hmohammed1\@pride\.hofstra\.edu' 'source ~/.mutt/smtp/hofstra'
-send-hook '~f h.mohammed4\@edu\.salford\.ac\.uk' 'source ~/.mutt/smtp/salford'
+# send-hook '~f zidhussein\@gmail\.com' 'source ~/.mutt/smtp/zidhussein'
+# send-hook '~f hmohammed1\@pride\.hofstra\.edu' 'source ~/.mutt/smtp/hofstra'
+# send-hook '~f h.mohammed4\@edu\.salford\.ac\.uk' 'source ~/.mutt/smtp/salford'
 
 
 ###############################################################################
