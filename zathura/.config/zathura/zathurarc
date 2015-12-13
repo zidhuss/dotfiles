@@ -1,35 +1,43 @@
+# ░▀▀█░█▀█░▀█▀░█░█░█░█░█▀▄░█▀█░█▀▄░█▀▀
+# ░▄▀░░█▀█░░█░░█▀█░█░█░█▀▄░█▀█░█▀▄░█░░
+# ░▀▀▀░▀░▀░░▀░░▀░▀░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀
+#
+# Author: zidhuss
+# Repo: https://github.com/zidhuss/dotfiles
+# URL: http://zidhuss.me
+
 set font                        "fira mono 9"
 
-## Base 16 Color Scheme
-set default-bg                  "#101010" #00
-set default-fg                  "#464646" #01
+## Crayon
+set default-bg                  "#101112" #00
+set default-fg                  "#d8d8d8" #01
 
-set statusbar-fg                "#ababab" #04
-set statusbar-bg                "#464646" #01
+set statusbar-fg                "#8294b4" #04
+set statusbar-bg                "#d8d8d8" #01
 
-set inputbar-bg                 "#101010" #00 currently not used
-set inputbar-fg                 "#464646" #02
+set inputbar-bg                 "#101112" #00 currently not used
+set inputbar-fg                 "#d8d8d8" #02
 
-set notification-error-bg       "#7c7c7c" #08
-set notification-error-fg       "#101010" #00
+set notification-error-bg       "#bf687f" #08
+set notification-error-fg       "#101112" #00
 
-set notification-warning-bg     "#7c7c7c" #08
-set notification-warning-fg     "#101010" #00
+set notification-warning-bg     "#bf687f" #08
+set notification-warning-fg     "#101112" #00
 
-set highlight-color             "#a0a0a0" #0A
-set highlight-active-color      "#686868" #0D
+set highlight-color             "#d8d8d8" #0A
+set highlight-active-color      "#8294b4" #0D
 
-set completion-highlight-fg     "#464646" #02
-set completion-highlight-bg     "#868686" #0C
+set completion-highlight-fg     "#d8d8d8" #02
+set completion-highlight-bg     "#95b9bf" #0C
 
-set completion-bg               "#464646" #02
-set completion-fg               "#868686" #0C
+set completion-bg               "#d8d8d8" #02
+set completion-fg               "#95b9bf" #0C
 
-set notification-bg             "#8e8e8e" #0B
-set notification-fg             "#101010" #00
+set notification-bg             "#9bb38f" #0B
+set notification-fg             "#101112" #00
 
-set recolor-lightcolor          "#101010" #00
-set recolor-darkcolor           "#e3e3e3" #06
+set recolor-lightcolor          "#101112" #00
+set recolor-darkcolor           "#e68a8b" #06
 
 set recolor                     "false"
 
@@ -37,5 +45,6 @@ set recolor                     "false"
 # if it is false, it'll just be black and white
 set recolor-keephue             "true"
 
-# vim: filetype=conf
+set selection-clipboard clipboard
 
+# vim: filetype=conf

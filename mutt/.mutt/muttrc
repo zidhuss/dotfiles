@@ -25,10 +25,10 @@ set tmpdir          = "~/.mutt/temp"
 #                                Basic Options                                #
 ###############################################################################
 
-source ~/.mutt/colors/base16-eighties
+source ~/.mutt/colors/crayon
 set mail_check      = 0
 set timeout         = 3
-set editor          = `echo \$EDITOR`
+set editor          = nvim
 set my_name         = "Hussein Mohammed"
 
 set sort = threads

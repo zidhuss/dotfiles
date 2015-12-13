@@ -2,6 +2,8 @@
 " ZidHuss .vimrc file
 "
 " =====================================
+"
+
 
 
 
@@ -41,6 +43,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-eunuch'
+Plug 'dylanaraps/crayon'
 
 " HTML
 Plug 'othree/html5.vim'
@@ -124,17 +127,16 @@ set tw=79
 set nowrap
 set fo-=t
 set colorcolumn=80
-highlight ColorColumn ctermbg=03
+highlight ColorColumn ctermfg=14
 
 " Show whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Colour scheme
-" set t_Co=256
+set t_Co=256
 set background=dark
-let base16colorspace=256
-colorscheme base16-grayscale-mod
+colorscheme crayon
 
 " Enable syntax highlighting
 filetype off
@@ -174,7 +176,7 @@ set autoread
 
 " Airline settings
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='serene'
+let g:airline_theme='crayon2'
 let g:airline_section=' '
 let g:airline_left_sep = ' '
 let g:airline_right_sep = ' '

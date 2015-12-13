@@ -20,7 +20,7 @@ bspc monitor HDMI1 -d 6 7
 
 bspc rule -a Firefox desktop=^2
 bspc rule -a mupdf window=pseudo_tiled
-bspc rule -a Gimp desktop=^3 follow=on floating=on
+bspc rule -a Gimp follow=on floating=on
 bspc rule -a bluej floating=on
 
 compton --config ~/.config/compton/compton.conf &

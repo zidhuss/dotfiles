@@ -160,13 +160,13 @@ XF86MonBrightness{Up,Down}
 #
 
 super + Return
-  urxvtc
+  termite
 
 super + v
   firefox
 
 super + space
-  dmenu_run -b -i -p "open: " -nb "#101010" -nf "#b9b9b9" -sf "#b9b9b9" -sb "#252525" -fn "xft:Fira Mono for Powerline:size=8"
+  dmenu_run -b -i -p "open: " -nb "#101112" -nf "#bcc5d1" -sf "#fdfeff" -sb "#383e47" -fn "xft:Fira Mono for Powerline:size=8"
 
 # make sxhkd reload its configuration files:
 super + Escape

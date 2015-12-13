@@ -62,7 +62,7 @@ export LANG=en_GB.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -85,9 +85,12 @@ source $ZSH/custom/variables.zsh
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16/base16-grayscale.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
 # Fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ls colors
+LS_COLORS='di=1:fi=0:ln=93:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35'
+export LS_COLORS
+
+# Dir colors
+eval "$(dircolors ~/.dircolors)"

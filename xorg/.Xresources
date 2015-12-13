@@ -51,6 +51,7 @@ URxvt.url-select.underline: true
 #define base05 #b9b9b9
 #define base06 #e3e3e3
 #define base07 #f7f7f7
+
 #define base08 #7c7c7c
 #define base09 #999999
 #define base0A #a0a0a0

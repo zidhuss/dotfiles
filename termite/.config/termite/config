@@ -1,0 +1,45 @@
+[options]
+browser = firefox
+allow_bold = false
+mouse_autohide = true
+font = Terminess Powerline 8
+font = Fira Mono for Powerline 8
+
+[colors]
+# special
+foreground      = #d8d8d8
+foreground_bold = #d8d8d8
+cursor          = #d8d8d8
+background      = #101112
+
+# black
+color0  = #101112
+color8  = #586270
+
+# red
+color1  = #c48d62
+color9  = #b27b78
+
+# green
+color2  = #99ae63
+color10 = #282c33
+
+# yellow
+color3  = #d8c27a
+color11 = #383e47
+
+# blue
+color4  = #7495b6
+color12 = #798494
+
+# magenta
+color5  = #b59cd8
+color13 = #d8d8d8
+
+# cyan
+color6  = #8dc9c3
+color14 = #cc99b3
+
+# white
+color7  = #bcc5d1
+color15 = #fdfeff

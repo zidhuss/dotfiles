@@ -19,6 +19,9 @@ alias usrmount='sudo mount -o uid=1000,gid=1000,fmask=113,dmask=002'
 # Youtube viwer
 alias yt='youtube-viewer'
 
+# FreeDawkins youtube channel
+alias dawkins='yt --channel=UCEjOSbbaOfgnfRODEEMYlCw order=date'
+
 # The fuck
 alias fuck='$(thefuck $(fc -ln -1))'
 
@@ -27,6 +30,9 @@ alias locknow='xautolock -locknow'
 
 # Verbose stow
 alias stow='stow -v2'
+
+# Correct terminal for ssh
+alias ssh='TERM=screen ssh'
 
 # Go to Torrent folder
 alias torrents='cd ~/Downloads/torrents'

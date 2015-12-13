@@ -37,6 +37,10 @@ while read -r line ; do
             # wifi
             wifi="${line#?} %{B-}%{F-}"
             ;;
+        B*)
+            # Battery
+            battery="${line#?} %{B-}%{F-}"
+            ;;
         V*)
             # volume output
             volume="${line#?}% %{B-}%{F-}"
@@ -83,5 +87,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%b\n" "%{l}${music} ${mail}%{c}${wm_infos}%{r}${wifi} ${volume} ${clock}"
+	printf "%b\n" "%{l}${mail}%{c}${wm_infos}%{r}${battery} ${wifi} ${volume} ${clock}"
 done

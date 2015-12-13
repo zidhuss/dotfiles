@@ -1,4 +1,4 @@
-colorscheme base16-grayscale
+colorscheme crayon
 source ~/.vimperator/plugins/fira.vimp
 
 
