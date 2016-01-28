@@ -38,6 +38,8 @@ Plug 'rstacruz/sparkup'
     let g:sparkupArgs="--no-last-newline"
 Plug 'reedes/vim-wordy'
 Plug 'suan/vim-instant-markdown'
+Plug 'xuhdev/vim-latex-live-preview'
+    let g:livepreview_previewer = 'zathura'
 
 """""""""
 "  Git  "
@@ -49,10 +51,11 @@ Plug 'airblade/vim-gitgutter'
 "  Snippets  "
 """"""""""""""
 Plug 'SirVer/ultisnips'
-    let g:UltiSnipsExpandTrigger="<c-i>"
+    let g:UltiSnipsExpandTrigger="<c-j>"
     let g:UltiSnipsJumpForwardTrigger="<c-d>"
     let g:UltiSnipsJumpBackwardTrigger="<c-u>"
 Plug 'honza/vim-snippets'
+    let g:snips_author="zidhuss"
 
 """"""""""""""""
 "  Navigation  "
@@ -197,9 +200,6 @@ set mouse=
 
 " Auto read changed files
 set autoread
-
-" Map 0 to first non-blank character
-map 0 ^
 
 " Deal with hidden buffers
 set hidden

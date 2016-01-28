@@ -13,12 +13,6 @@ fi
 
 export PANEL_FIFO=/tmp/panel-fifo
 
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
-
-
 # Fonts
 xset +fp /usr/share/fonts/local
 xset +fp /usr/share/fonts/misc
@@ -36,11 +30,8 @@ mopidy &
 # Load Xresources
 xrdb -merge ~/.Xresources
 
-# Xflux or redshift
+# Redshift
 redshift &
-
-# Terminal daemon
-urxvtd &
 
 # Make Java programs behave correctly
 wmname LG3D
@@ -54,6 +45,10 @@ xset -b &
 
 # Screen locking
 xautolock -locker lockthescreen -time 10 &
+
+# Notifications
+notification-wrapper &
+wendy -m 128 -f ~/Mail/zidhussein-gmail/INBOX/new -e notification "New Mail!" &
 
 # WM and Keys
 sxhkd -f 100 &

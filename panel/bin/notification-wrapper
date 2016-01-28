@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+test -p /tmp/notifications || mkfifo /tmp/notifications
+
+# get messages from the fifo
+tail -f /tmp/notifications | while IFS= read -r message; do
+    notification $message  &
+done
+

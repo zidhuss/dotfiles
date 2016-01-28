@@ -37,9 +37,6 @@ super + {o,i}
   bspc window {older,newer} -f; \
   bspc control --record-history on
 
-super + y
-  bspc window -w last.manual
-
 # Make window biggest
 super + m
   bspc window -s biggest
@@ -93,11 +90,11 @@ super + r
     bspc desktop -R 90
 
 # Flips leaves horizontally
-super + e
+super + x
     bspc desktop -F horizontal
 
 # Flips leaves vertically
-super + x
+super + y
     bspc desktop -F vertical
 
 super + u
@@ -135,25 +132,17 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
   pulseaudio-ctl down
 
-# Stop music
-XF86AudioStop
-  mpc stop
-
 # Toggle play and pause
-XF86Search
-  mpc seek -02; mpc toggle
+XF86AudioPlay
+  echo -n 'p' > ~/.config/pianobar/ctl
 
 # Play next track
-super + Right
-  mpc next
+XF86AudioNext
+  echo -n 'n' > ~/.config/pianobar/ctl
 
-# Play previous track
-super + Left
-  mpc prev
-
+# Adjust brightness
 XF86MonBrightness{Up,Down}
     xbacklight {-inc,-dec} 5
-
 
 #
 # wm independent hotkeys

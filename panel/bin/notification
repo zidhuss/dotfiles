@@ -1,0 +1,52 @@
+#!/bin/bash
+
+
+source ~/bin/panel_config
+PROGRAM=$(basename $0)
+
+usage() {
+    cat <<-EOF
+usage: $PROGRAM [-t time] [-b background] message..
+        -t seconds      : time the notifcation is shown for
+        -b color        : background color "#AARRGGBB"
+        message         : message to be shown on notification
+EOF
+}
+
+# Defaults
+DISPLAY_TIME=3
+COLOR_BACKGROUND=$GRAY03
+
+while getopts ":ht:b:f:" opt
+do
+  case $opt in
+
+    t) DISPLAY_TIME=$OPTARG ;;
+
+    b) COLOR_BACKGROUND=$OPTARG ;;
+
+    f) COLOR_FOREGROUND=$OPTARG ;;
+
+    h) usage; exit 0 ;;
+
+    * )  echo -e "\n  Option does not exist : $OPTARG\n"
+         usage;exit 1   ;;
+
+  esac
+done
+shift $(($OPTIND-1))
+
+MESSAGE="$@"
+
+if [[ $MESSAGE == "" ]]; then
+    while read LINE; do
+        MESSAGE=$LINE
+    done
+fi
+
+CUR_MON_WIDTH=$(bspc query -T -m $i | grep -oE "[0-9]{2,6}" | head -n 1)
+ALERT_POSTION=$(expr $CUR_MON_WIDTH - 300)
+
+(echo "%{c}$MESSAGE"; sleep $DISPLAY_TIME) | lemonbar -g  \
+    250x40+1090+40 -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" \
+    -f "$FONT1"

@@ -11,11 +11,11 @@ set postponed       = "+zidhussein-gmail/drafts"
 ###############################################################################
 
 source ~/.mutt/gpg.rc
-# set folder          = "~/.mail"
 set header_cache    = "~/.mutt/cache/headers"
 set message_cachedir= "~/.mutt/cache/bodies"
 set mailcap_path    = "~/.mutt/mailcap"
 set tmpdir          = "~/.mutt/temp"
+# set folder          = "~/.mail"
 # set signature        = ~/.mutt/sig
 # set certificate_file = ~/.mutt/certificates
 # set alias_file       = ~/.mutt/alias
@@ -30,8 +30,7 @@ set mail_check      = 0
 set timeout         = 3
 set editor          = nvim
 set my_name         = "Hussein Mohammed"
-
-set sort = threads
+set sort            = threads
 set tilde
 unset markers
 auto_view text/html
@@ -42,18 +41,13 @@ auto_view text/html
 ###############################################################################
 
 alternates "zidhussein@gmail.com|hmohammed1@pride.hofstra.edu|h.mohammed4@edu.salford.ac.uk"
-set realname = "Hussein Mohammed"
-set use_from = yes
-set from = "zidhussein@gmail.com"
-set send_charset="utf-8"
+set realname        = "Hussein Mohammed"
+set use_from        = yes
+set from            = "zidhussein@gmail.com"
+set send_charset    = "utf-8"
 set reverse_name    = yes
-set sendmail="/usr/bin/msmtp"
-
+set sendmail        = "/usr/bin/msmtp"
 set fast_reply
-
-# send-hook '~f zidhussein\@gmail\.com' 'source ~/.mutt/smtp/zidhussein'
-# send-hook '~f hmohammed1\@pride\.hofstra\.edu' 'source ~/.mutt/smtp/hofstra'
-# send-hook '~f h.mohammed4\@edu\.salford\.ac\.uk' 'source ~/.mutt/smtp/salford'
 
 
 ###############################################################################
@@ -105,10 +99,6 @@ bind attach <return> view-mailcap
 #                                   Header                                    #
 ###############################################################################
 set edit_headers = yes
-# ignore *                                # ignore all headers
-# unignore From: To: cc: date: subject:   # show only these
-# unhdr_order *                           # some distros order things by default
-# hdr_order from: to: cc: date: subject:  # and in this order
 ignore *                                # ignore all headers
 unignore from: to: cc: date: subject:   # show only these
 unhdr_order *                           # order things
@@ -123,12 +113,10 @@ set autoedit
 set pgp_sign_as         = 8D67E681
 set pgp_use_gpg_agent   = yes
 set pgp_timeout         = 60
-set pgp_ignore_subkeys  = no
+set pgp_ignore_subkeys  = yes
 set pgp_auto_decode     = yes
 set crypt_autosign      = yes
-set crypt_autoencrypt   = yes
-
-send-hook . 'unset crypt_autoencrypt'
+set crypt_autoencrypt   = no
 
 
 ###############################################################################
