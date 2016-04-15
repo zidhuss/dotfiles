@@ -32,7 +32,7 @@ alias locknow='xautolock -locknow'
 alias stow='stow -v2'
 
 # Correct terminal for ssh
-alias ssh='TERM=screen ssh'
+alias ssh='TERM=xterm-256color ssh'
 
 # Go to Torrent folder
 alias torrents='cd ~/Downloads/torrents'
