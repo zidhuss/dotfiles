@@ -7,37 +7,43 @@
 # URL: http://zidhuss.me
 
 set font                        "fira mono 9"
+set guioptions                  "s"
+set smooth-scroll               true
+set statusbar-home-tilde        true
 
 ## Crayon
-set default-bg                  "#101112" #00
-set default-fg                  "#d8d8d8" #01
+set default-bg                  "#101112"
+set default-fg                  "#d8d8d8"
 
-set statusbar-fg                "#8294b4" #04
-set statusbar-bg                "#d8d8d8" #01
+set statusbar-fg                "#d8d8d8"
+set statusbar-bg                "#101112"
 
-set inputbar-bg                 "#101112" #00 currently not used
-set inputbar-fg                 "#d8d8d8" #02
+set inputbar-bg                 "#101112"
+set inputbar-fg                 "#d8d8d8"
 
-set notification-error-bg       "#bf687f" #08
-set notification-error-fg       "#101112" #00
+set notification-error-bg       "#bf687f"
+set notification-error-fg       "#101112"
 
-set notification-warning-bg     "#bf687f" #08
-set notification-warning-fg     "#101112" #00
+set notification-warning-bg     "#bf687f"
+set notification-warning-fg     "#101112"
 
-set highlight-color             "#d8d8d8" #0A
-set highlight-active-color      "#8294b4" #0D
+set highlight-color             "#d8d8d8"
+set highlight-active-color      "#8294b4"
 
-set completion-highlight-fg     "#d8d8d8" #02
-set completion-highlight-bg     "#95b9bf" #0C
+set completion-highlight-fg     "#586270"
+set completion-highlight-bg     "#8dc9c3"
 
-set completion-bg               "#d8d8d8" #02
-set completion-fg               "#95b9bf" #0C
+set completion-group-fg         "#d8d8d8"
+set completion-group-bg         "#798494"
 
-set notification-bg             "#9bb38f" #0B
-set notification-fg             "#101112" #00
+set completion-bg               "#586270"
+set completion-fg               "#d8d8d8"
 
-set recolor-lightcolor          "#101112" #00
-set recolor-darkcolor           "#e68a8b" #06
+set notification-bg             "#9bb38f"
+set notification-fg             "#101112"
+
+set recolor-lightcolor          "#101112"
+set recolor-darkcolor           "#e68a8b"
 
 set recolor                     "false"
 
