@@ -38,3 +38,15 @@ alias ssh='TERM=xterm-256color ssh'
 alias torrents='cd ~/Downloads/torrents'
 alias ctorrents='cd ~/Downloads/torrents/complete'
 alias itorrents='cd ~/Downloads/torrents/incomplete'
+
+# Always open gdb in quiet mode
+alias gdb='gdb -q'
+
+# Quicker way to start acestream
+alias ace='acestream-launcher'
+
+# Bloodzeed acestream
+alias bloodzeed='acestream-launcher acestream://42fe51591598d905ab011a9c8339150f8391dfa7'
+
+# ix pastebin
+alias ix="curl -F 'f:1=<-' ix.io"

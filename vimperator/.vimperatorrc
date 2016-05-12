@@ -3,5 +3,5 @@ source ~/.vimperator/fonts/fira.vimp
 
 
 
-noremap j 4j
-noremap k 4k
+noremap j jjjj
+noremap k kkkk

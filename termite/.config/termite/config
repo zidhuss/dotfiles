@@ -1,15 +1,16 @@
 [options]
 browser = firefox
-allow_bold = false
+allow_bold = true
 mouse_autohide = true
 font = Terminess Powerline 8
 font = Fira Mono for Powerline 8
+cursor_shape = underline
 
 [colors]
 # special
 foreground      = #d8d8d8
 foreground_bold = #d8d8d8
-cursor          = #d8d8d8
+# cursor          = #d8d8d8
 background      = #101112
 
 # black

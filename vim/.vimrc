@@ -189,7 +189,10 @@ set splitbelow
 set splitright
 
 " Fix Tmux colors
-set term=screen-256color
+set term=xterm-termite
+
+" Italics
+highlight Comment cterm=italic
 
 " Tmux airline sep
 let g:tmuxline_separators = {
