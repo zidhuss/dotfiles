@@ -25,7 +25,7 @@ set tmpdir          = "~/.mutt/temp"
 #                                Basic Options                                #
 ###############################################################################
 
-source ~/.mutt/colors/crayon
+source ~/.mutt/colors/base16-eighties
 set mail_check      = 0
 set timeout         = 3
 set editor          = nvim

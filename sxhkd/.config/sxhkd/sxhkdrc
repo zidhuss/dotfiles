@@ -154,8 +154,12 @@ super + Return
 super + v
   firefox
 
+super + p
+  rofi-pass
+
 super + space
-  dmenu_run -b -i -p "open: " -nb "#101112" -nf "#bcc5d1" -sf "#fdfeff" -sb "#383e47" -fn "xft:Fira Mono for Powerline:size=8"
+  rofi -show run
+  # dmenu_run -b -i -p "open: " -nb "#101112" -nf "#bcc5d1" -sf "#fdfeff" -sb "#383e47" -fn "xft:Fira Mono for Powerline:size=8"
 
 # make sxhkd reload its configuration files:
 super + Escape

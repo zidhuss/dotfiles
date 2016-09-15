@@ -1,4 +1,4 @@
-colorscheme crayon
+colorscheme gruvbox-light
 source ~/.vimperator/fonts/fira.vimp
 
 

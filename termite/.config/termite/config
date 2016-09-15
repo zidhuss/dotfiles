@@ -4,43 +4,45 @@ allow_bold = true
 mouse_autohide = true
 font = Terminess Powerline 8
 font = Fira Mono for Powerline 8
-cursor_shape = underline
+cursor_shape = block
 
 [colors]
-# special
-foreground      = #d8d8d8
-foreground_bold = #d8d8d8
-# cursor          = #d8d8d8
-background      = #101112
+# hard contrast: background = #f9f5d7
+background = #fbf1c7
+# soft contrast: background = #f2e5bc
+foreground = #3c3836
+foreground_bold = #3c3836
 
-# black
-color0  = #101112
-color8  = #586270
+# light0 + gray
+color0 = #fbf1c7
+color8 = #928374
 
-# red
-color1  = #c48d62
-color9  = #b27b78
+# neutral_red + faded_red
+color1 = #cc241d
+color9 = #9d0006
 
-# green
-color2  = #99ae63
-color10 = #282c33
+# neutral_green + faded_green
+color2 = #98971a
+color10 = #79740e
 
-# yellow
-color3  = #d8c27a
-color11 = #383e47
+# neutral_yellow + faded_yellow
+color3 = #d79921
+color11 = #b57614
 
-# blue
-color4  = #7495b6
-color12 = #798494
+# neutral_blue + faded_blue
+color4 = #458588
+color12 = #076678
 
-# magenta
-color5  = #b59cd8
-color13 = #d8d8d8
+# neutral_purple + faded_purple
+color5 = #b16286
+color13 = #8f3f71
 
-# cyan
-color6  = #8dc9c3
-color14 = #cc99b3
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #427b58
 
-# white
-color7  = #bcc5d1
-color15 = #fdfeff
+# dark4 + dark1
+color7 = #7c6f64
+color15 = #3c3836
+
+# vim: ft=dosini cms=#%s

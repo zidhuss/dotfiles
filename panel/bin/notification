@@ -15,7 +15,7 @@ EOF
 
 # Defaults
 DISPLAY_TIME=3
-COLOR_BACKGROUND=$GRAY03
+COLOR_BACKGROUND=`echo $BLUE | sed -e 's/#[Ff][Ff]/#90/' `
 
 while getopts ":ht:b:f:" opt
 do

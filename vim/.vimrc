@@ -24,6 +24,7 @@ autocmd! bufwritepost .vimrc source %
 " set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.vim/plugged')
 
+Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
@@ -77,6 +78,7 @@ Plug 'reedes/vim-pencil'
 
 " Java
 Plug 'tfnico/vim-gradle'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -135,8 +137,8 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Colour scheme
 set t_Co=256
-set background=dark
-colorscheme crayon
+set background=light
+colorscheme gruvbox
 
 " Enable syntax highlighting
 filetype off
@@ -176,7 +178,7 @@ set autoread
 
 " Airline settings
 let g:airline_powerline_fonts = 1
-let g:airline_theme='crayon2'
+let g:airline_theme='gruvbox'
 let g:airline_section=' '
 let g:airline_left_sep = ' '
 let g:airline_right_sep = ' '
@@ -189,7 +191,7 @@ set splitbelow
 set splitright
 
 " Fix Tmux colors
-set term=xterm-termite
+" set term=xterm-termite
 
 " Italics
 highlight Comment cterm=italic

@@ -10,7 +10,7 @@ maxsyncaccounts = 1
 localrepository = ZidHuss-Local
 remoterepository = ZidHuss-Remote
 status_backend = sqlite
-autorefresh = 1
+autorefresh = 0.5
 quick = 10
 
 [Repository ZidHuss-Local]
@@ -41,5 +41,5 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Spam',
                                              '[Gmail]/All Mail',
                                             ]
-keepalive = 60
-holdconnectionopen = yes
+# keepalive = 60
+# holdconnectionopen = yes

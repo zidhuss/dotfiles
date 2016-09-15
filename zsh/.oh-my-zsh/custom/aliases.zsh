@@ -50,3 +50,5 @@ alias bloodzeed='acestream-launcher acestream://42fe51591598d905ab011a9c8339150f
 
 # ix pastebin
 alias ix="curl -F 'f:1=<-' ix.io"
+
+alias iotek="curl -sT- https://p.iotek.org"

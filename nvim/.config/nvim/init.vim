@@ -13,23 +13,24 @@ call plug#begin()
 """"""""""
 "  Look  "
 """"""""""
-Plug 'dylanaraps/crayon'
+Plug 'morhetz/gruvbox'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'Yggdroot/indentLine'
     let g:indentLine_char='┆'
 Plug 'bling/vim-airline'
     let g:airline_powerline_fonts = 1
-    let g:airline_theme='crayon'
+    let g:airline_theme='gruvbox'
     let g:airline_section=' '
     let g:airline_left_sep = ' '
     let g:airline_right_sep = ' '
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
     map <leader>g :Goyo<cr>
 
 """"""""""""
 "  Syntax  "
 """"""""""""
+Plugin 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
     let g:jsx_ext_required = 1
 Plug 'benekastah/neomake'
@@ -197,7 +198,7 @@ autocmd FileType java :call EclimMappings()
 set laststatus=2
 
 " Set colorscheme
-colorscheme crayon
+colorscheme gruvbox
 
 " Language indepenent indentation
 filetype plugin indent on
@@ -214,8 +215,8 @@ set nowrap
 set formatoptions-=t
 
 " Column to signal max width
-set colorcolumn=80
-highlight ColorColumn guibg=gray
+" set colorcolumn=80
+" highlight ColorColumn guibg=gray
 
 " Show extra whitespace at the end of the line
 " highlight default ExtraWhitespace ctermbg=red guibg=red
@@ -225,7 +226,8 @@ highlight ColorColumn guibg=gray
 highlight Comment gui=italic
 
 " Show invisible characters
-set list
+set invlist
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  End Look                                   "
@@ -246,6 +248,9 @@ autocmd FileType html,css,scss,javascript :setlocal sw=2 ts=2 sts=2
 
 " Gradle Groovy
 au BufNewFile,BufRead *.gradle set ft=groovy
+
+" React closing tag higlight
+highlight link xmlEndTag xmlTag
 
 " SQL Syntax
 au BufNewFile,BufRead sql* set ft=sql
