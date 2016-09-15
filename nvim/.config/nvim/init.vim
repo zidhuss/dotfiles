@@ -14,6 +14,7 @@ call plug#begin()
 "  Look  "
 """"""""""
 Plug 'morhetz/gruvbox'
+    let g:gruvbox_improved_warnings = 1
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'Yggdroot/indentLine'
     let g:indentLine_char='┆'
@@ -24,17 +25,32 @@ Plug 'bling/vim-airline'
     let g:airline_left_sep = ' '
     let g:airline_right_sep = ' '
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Valloric/MatchTagAlways'
+    let g:mta_filetypes = {
+        \ 'html' : 1,
+        \ 'xhtml' : 1,
+        \ 'xml' : 1,
+        \ 'jinja' : 1,
+        \ 'javascript.jsx': 1,
+        \}
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
     map <leader>g :Goyo<cr>
 
 """"""""""""
 "  Syntax  "
 """"""""""""
-Plugin 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
-    let g:jsx_ext_required = 1
+Plug 'samuelsimoes/vim-jsx-utils'
+    nnoremap <leader>ja :call JSXEncloseReturn()<CR>
+    nnoremap <leader>ji :call JSXEachAttributeInLine()<CR>
+    nnoremap <leader>je :call JSXExtractPartialPrompt()<CR>
+    nnoremap <leader>jc :call JSXChangeTagPrompt()<CR>
+    nnoremap vat :call JSXSelectTag()<CR>
+
 Plug 'benekastah/neomake'
-    autocmd! BufWritePost * if &ft != 'java' | Neomake
+autocmd! BufWritePost * if &ft != 'java' | Neomake
+    let g:neomake_warning_sign={'text': '❗', 'texthl': 'SyntasticWarningSign'}
+    let g:neomake_error_sign={'text': '✖' , 'texthl': 'SyntasticErrorSign'}
     " autocmd! BufWritePost * Neomake
     let g:neomake_javascript_enabled_makers = ['eslint']
     let g:neomake_java_javac_maker = {
@@ -48,6 +64,7 @@ Plug 'reedes/vim-wordy'
 Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'Konfekt/FastFold'
 Plug 'lervag/vimtex'
   let g:tex_flavor = 'latex'
   let g:vimtex_indent_enabled=0
@@ -65,6 +82,7 @@ Plug 'SirVer/ultisnips'
     let g:UltiSnipsExpandTrigger="<c-j>"
     let g:UltiSnipsJumpForwardTrigger="<c-d>"
     let g:UltiSnipsJumpBackwardTrigger="<c-u>"
+    let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
 Plug 'honza/vim-snippets'
     let g:snips_author="zidhuss"
 
@@ -102,7 +120,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     \ 'alt-k':  'topleft split',
     \ 'alt-h':  'vertical topleft split',
     \ 'alt-l':  'vertical botright split' }
-    map <leader><cr> :FZF<cr>
+    nnoremap <leader><cr> :FZF<cr>
+Plug 'junegunn/fzf.vim'
+    nnoremap <silent> <leader>b :Buffers<CR>
 Plug 'jiangmiao/auto-pairs'
 Plug 'shougo/deoplete.nvim'
     let g:deoplete#omni_patterns = {}
@@ -111,11 +131,15 @@ Plug 'shougo/deoplete.nvim'
     let g:deoplete#ignore_sources.java = ['tag']
     let g:deoplete#enable_at_startup = 1
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+Plug 'pbogut/deoplete-padawan'
 Plug 'zchee/deoplete-clang'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 Plug 'carlitux/deoplete-ternjs'
     au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
+Plug 'zchee/deoplete-jedi'
+    let deoplete#sources#jedi#show_docstring = 1
+Plug 'phildawes/racer'
 
 """""""""""
 "  Other  "
@@ -155,6 +179,7 @@ cnoremap sudow w !sudo tee % >/dev/null<cr>:e!<cr><cr>
 
 " Faster saving
 nmap <c-s> :w<cr>
+nmap <c-q> :q<cr>
 imap <c-s> <esc>:w<cr>
 
 " Insert semi-colon at end of line
@@ -177,15 +202,21 @@ function! EclimMappings()
     nnoremap <buffer> <leader>ed :JavaDocPreview<cr>
     nnoremap <buffer> <leader>eD :JavaDocSearch<cr>
     nnoremap <buffer> <leader>ef :%JavaFormat<cr>
-    nnoremap <buffer> <leader>en :JavaNew 
+    nnoremap <buffer> <leader>en :JavaNew
     nnoremap <buffer> <leader>em :JavaGetSet<cr>
     nnoremap <buffer> <leader>eg :JavaGet<cr>
     nnoremap <buffer> <leader>es :JavaSet<cr>
 endfunction
 autocmd FileType java :call EclimMappings()
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 End Syntax                                  "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Remove search higlight
+nmap <silent> <BS>  :nohlsearch<CR>
+
+" Focus on split
+noremap <leader>o :only<CR>
+
+" Quicker folding
+noremap <space> za
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                End Mappings                                 "
@@ -198,13 +229,22 @@ autocmd FileType java :call EclimMappings()
 set laststatus=2
 
 " Set colorscheme
+let g:gruvbox_italic=1
+let g:gruvbox_invert_selection=0
 colorscheme gruvbox
+set background=dark
+
+set guioptions=
+
+" Character for vertical split
+set fillchars=vert:│,fold:-
 
 " Language indepenent indentation
 filetype plugin indent on
 
 " Full colour
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
 
 " Show line numbers and length
 set number
@@ -214,13 +254,9 @@ set textwidth=79
 set nowrap
 set formatoptions-=t
 
-" Column to signal max width
-" set colorcolumn=80
 " highlight ColorColumn guibg=gray
-
-" Show extra whitespace at the end of the line
-" highlight default ExtraWhitespace ctermbg=red guibg=red
-" au InsertLeave * match ExtraWhitespace /\s\+$/
+highlight OverLength ctermbg=red ctermfg=white guibg=#fb4934
+match OverLength /\%81v.\+/
 
 " Italic comments
 highlight Comment gui=italic
@@ -229,6 +265,10 @@ highlight Comment gui=italic
 set invlist
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 
+" JSX
+let g:xml_syntax_folding = 0
+
+autocmd VimResized * execute "normal! \<c-q>="
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  End Look                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -248,9 +288,6 @@ autocmd FileType html,css,scss,javascript :setlocal sw=2 ts=2 sts=2
 
 " Gradle Groovy
 au BufNewFile,BufRead *.gradle set ft=groovy
-
-" React closing tag higlight
-highlight link xmlEndTag xmlTag
 
 " SQL Syntax
 au BufNewFile,BufRead sql* set ft=sql
@@ -292,11 +329,17 @@ set nowritebackup
 set splitbelow
 set splitright
 
+" Code folding
+set foldmethod=syntax
+
 " Clear trailing whitespace in selected file types on save
-autocmd BufWritePre *.py,*.js,*.hs,*.html,*.css,*.scss :%s/\s\+$//e
+autocmd BufWritePre *.py,*.jsx?,*.hs,*.html,*.css,*.scss :%s/\s\+$//e
 
 " Close preview window after deoplete completion
 autocmd CompleteDone * pclose!
+
+" Auto source on write
+autocmd! BufWritePost init.vim source %
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 End General                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

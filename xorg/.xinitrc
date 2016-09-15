@@ -42,8 +42,7 @@ redshift &
 wmname LG3D
 
 # Desktop Wallpaper
-# feh --bg-fill --no-xinerama ~/Pictures/wallpapers/wallpaper.jpg &
-feh --bg-fill ~/Pictures/wallpapers/test4 &
+feh --bg-fill --no-xinerama ~/Pictures/wallpapers/wallpaper.jpg &
 
 # Cursor and bell
 xsetroot -cursor_name left_ptr &

@@ -7,42 +7,42 @@ font = Fira Mono for Powerline 8
 cursor_shape = block
 
 [colors]
-# hard contrast: background = #f9f5d7
-background = #fbf1c7
-# soft contrast: background = #f2e5bc
-foreground = #3c3836
-foreground_bold = #3c3836
+# hard contrast: background = #1d2021
+background = #282828
+# soft contrast: background = #32302f
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
 
-# light0 + gray
-color0 = #fbf1c7
+# dark0 + gray
+color0 = #282828
 color8 = #928374
 
-# neutral_red + faded_red
+# neutral_red + bright_red
 color1 = #cc241d
-color9 = #9d0006
+color9 = #fb4934
 
-# neutral_green + faded_green
+# neutral_green + bright_green
 color2 = #98971a
-color10 = #79740e
+color10 = #b8bb26
 
-# neutral_yellow + faded_yellow
+# neutral_yellow + bright_yellow
 color3 = #d79921
-color11 = #b57614
+color11 = #fabd2f
 
-# neutral_blue + faded_blue
+# neutral_blue + bright_blue
 color4 = #458588
-color12 = #076678
+color12 = #83a598
 
-# neutral_purple + faded_purple
+# neutral_purple + bright_purple
 color5 = #b16286
-color13 = #8f3f71
+color13 = #d3869b
 
 # neutral_aqua + faded_aqua
 color6 = #689d6a
-color14 = #427b58
+color14 = #8ec07c
 
-# dark4 + dark1
-color7 = #7c6f64
-color15 = #3c3836
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
 
 # vim: ft=dosini cms=#%s
