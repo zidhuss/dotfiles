@@ -16,15 +16,6 @@ alias recomposite='killall compton; compton -b --config ~/.config/compton/compto
 # Mount drive with user priveleges
 alias usrmount='sudo mount -o uid=1000,gid=1000,fmask=113,dmask=002'
 
-# Youtube viwer
-alias yt='youtube-viewer'
-
-# FreeDawkins youtube channel
-alias dawkins='yt --channel=UCEjOSbbaOfgnfRODEEMYlCw order=date'
-
-# The fuck
-alias fuck='$(thefuck $(fc -ln -1))'
-
 # Lock the screen right now
 alias locknow='xautolock -locknow'
 
@@ -52,3 +43,14 @@ alias bloodzeed='acestream-launcher acestream://42fe51591598d905ab011a9c8339150f
 alias ix="curl -F 'f:1=<-' ix.io"
 
 alias iotek="curl -sT- https://p.iotek.org"
+
+alias t=tmux
+
+alias grun='gradle --console plain run'
+
+alias konsole='konsole -stylesheet ~/.config/konsole.css'
+
+# Silent Java Options
+_SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS"
+unset _JAVA_OPTIONS
+alias java='java "$_SILENT_JAVA_OPTIONS"'

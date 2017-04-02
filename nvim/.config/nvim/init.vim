@@ -34,22 +34,23 @@ Plug 'Valloric/MatchTagAlways'
         \ 'javascript.jsx': 1,
         \}
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-    map <leader>g :Goyo<cr>
+    map <c-g> :Goyo<cr>
 
 """"""""""""
 "  Syntax  "
 """"""""""""
 Plug 'sheerun/vim-polyglot'
+    let g:javascript_plugin_jsdoc = 1
 Plug 'samuelsimoes/vim-jsx-utils'
-    nnoremap <leader>ja :call JSXEncloseReturn()<CR>
-    nnoremap <leader>ji :call JSXEachAttributeInLine()<CR>
-    nnoremap <leader>je :call JSXExtractPartialPrompt()<CR>
-    nnoremap <leader>jc :call JSXChangeTagPrompt()<CR>
+    nnoremap <leader>ea :call JSXEncloseReturn()<CR>
+    nnoremap <leader>ei :call JSXEachAttributeInLine()<CR>
+    nnoremap <leader>ee :call JSXExtractPartialPrompt()<CR>
+    nnoremap <leader>ec :call JSXChangeTagPrompt()<CR>
     nnoremap vat :call JSXSelectTag()<CR>
 
 Plug 'benekastah/neomake'
 autocmd! BufWritePost * if &ft != 'java' | Neomake
-    let g:neomake_warning_sign={'text': '❗', 'texthl': 'SyntasticWarningSign'}
+let g:neomake_warning_sign={'text': '⚠', 'texthl': 'SyntasticWarningSign'}
     let g:neomake_error_sign={'text': '✖' , 'texthl': 'SyntasticErrorSign'}
     " autocmd! BufWritePost * Neomake
     let g:neomake_javascript_enabled_makers = ['eslint']
@@ -61,13 +62,24 @@ Plug 'tpope/vim-commentary'
 Plug 'rstacruz/sparkup'
     let g:sparkupArgs="--no-last-newline"
 Plug 'reedes/vim-wordy'
+Plug 'kana/vim-textobj-user'
+Plug 'reedes/vim-textobj-quote'
+    augroup textobj_quote
+        autocmd!
+        autocmd FileType markdown call textobj#quote#init()
+        autocmd FileType textile call textobj#quote#init()
+        autocmd FileType text call textobj#quote#init({'educate': 0})
+    augroup END
 Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
 Plug 'fatih/vim-go', { 'for': 'go' }
+    let g:go_fmt_experimental = 1
+    let g:go_fmt_command = "goimports"
+    au FileType go nmap <leader>gb <Plug>(go-doc-browser)
 Plug 'Konfekt/FastFold'
 Plug 'lervag/vimtex'
   let g:tex_flavor = 'latex'
-  let g:vimtex_indent_enabled=0
+  let g:vimtex_indent_enabled = 0
 
 """""""""
 "  Git  "
@@ -131,12 +143,18 @@ Plug 'shougo/deoplete.nvim'
     let g:deoplete#ignore_sources.java = ['tag']
     let g:deoplete#enable_at_startup = 1
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-Plug 'pbogut/deoplete-padawan'
+Plug 'pbogut/deoplete-padawan', { 'for': 'php' }
 Plug 'zchee/deoplete-clang'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
     au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
+    let g:deoplete#omni#functions = {}
+    let g:deoplete#omni#functions.javascript = [
+        \ 'tern#Complete',
+        \ 'jspc#omni'
+    \]
 Plug 'zchee/deoplete-jedi'
     let deoplete#sources#jedi#show_docstring = 1
 Plug 'phildawes/racer'
@@ -144,6 +162,7 @@ Plug 'phildawes/racer'
 """""""""""
 "  Other  "
 """""""""""
+Plug 'restore_view.vim'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
@@ -186,6 +205,9 @@ imap <c-s> <esc>:w<cr>
 " inoremap <leader>; <C-o>A;
 inoremap <leader>; <ESC>A;
 
+" Move to end of line while in insert
+inoremap <c-f> <esc>A
+
 " Deoplete tab and shift tab
 inoremap <silent><expr> <Tab>
   \ pumvisible() ? "\<C-n>" :
@@ -204,10 +226,13 @@ function! EclimMappings()
     nnoremap <buffer> <leader>ef :%JavaFormat<cr>
     nnoremap <buffer> <leader>en :JavaNew
     nnoremap <buffer> <leader>em :JavaGetSet<cr>
+    nnoremap <buffer> <leader>eM :JavaImpl<cr>
     nnoremap <buffer> <leader>eg :JavaGet<cr>
     nnoremap <buffer> <leader>es :JavaSet<cr>
+    nnoremap <buffer> <leader>eF :JavaSearch<cr>
 endfunction
 autocmd FileType java :call EclimMappings()
+autocmd BufWritePre *.java :Validate
 
 " Remove search higlight
 nmap <silent> <BS>  :nohlsearch<CR>
@@ -255,8 +280,9 @@ set nowrap
 set formatoptions-=t
 
 " highlight ColorColumn guibg=gray
-highlight OverLength ctermbg=red ctermfg=white guibg=#fb4934
-match OverLength /\%81v.\+/
+" highlight OverLength ctermbg=red ctermfg=white guibg=#fb4934
+" match OverLength /\%81v.\+/
+" autocmd FileType java match OverLength /\%101v.\+/
 
 " Italic comments
 highlight Comment gui=italic
@@ -284,7 +310,7 @@ set shiftround
 set expandtab
 
 " HTML, JS, CSS indent 2 spaces
-autocmd FileType html,css,scss,javascript :setlocal sw=2 ts=2 sts=2
+autocmd FileType html,css,scss,javascript,json :setlocal sw=2 ts=2 sts=2
 
 " Gradle Groovy
 au BufNewFile,BufRead *.gradle set ft=groovy

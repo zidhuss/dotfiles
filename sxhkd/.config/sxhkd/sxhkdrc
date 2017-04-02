@@ -149,7 +149,7 @@ XF86MonBrightness{Up,Down}
 #
 
 super + Return
-  termite
+  konsole -stylesheet ~/.config/konsole.css
 
 super + v
   firefox
