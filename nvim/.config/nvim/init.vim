@@ -294,6 +294,8 @@ set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 " JSX
 let g:xml_syntax_folding = 0
 
+set guicursor=
+
 autocmd VimResized * execute "normal! \<c-q>="
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  End Look                                   "
