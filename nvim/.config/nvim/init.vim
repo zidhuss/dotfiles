@@ -4,7 +4,7 @@
 "
 " Author: zidhuss
 " Repo: https://github.com/zidhuss/dotfiles
-" URL: http://zidhuss.me
+" URL: http://zidhuss.tech
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   Plugins                                   "
@@ -24,6 +24,7 @@ Plug 'bling/vim-airline'
     let g:airline_section=' '
     let g:airline_left_sep = ' '
     let g:airline_right_sep = ' '
+    let g:airline_skip_empty_sections = 1
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/MatchTagAlways'
     let g:mta_filetypes = {
@@ -134,9 +135,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     \ 'alt-l':  'vertical botright split' }
     nnoremap <leader><cr> :FZF<cr>
 Plug 'junegunn/fzf.vim'
+    nnoremap <silent> <f1> :Help<CR>
     nnoremap <silent> <leader>b :Buffers<CR>
+    nnoremap <silent> <leader>l :Lines<cr>
+    nnoremap <silent> <leader>t :Tags<cr>
 Plug 'jiangmiao/auto-pairs'
 Plug 'shougo/deoplete.nvim'
+    let g:deoplete#enable_camel_case = 1
     let g:deoplete#omni_patterns = {}
     let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
     let g:deoplete#ignore_sources = {}
@@ -162,7 +167,7 @@ Plug 'phildawes/racer'
 """""""""""
 "  Other  "
 """""""""""
-Plug 'restore_view.vim'
+Plug 'vim-scripts/restore_view.vim'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
@@ -172,6 +177,8 @@ Plug 'reedes/vim-pencil'
 
 call plug#end()
 
+" Only works down here
+call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 End Plugins                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -267,8 +274,7 @@ set fillchars=vert:│,fold:-
 " Language indepenent indentation
 filetype plugin indent on
 
-" Full colour
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" 24bit colour
 set termguicolors
 
 " Show line numbers and length
@@ -279,13 +285,11 @@ set textwidth=79
 set nowrap
 set formatoptions-=t
 
-" highlight ColorColumn guibg=gray
-" highlight OverLength ctermbg=red ctermfg=white guibg=#fb4934
-" match OverLength /\%81v.\+/
-" autocmd FileType java match OverLength /\%101v.\+/
-
 " Italic comments
 highlight Comment gui=italic
+
+" Easily identify which line I'm writing on
+set cursorline
 
 " Show invisible characters
 set invlist
@@ -294,6 +298,7 @@ set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 " JSX
 let g:xml_syntax_folding = 0
 
+" Allow other cursors in terminal
 set guicursor=
 
 autocmd VimResized * execute "normal! \<c-q>="

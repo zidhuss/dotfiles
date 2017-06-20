@@ -50,6 +50,8 @@ alias grun='gradle --console plain run'
 
 alias konsole='konsole -stylesheet ~/.config/konsole.css'
 
+alias yt='youtube-viewer'
+
 # Silent Java Options
 _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS"
 unset _JAVA_OPTIONS
