@@ -1,49 +1,26 @@
 #! /bin/sh
-FONT1="Fira\ Mono\ Medium\ for\ Powerline:size=8"
-FONT2="Material\ Icons:size=9"
+export FONT1="Fira\ Mono\ Medium\ for\ Powerline:size=8"
 
-RED=#ffB27B78
-ORANGE=#ffC48D62
-YELLOW=#ffD8C27A
-GREEN=#ff99AE63
-CYAN=#ff8DC9C3
-BLUE=#ff7495B6
-MAGENTA=#ffB59CD8
-PINK=#ffCC99B3
+export RED=#ffB27B78
+export ORANGE=#ffC48D62
+export YELLOW=#ffD8C27A
+export GREEN=#ff99AE63
+export CYAN=#ff8DC9C3
+export BLUE=#ff7495B6
+export MAGENTA=#ffB59CD8
+export PINK=#ffCC99B3
 
+export BLACK=#00101112
+export GRAY01=#ff282C33
+export GRAY02=#ff383E47
+export GRAY03=#ff586270
+export GRAY04=#ff798494
+export GRAY05=#ffBCC5D1
+export GRAY06=#ffD8D8D8
+export WHITE=#ffFDFEFF
 
-BLACK=#00101112
-GRAY01=#ff282C33
-GRAY02=#ff383E47
-GRAY03=#ff586270
-GRAY04=#ff798494
-GRAY05=#ffBCC5D1
-GRAY06=#ffD8D8D8
-WHITE=#ffFDFEFF
+export COLOR_FOREGROUND=$GRAY06
+export COLOR_BACKGROUND=$BLACK
 
-COLOR_FOREGROUND=$GRAY06
-COLOR_BACKGROUND=$BLACK
-
-icoARCH=""
-icoPACMAN=""
-icoUPTIME=""
-
-icoFREE="○"
-icoOCC="●"
-
-icoPLAY=""
-icoPAUSE=""
-icoMUSIC=""
-
-icoVOL0=""
-icoVOL=""
-icoMUTE=""
-
-icoTIME=""
-icoCONN=""
-icoDISCO=""
-
-icoSTORAGE=""
-icoCPU=""
-icoRAM=""
-icoMAIL=""
+export icoFREE="○"
+export icoOCC="●"

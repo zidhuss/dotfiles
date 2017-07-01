@@ -4,76 +4,65 @@
 
 clock() {
     # Output clock format "Mon 01 Jan 2015 00:00"
-    dateo=`date '+%a %d %b %R'`
-    echo "%{F$GRAY02}%{B$BLACK} time %{F-}%{B$BLACK} $dateo"
-
+    TIME=$(date '+%a %d %b %R')
+    echo "%{F$GRAY02}%{B$BLACK} time %{F-}%{B$BLACK} $TIME"
 }
 
 mail() {
-    newmail=`ls Mail/zidhussein-gmail/INBOX/new | wc -l`
-    echo "%{F$GRAY02}%{B$BLACK} e-mail %{F-}%{B$BLACK} $newmail"
-
+    MAIL=$(find "$HOME/.mail/gmail/inbox/new" | wc -l)
+    echo "%{F$GRAY02}%{B$BLACK} mail %{F-}%{B$BLACK} $MAIL"
 }
 
 volume() {
     # Get current volume
-    vol=`amixer get Master | grep 'Front Left' | egrep -o "[0-9]+%" |\
-        rev | cut -c 2- | rev`
+    VOL=$(amixer get Master | grep 'Front Left' | grep -oE "[0-9]+%" |\
+        rev | cut -c 2- | rev)
 
-    # Decide which icon and colour to show
-    if [ ! `amixer get Master | tail -1 | grep -oe off` ]; then
-        if [ $vol == 0 ]; then
-            volico="%{F$GRAY02}%{B$BLACK} volume %{F-}%{B$BLACK}"
-        else
-            volico="%{F$GRAY02}%{B$BLACK} volume %{F-}%{B$BLACK}"
-        fi
+    # Change message if muted
+    if [ ! $(amixer get Master | tail -1 | grep -oe off) ]; then
+        VOL_ICON="%{F$GRAY05}%{B$GRAY03} MUTE %{F-}%{B$BLACK}"
     else
-        volico="%{F$GRAY05}%{B$GRAY03} MUTE %{F-}%{B$BLACK}"
+        VOL_ICON="%{F$GRAY02}%{B$BLACK} vol %{F-}%{B$BLACK}"
     fi
 
     # Change colour if volume is lower than 60
-    if [ $vol -lt 60 ]; then
-        vol="%{F$GRAY04}%{B$BLACK}$vol"
+    if [ $VOL -lt 60 ]; then
+        VOL="%{F$GRAY04}%{B$BLACK}$VOL"
     fi
-
-    echo "$volico $vol"
-
+    echo "$VOL_ICON $VOL"
 }
 
 cpu() {
     # Output CPU usage as an integer
-    cpu=$(ps -eo pcpu | awk 'BEGIN {sum=0.0f} {sum+=$1} END {print sum}' | cut -c1-2)
-    echo "%{F$GRAY02}%{B$BLACK} cpu %{F-}%{B$BLACK} $cpu%"
+    CPU=$(ps -eo pcpu | awk 'BEGIN {sum=0.0f} {sum+=$1} END {print sum}' | cut -c1-2)
+    echo "%{F$GRAY02}%{B$BLACK} cpu %{F-}%{B$BLACK} $CPU%"
 }
 
 hdd() {
     # Show root partition % used and home volume remaining
-    HDDROOT=`df -h | grep /dev/sdb2 | awk '{print $5}'`
-    HDDHOME=`df -h | grep /dev/sdb3 | awk '{print $4}'`
+    HDDROOT=$(df -h | grep /dev/sdb2 | awk '{print $5}')
+    HDDHOME=$(df -h | grep /dev/sdb3 | awk '{print $4}')
     echo "%{F$GRAY02}%{B$BLACK} root %{F-}%{B$BLACK} $HDDROOT %{F$GRAY02}%{B$BLACK} home %{F-}%{B$BLACK} $HDDHOME"
-
 }
 
 ram() {
     # Show ram used / ram total
-    total=`free -mh | grep Mem | awk '{print $3}'`
-    free=`free -mh | grep Mem | awk '{print $2}'`
-    echo "%{F$GRAY02}%{B$BLACK} ram %{F-}%{B$BLACK} $total / $free"
+    MEM_PERC=$(free | grep Mem | awk '{print $3/$2 * 100.0}' | cut -d . -f 1)
+    echo "%{F$GRAY02}%{B$BLACK} ram %{F-}%{B$BLACK} $MEM_PERC%"
 }
-
 
 wifi() {
     # Show wifi ssid if connected.
-    dev="wlp3s0"
-    ssid="$(iwgetid -r)"
-    if [ ! $ssid ]; then
-        echo "%{F$GRAY02}%{B$BLACK} wifi %{F-}%{B$BLACK} Disconnected"
+    if [ "$(rfkill list | grep -A1 'Wireless' | grep 'yes')" ]; then
+        echo "%{F$GRAY02}%{B$BLACK} wifi %{F-}%{B$BLACK} Disabled"
     else
-        echo "%{F$GRAY02}%{B$BLACK} wifi %{F-}%{B$BLACK} $ssid"
+        SSID="$(iwgetid -r)"
+        if [ ! $SSID ]; then
+            echo "%{F$GRAY02}%{B$BLACK} wifi %{F-}%{B$BLACK} Disconnected"
+        else
+            echo "%{F$GRAY02}%{B$BLACK} wifi %{F-}%{B$BLACK} $SSID"
+        fi
     fi
-    # strength="$(iw dev $dev link | grep signal | egrep -o '[0-9]+')"
-    # echo -e "$ssid  $strength"
-
 }
 
 archinfo() {
@@ -81,7 +70,6 @@ archinfo() {
     # hostname=`uname -n`
     uptime=`uptime | sed 's/.* up *//;s/[0-9]* us.*//;s/ day, /d /;s/ days, /d /;s/:/h /;s/ min//;s/,/m/;s/ / /'`
     # packages=`pacman -Q | wc -l`
-
     echo "%{F$GRAY02}%{B$BLACK} uptime %{F-}%{B$BLACK} $uptime"
 }
 
@@ -91,22 +79,21 @@ battery() {
 
     # Set colour
     echo -n "%{F$GRAY02}%{B$BLACK} "
-    test "`cat $BATS`" = "Charging" && echo -n 'charging ' || echo -n 'discharging '
+    test "`cat $BATS`" = "Charging" && echo -n 'charging ' || echo -n 'batt '
     test "`cat $BATC`" -lt 15 && echo -n "%{F-}%{B$RED} " || echo -n "%{F-}%{B$BLACK} "
-    sed -n p $BATC
+    echo "$(cat $BATC)%"
 }
 
 while true; do
-
-    printf "%s\n" "a$(archinfo)"
+    # printf "%s\n" "a$(archinfo)"
     printf "%s\n" "R$(ram)"
-    printf "%s\n" "C$(cpu)"
+    # printf "%s\n" "C$(cpu)"
     printf "%b\n" "V$(volume)"
     printf "%s\n" "w$(wifi)"
     printf "%s\n" "T$(clock)"
-    printf "%s\n" "h$(hdd)"
+    # printf "%s\n" "h$(hdd)"
     printf "%s\n" "N$(mail)"
     printf "%s\n" "B$(battery)"
-    test `pidof pianobar`  || printf "%s\n" "c"
+    test "$(pidof pianobar)"  || printf "%s\n" "c"
     sleep 0.5
 done

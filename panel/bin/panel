@@ -1,15 +1,11 @@
 #! /bin/sh
 
-
 if [ $(pgrep -cx panel) -gt 1 ] ; then
 	printf "%s\n" "The panel is already running." >&2
 	exit 1
 fi
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
-
-# Set X offset of the bar
-CUR_X_OFFSET=28
 
 # Source panel colours and icons
 . panel_config
@@ -29,29 +25,24 @@ for i in $num_mon; do
         while read line; do echo W$line; done \
             > "$PANEL_FIFO$i" &
 
-    # Height of panel
-    # bspc config top_padding $PANEL_HEIGHT
-
     # Output extra scripts to the panel_fifo
     barinfo > "$PANEL_FIFO$i" &
     # bar_mpd > "$PANEL_FIFO$i" &
 
     # Get current monitor width
-    CUR_MON_WIDTH=$(bspc query -T -m $i | grep -oE "[0-9]{2,6}" | head -n 1)
-    PADDING=16
-    PANEL_WIDTH=$(expr $CUR_MON_WIDTH - 56)
+    PANEL_HEIGHT=16
+    MON_WIDTH=$(bspc query -T -m $i | grep -oE "[0-9]{2,6}" | head -n 1)
+    MON_HEIGHT=$(bspc query -T -m $i | grep -oE "[0-9]{2,6}" | sed -n 2p)
+    let Y_OFFSET=$MON_HEIGHT-$PANEL_HEIGHT
 
+    printf -v GEOMETRY "%dx%d+%d+%d" $MON_WIDTH $PANEL_HEIGHT 0 $Y_OFFSET
 
     # Running bar
     cat "$PANEL_FIFO$i" | panel_bar$i |\
-        lemonbar -g $PANEL_WIDTH$PANEL_HEIGHT+$CUR_X_OFFSET+10  \
-        -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" -f "$FONT1" -f "$FONT2" &
-
-    # New X Offset
-    CUR_X_OFFSET=$(expr $CUR_X_OFFSET + $CUR_MON_WIDTH)
-
+        lemonbar -g $GEOMETRY  \
+        -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" \
+        -f "$FONT1" &
 
 done
 
 wait
-
