@@ -21,17 +21,29 @@ while read -r line ; do
             # current song
             music="${line#?} %{B-}%{F-}"
             ;;
+        s*)
+            # Music stopped
+            music="${line#?} %{B-}%{F-}"
+            ;;
         h*)
             # hdd
             hdd="${line#?} %{B-}%{F-}"
+            ;;
+        N*)
+            # hdd
+            mail="${line#?} %{B-}%{F-}"
             ;;
         w*)
             # wifi
             wifi="${line#?} %{B-}%{F-}"
             ;;
+        B*)
+            # Battery
+            battery="${line#?} %{B-}%{F-}"
+            ;;
         V*)
             # volume output
-            volume="${line#?}%% %{B-}%{F-}"
+            volume="${line#?}% %{B-}%{F-}"
             ;;
 		T*)
 			# date and time output
@@ -48,11 +60,11 @@ while read -r line ; do
 				case $item in
 					O*)
 						# focused occupied desktop
-						wm_infos="${wm_infos}%{F$BASE05} ${icoOCC} %{-u}%{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$WHITE} ${icoOCC} %{-u}%{B-}%{F-}"
 						;;
 					F*)
 						# focused free desktop
-						wm_infos="${wm_infos}%{F$BASE05} ${icoFREE} %{-u}%{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$WHITE} ${icoFREE} %{-u}%{B-}%{F-}"
 						;;
 					U*)
 						# focused urgent desktop
@@ -60,11 +72,11 @@ while read -r line ; do
 						;;
 					o*)
 						# occupied desktop
-						wm_infos="${wm_infos}%{F$BASE02} ${icoOCC} %{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$GRAY02} ${icoOCC} %{B-}%{F-}"
 						;;
 					f*)
 						# free desktop
-						wm_infos="${wm_infos}%{F$BASE02} ${icoFREE} %{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$GRAY02} ${icoFREE} %{B-}%{F-}"
 						;;
 					u*)
 						# urgent desktop
@@ -75,5 +87,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%b\n" "%{l}${archinfo}%{c}${wm_infos}%{r}${cpu} ${ram} ${hdd}"
+	printf "%b\n" "%{l}${mail}${music}%{c}${wm_infos}%{r}${ram} ${battery} ${wifi} ${volume} ${clock}"
 done

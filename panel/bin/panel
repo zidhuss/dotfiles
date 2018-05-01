@@ -12,6 +12,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
 # How many monitors are we displaying bar on?
 num_mon=$(bspc query -M)
+X_OFFSET=0
 
 for i in $num_mon; do
 
@@ -35,13 +36,15 @@ for i in $num_mon; do
     MON_HEIGHT=$(bspc query -T -m $i | grep -oE "[0-9]{2,6}" | sed -n 2p)
     let Y_OFFSET=$MON_HEIGHT-$PANEL_HEIGHT
 
-    printf -v GEOMETRY "%dx%d+%d+%d" $MON_WIDTH $PANEL_HEIGHT 0 $Y_OFFSET
+    printf -v GEOMETRY "%dx%d+%d+%d" $MON_WIDTH $PANEL_HEIGHT $X_OFFSET $Y_OFFSET
 
     # Running bar
     cat "$PANEL_FIFO$i" | panel_bar$i |\
         lemonbar -g $GEOMETRY  \
         -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" \
         -f "$FONT1" &
+
+    let X_OFFSET=$XOFFSET+$MON_WIDTH
 
 done
 

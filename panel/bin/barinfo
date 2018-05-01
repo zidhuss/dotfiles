@@ -20,9 +20,9 @@ volume() {
 
     # Change message if muted
     if [ ! $(amixer get Master | tail -1 | grep -oe off) ]; then
-        VOL_ICON="%{F$GRAY05}%{B$GRAY03} MUTE %{F-}%{B$BLACK}"
-    else
         VOL_ICON="%{F$GRAY02}%{B$BLACK} vol %{F-}%{B$BLACK}"
+    else
+        VOL_ICON="%{F$GRAY05}%{B$GRAY03} MUTE %{F-}%{B$BLACK}"
     fi
 
     # Change colour if volume is lower than 60

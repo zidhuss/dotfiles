@@ -10,7 +10,7 @@ export BLUE=#ff7495B6
 export MAGENTA=#ffB59CD8
 export PINK=#ffCC99B3
 
-export BLACK=#00101112
+export BLACK=#ff282828
 export GRAY01=#ff282C33
 export GRAY02=#ff383E47
 export GRAY03=#ff586270
