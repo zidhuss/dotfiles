@@ -1,5 +1,5 @@
 # zidhuss' dotfiles
-My precious dotfiles. Feel free too take from them what you must.
+My precious dotfiles. Feel free to take from them what you must.
 
 ![Screenshot](./scrot.png)
 
