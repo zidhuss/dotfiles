@@ -1,7 +1,0 @@
-colorscheme gruvbox-dark
-source ~/.vimperator/fonts/fira.vimp
-
-
-
-noremap j jjjj
-noremap k kkkk
