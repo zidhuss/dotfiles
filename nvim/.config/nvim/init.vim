@@ -42,6 +42,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 """"""""""""
 Plug 'sheerun/vim-polyglot'
     let g:javascript_plugin_jsdoc = 1
+    let g:polyglot_disabled = ['latex'] " vimtex is responsible for latex
 Plug 'samuelsimoes/vim-jsx-utils'
     nnoremap <leader>ea :call JSXEncloseReturn()<CR>
     nnoremap <leader>ei :call JSXEachAttributeInLine()<CR>
@@ -178,7 +179,7 @@ Plug 'reedes/vim-pencil'
 call plug#end()
 
 " Only works down here
-call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 End Plugins                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -248,7 +249,7 @@ nmap <silent> <BS>  :nohlsearch<CR>
 noremap <leader>o :only<CR>
 
 " Quicker folding
-noremap <space> za
+noremap <space> zA
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                End Mappings                                 "
@@ -364,6 +365,9 @@ set splitright
 
 " Code folding
 set foldmethod=syntax
+
+" Terminal bi-directional support
+set termbidi
 
 " Clear trailing whitespace in selected file types on save
 autocmd BufWritePre *.py,*.jsx?,*.hs,*.html,*.css,*.scss :%s/\s\+$//e
