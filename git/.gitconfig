@@ -1,18 +1,18 @@
 [user]
-	name = Hussein Mohammed
-	email = zidhussein@gmail.com
-	signingkey = zidhussein@gmail.com
+    name = Hussein Mohammed
+    email = zidhussein@gmail.com
+    signingkey = zidhussein@gmail.com
 [push]
-	default = simple
+    default = simple
 [commit]
     gpgsign = true
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [fetch]
     prune = true
 [merge]
-	tool = vimdiff
-	algorithm = histogram
+    tool = vimdiff
+    algorithm = histogram
 [mergetool]
     prompt = true
 [mergetool "vimdiff"]
@@ -20,4 +20,4 @@
 [difftool]
     prompt = false
 [http]
-	cookiefile = /home/huss/.config/.gitcookies
+    cookiefile = /home/huss/.config/.gitcookies
