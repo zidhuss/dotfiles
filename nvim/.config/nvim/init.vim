@@ -15,6 +15,9 @@ call plug#begin()
 """"""""""
 Plug 'morhetz/gruvbox'
     let g:gruvbox_improved_warnings = 1
+    let g:gruvbox_italic=1
+    let g:gruvbox_invert_selection=0
+    let g:gruvbox_sign_column='bg0'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'Yggdroot/indentLine'
     let g:indentLine_char='┆'
@@ -25,6 +28,11 @@ Plug 'bling/vim-airline'
     let g:airline_left_sep = ' '
     let g:airline_right_sep = ' '
     let g:airline_skip_empty_sections = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#ale#error_symbol = ''
+    let g:airline#extensions#ale#error_symbol = ''
+    let g:airline#extensions#ale#warning_symbol = ''
+    let g:airline#extensions#ale#show_line_numbers = 0
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/MatchTagAlways'
     let g:mta_filetypes = {
@@ -49,16 +57,9 @@ Plug 'samuelsimoes/vim-jsx-utils'
     nnoremap <leader>ee :call JSXExtractPartialPrompt()<CR>
     nnoremap <leader>ec :call JSXChangeTagPrompt()<CR>
     nnoremap vat :call JSXSelectTag()<CR>
-
-Plug 'benekastah/neomake'
-autocmd! BufWritePost * if &ft != 'java' | Neomake
-let g:neomake_warning_sign={'text': '⚠', 'texthl': 'SyntasticWarningSign'}
-    let g:neomake_error_sign={'text': '✖' , 'texthl': 'SyntasticErrorSign'}
-    " autocmd! BufWritePost * Neomake
-    let g:neomake_javascript_enabled_makers = ['eslint']
-    let g:neomake_java_javac_maker = {
-        \ 'args': ['-d', '/tmp']
-        \ }
+Plug 'w0rp/ale'
+    let g:ale_sign_error=' ●'
+    let g:ale_sign_warning=' ●'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'rstacruz/sparkup'
@@ -74,12 +75,20 @@ Plug 'reedes/vim-textobj-quote'
     augroup END
 Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
     let g:go_fmt_experimental = 1
     let g:go_fmt_command = "goimports"
+    let g:go_fmt_autosave = 1
+    let g:go_auto_sameids = 1
+    let g:go_auto_type_info = 1
     au FileType go nmap <leader>gb <Plug>(go-doc-browser)
-Plug 'Konfekt/FastFold'
-Plug 'lervag/vimtex'
+    au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
+    au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
+    au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
+    au Filetype go nmap <leader>f :GoFmt<cr>
+    au FileType go nmap <F10> :GoTest -short<cr>
+    au FileType go nmap <F9> :GoCoverageToggle -short<cr>
+Plug 'lervag/vimtex', { 'for': [ 'tex', 'latex' ] }
   let g:tex_flavor = 'latex'
   let g:vimtex_indent_enabled = 0
 
@@ -88,6 +97,11 @@ Plug 'lervag/vimtex'
 """""""""
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+    let g:gitgutter_sign_added='┃'
+    let g:gitgutter_sign_modified='┃'
+    let g:gitgutter_sign_removed='◢'
+    let g:gitgutter_sign_removed_first_line='◥'
+    let g:gitgutter_sign_modified_removed='◢'
 
 """"""""""""""
 "  Snippets  "
@@ -103,7 +117,7 @@ Plug 'honza/vim-snippets'
 """"""""""""""""
 "  Navigation  "
 """"""""""""""""
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
     nmap <f8> :TagbarToggle<cr>
 Plug 'christoomey/vim-tmux-navigator'
     let g:tmux_navigator_no_mappings = 1
@@ -113,17 +127,13 @@ Plug 'christoomey/vim-tmux-navigator'
     nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
     nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
     nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     map <leader>n :NERDTreeToggle<CR>
 
 """"""""""""""""
 "  Completion  "
 """"""""""""""""
 set omnifunc=syntaxcomplete#Complete
-" Plug 'Valloric/YouCompleteMe'
-"     let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-"     let g:ycm_confirm_extra_conf = 0
-"     let g:ycm_autoclose_preview_window_after_insertion = 1
     let g:EclimCompletionMethod = 'omnifunc'
     let g:EclimProjectTreeAutoOpen = 1
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -150,7 +160,7 @@ Plug 'shougo/deoplete.nvim'
     let g:deoplete#enable_at_startup = 1
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 Plug 'pbogut/deoplete-padawan', { 'for': 'php' }
-Plug 'zchee/deoplete-clang'
+Plug 'zchee/deoplete-clang', { 'for': [ 'c', 'cpp' ] }
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -161,19 +171,20 @@ Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
         \ 'tern#Complete',
         \ 'jspc#omni'
     \]
-Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
     let deoplete#sources#jedi#show_docstring = 1
-Plug 'phildawes/racer'
+Plug 'phildawes/racer', { 'for': 'rust' }
 
 """""""""""
 "  Other  "
 """""""""""
 Plug 'vim-scripts/restore_view.vim'
+    set viewoptions-=options
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-pencil', { 'on': 'PencilToggle' }
     map <c-p> :PencilToggle<cr>
 
 call plug#end()
@@ -262,15 +273,13 @@ noremap <space> zA
 set laststatus=2
 
 " Set colorscheme
-let g:gruvbox_italic=1
-let g:gruvbox_invert_selection=0
 colorscheme gruvbox
 set background=dark
 
 set guioptions=
 
 " Character for vertical split
-set fillchars=vert:│,fold:-
+set fillchars=vert:│,fold:·
 
 " Language indepenent indentation
 filetype plugin indent on
@@ -291,6 +300,9 @@ highlight Comment gui=italic
 
 " Easily identify which line I'm writing on
 set cursorline
+
+" 80 characters per line
+set colorcolumn=80
 
 " Show invisible characters
 set invlist
