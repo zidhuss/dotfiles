@@ -1,9 +1,3 @@
-# Faster sudo typing
-alias s='sudo'
-
-# Stolen from web
-alias please='s $(fc -ln -l)'
-
 # Add to X Clipboard
 alias xclip='xclip -selection c'
 
@@ -36,9 +30,6 @@ alias gdb='gdb -q'
 # Quicker way to start acestream
 alias ace='acestream-launcher'
 
-# Bloodzeed acestream
-alias bloodzeed='acestream-launcher acestream://42fe51591598d905ab011a9c8339150f8391dfa7'
-
 # ix pastebin
 alias ix="curl -F 'f:1=<-' ix.io"
 
@@ -51,8 +42,3 @@ alias grun='gradle --console plain run'
 alias konsole='konsole -stylesheet ~/.config/konsole.css'
 
 alias yt='youtube-viewer'
-
-# Silent Java Options
-_SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS"
-unset _JAVA_OPTIONS
-alias java='java "$_SILENT_JAVA_OPTIONS"'

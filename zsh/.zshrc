@@ -49,8 +49,8 @@ plugins=(git archlinux tmux pass vi-mode history-substring-search)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -58,12 +58,8 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_GB.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+# Preferred editor
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
