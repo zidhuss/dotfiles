@@ -101,22 +101,6 @@ super + u
     bspc window --toggle sticky
 
 #
-# Mouse Controls
-#
-
-~button1
-  bspc pointer -g focus
-
-super + button{1-3}
-  bspc pointer -g {move,resize_side,resize_corner}
-
-super + !button{1-3}
-  bspc pointer -t %i %i
-
-super + @button{1-3}
-  bspc pointer -u
-
-#
 # Media and Audio controls
 #
 

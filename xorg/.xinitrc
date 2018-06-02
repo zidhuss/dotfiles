@@ -38,9 +38,6 @@ xrdb -merge ~/.Xresources
 # Redshift
 redshift &
 
-# Make Java programs behave correctly
-wmname LG3D
-
 # Desktop Wallpaper
 feh --bg-fill --no-xinerama ~/Pictures/wallpapers/desatwoods.jpg &
 
@@ -58,5 +55,5 @@ notification-wrapper &
 wendy -m 128 -f ~/Mail/zidhussein-gmail/INBOX/new -e notification "New Mail!" &
 
 # WM and Keys
-sxhkd -f 100 &
+sxhkd &
 exec bspwm
