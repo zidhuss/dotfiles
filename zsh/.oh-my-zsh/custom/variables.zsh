@@ -13,3 +13,6 @@ export ANDROID_HOME=/opt/android-sdk
 
 # PHP Composer
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
+
+# LESS tab width
+export LESS="$LESS -x4"
