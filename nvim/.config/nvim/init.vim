@@ -94,8 +94,16 @@ Plug 'w0rp/ale'
     \       'remove_trailing_lines',
     \       'trim_whitespace',
     \   ],
+    \   'typescriptreact': [
+    \       'prettier',
+    \       'remove_trailing_lines',
+    \       'trim_whitespace',
+    \   ],
     \   'python': [
     \       'black',
+    \   ],
+    \   'c#': [
+    \       'uncrustify',
     \   ],
     \}
     let g:ale_disable_lsp = 1
@@ -125,6 +133,7 @@ Plug 'lervag/vimtex', { 'for': [ 'tex', 'latex' ] }
   let g:vimtex_quickfix_enabled = 0
   nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
 " Plug 'Konfekt/FastFold'
+Plug 'google/vim-jsonnet'
 
 """""""""
 "  Git  "
@@ -141,11 +150,11 @@ Plug 'airblade/vim-gitgutter'
 """"""""""""""
 "  Snippets  "
 """"""""""""""
-Plug 'SirVer/ultisnips'
-    let g:UltiSnipsExpandTrigger='<c-j>'
-    let g:UltiSnipsJumpForwardTrigger='<c-d>'
-    let g:UltiSnipsJumpBackwardTrigger='<c-u>'
-    let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips'
+" Plug 'SirVer/ultisnips'
+"     let g:UltiSnipsExpandTrigger='<c-j>'
+"     let g:UltiSnipsJumpForwardTrigger='<c-d>'
+"     let g:UltiSnipsJumpBackwardTrigger='<c-u>'
+"     let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips'
 Plug 'honza/vim-snippets'
     let g:snips_author='zidhuss'
 
@@ -248,6 +257,7 @@ endfunction
 """""""""""
 Plug 'vim-scripts/restore_view.vim'
     set viewoptions-=options
+    set viewoptions-=curdir
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
@@ -405,7 +415,7 @@ set shiftround
 set expandtab
 
 " HTML, JS, CSS indent 2 spaces
-autocmd FileType html,css,scss,javascript,json,typescript,typescript.tsx :setlocal sw=2 ts=2 sts=2
+autocmd FileType html,css,scss,javascript,json,typescript,typescript.tsx,yaml,jsonnet,typescriptreact :setlocal sw=2 ts=2 sts=2
 
 " Use clang-format for C/C++
 autocmd FileType c,cpp setlocal equalprg=clang-format

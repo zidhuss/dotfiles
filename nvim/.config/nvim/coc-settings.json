@@ -11,11 +11,22 @@
         }
       }
     },
+    "terraform" : {
+      "command": "terraform-lsp",
+      "filetypes": ["tf"]
+    },
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     }
   },
-  "tsserver.trace.server": "verbose"
+  "tsserver.trace.server": "verbose",
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json": "azure-pipelines.yaml",
+    "https://raw.githubusercontent.com/docker/cli/master/cli/compose/schema/data/config_schema_v3.8.json": "docker-compose*.yaml",
+    "kubernetes": "/*.yaml"
+  },
+  "yaml.trace.server": "verbose"
+
 }
