@@ -13,11 +13,6 @@ call plug#begin()
 """"""""""
 "  Look  "
 """"""""""
-Plug 'morhetz/gruvbox'
-    let g:gruvbox_improved_warnings = 1
-    let g:gruvbox_italic=1
-    let g:gruvbox_invert_selection=0
-    let g:gruvbox_sign_column='bg0'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'Yggdroot/indentLine'
     let g:indentLine_char='┆'
