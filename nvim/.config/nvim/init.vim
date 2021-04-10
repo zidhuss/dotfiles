@@ -52,9 +52,6 @@ Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
     au Filetype go nmap <leader>f :GoFmt<cr>
     au FileType go nmap <F10> :GoTest -short<cr>
     au FileType go nmap <F9> :GoCoverageToggle -short<cr>
-" Plug 'sheerun/vim-polyglot'
-"     let g:javascript_plugin_jsdoc = 1
-"     let g:polyglot_disabled = ['latex', 'go', 'xml'] " vimtex & vim-go
 Plug 'samuelsimoes/vim-jsx-utils'
     nnoremap <leader>ea :call JSXEncloseReturn()<CR>
     nnoremap <leader>ei :call JSXEachAttributeInLine()<CR>
@@ -122,7 +119,6 @@ Plug 'lervag/vimtex', { 'for': [ 'tex', 'latex' ] }
   let g:vimtex_view_method = 'zathura'
   let g:vimtex_quickfix_enabled = 0
   nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
-" Plug 'Konfekt/FastFold'
 Plug 'google/vim-jsonnet'
 
 """""""""
@@ -216,31 +212,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-
-" Plug 'shougo/deoplete.nvim'
-"     let g:deoplete#enable_camel_case = 1
-"     let g:deoplete#omni_patterns = {}
-"     let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-"     let g:deoplete#ignore_sources = {}
-"     let g:deoplete#ignore_sources.java = ['tag']
-"     let g:deoplete#enable_at_startup = 1
-" Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-" Plug 'pbogut/deoplete-padawan', { 'for': 'php' }
-" Plug 'zchee/deoplete-clang', { 'for': [ 'c', 'cpp' ] }
-"     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-"     let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
-" Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-" Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-"     au FileType javascript,jsx,javascript.jsx setl omnifunc=tern#Complete
-"     let g:deoplete#omni#functions = {}
-"     let g:deoplete#omni#functions.javascript = [
-"         \ 'tern#Complete',
-"         \ 'jspc#omni'
-"     \]
-" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-"     let deoplete#sources#jedi#show_docstring = 1
-" Plug 'phildawes/racer', { 'for': 'rust' }
 
 """""""""""
 "  Other  "
