@@ -44,12 +44,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 "  Syntax  "
 """"""""""""
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
-    let g:go_fmt_fail_silently = 0
-    let g:go_fmt_experimental = 1
-    let g:go_fmt_command = 'goimports'
     let g:go_fmt_autosave = 1
-    " let g:go_auto_sameids = 1
-    " let g:go_auto_type_info = 1
     au FileType go nmap <leader>gb <Plug>(go-doc-browser)
     au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
     au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
