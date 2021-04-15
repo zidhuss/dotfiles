@@ -2,9 +2,9 @@ require'nvim-treesitter.configs'.setup {
     ensure_installed = 'all',
     -- TODO seems to be broken
     -- ignore_install = O.treesitter.ignore_install,
-    -- highlight = {
-    --     enable = O.treesitter.highlight.enabled -- false will disable the whole extension
-    -- },
+    highlight = {
+        enable = true -- false will disable the whole extension
+    },
     -- indent = {enable = true, disable = {"python", "html", "javascript"}},
     indent = {enable = {"javascriptreact"}},
     -- autotag = {enable = true},
