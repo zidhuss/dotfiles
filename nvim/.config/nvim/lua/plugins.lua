@@ -56,6 +56,9 @@ return require('packer').startup(function(use)
   use {'hrsh7th/vim-vsnip'}
   use {'hrsh7th/vim-vsnip-integ'}
 
+	-- indent lines
+	use { 'lukas-reineke/indent-blankline.nvim'}
+
   -- TODO: using to quickly get formatting
   use {'dense-analysis/ale'}
 
