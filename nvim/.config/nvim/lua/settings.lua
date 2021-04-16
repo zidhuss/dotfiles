@@ -1,7 +1,6 @@
 vim.wo.number = true
 vim.o.cursorline = true
 
-
 -- smarter searching
 vim.o.smartcase = true
 vim.o.ignorecase = true
@@ -34,9 +33,7 @@ vim.cmd('set signcolumn=yes')
 --     vim.o.laststatus = false
 -- end
 
-
 -- lsp lightbulb
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-
 
 vim.cmd [[ autocmd FileType html,css,scss,javascript,json,typescript,typescriptreact,yaml,jsonnet,lua :setlocal sw=2 ts=2 sts=2 ]]

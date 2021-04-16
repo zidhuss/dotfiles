@@ -7,9 +7,8 @@ local on_attach = function(client, bufnr)
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local opts = {noremap = true, silent = true}
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', "<Cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
@@ -49,9 +48,9 @@ local on_attach = function(client, bufnr)
   end
 end
 
-require'lspconfig'.gopls.setup{ on_attach = on_attach }
+require'lspconfig'.gopls.setup {on_attach = on_attach}
 
-require'lspconfig'.tsserver.setup{
+require'lspconfig'.tsserver.setup {
   on_attach = function(client, bufnr)
     -- prefer prettier rather than tsserver for formatting
     client.resolved_capabilities.document_formatting = false
@@ -60,11 +59,11 @@ require'lspconfig'.tsserver.setup{
 
   end
 }
-require'lspconfig'.dockerls.setup{ on_attach = on_attach }
+require'lspconfig'.dockerls.setup {on_attach = on_attach}
 
-require'lspconfig'.yamlls.setup{ on_attach = on_attach }
+require'lspconfig'.yamlls.setup {on_attach = on_attach}
 
-require'lspconfig'.sumneko_lua.setup{
+require'lspconfig'.sumneko_lua.setup {
   on_attach = on_attach,
   cmd = {'/usr/bin/lua-language-server'},
   settings = {
