@@ -1,3 +1,12 @@
+-- hidden buffers
+vim.o.hidden = true
+
+-- no backups or swap file
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.writebackup = false
+
+
 vim.wo.number = true
 vim.o.cursorline = true
 
