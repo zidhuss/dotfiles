@@ -18,12 +18,15 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 -- spaces for tabs
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
+vim.bo.tabstop = 4
+vim.bo.softtabstop = 4
+vim.bo.shiftwidth = 4
+vim.bo.expandtab = true
 
 vim.o.shiftround = true
-vim.o.expandtab = true
+
+-- use tabs in Go code
+vim.cmd [[ autocmd FileType go :setlocal noexpandtab ]]
 
 vim.o.termguicolors = true
 vim.cmd('colorscheme scrivener')
