@@ -55,9 +55,10 @@ return require('packer').startup(function(use)
   -- snippets
   use {'hrsh7th/vim-vsnip'}
   use {'hrsh7th/vim-vsnip-integ'}
+  use {'golang/vscode-go'}
 
-	-- indent lines
-	use { 'lukas-reineke/indent-blankline.nvim'}
+  -- indent lines
+  use {'lukas-reineke/indent-blankline.nvim', disabled = true}
 
   -- TODO: using to quickly get formatting
   use {'dense-analysis/ale'}
