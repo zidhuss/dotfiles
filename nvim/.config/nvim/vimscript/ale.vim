@@ -30,6 +30,9 @@ let g:ale_fixers = {
             \   'javascriptreact': [
             \       'prettier',
             \   ],
+            \   'scss': [
+            \       'prettier',
+            \   ],
             \   'python': [
             \       'black',
             \   ],
