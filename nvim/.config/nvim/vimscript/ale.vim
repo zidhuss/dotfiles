@@ -42,6 +42,9 @@ let g:ale_fixers = {
             \   'lua': [
             \       'lua-format',
             \   ],
+            \   'sql': [
+            \       'pgformatter',
+            \   ],
             \}
 let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
