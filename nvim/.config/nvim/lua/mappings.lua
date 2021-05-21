@@ -19,7 +19,7 @@ vim.api.nvim_set_keymap('i', '<c-s>', '<esc>:w<CR>', {})
 vim.api.nvim_set_keymap('n', '<bs>', '<cmd>nohlsearch<CR>', {})
 
 -- whichkey
-local wk = require('whichkey_setup')
+local wk = require('which-key')
 local keymap = {
 
   ['<CR>'] = {'<Cmd>Telescope find_files<CR>', 'find files'},
@@ -35,6 +35,16 @@ local keymap = {
     a = {'<Cmd>Lspsaga code_action<CR>', 'code action'},
     d = {'<Cmd>Telescope lsp_document_diagnostics<CR>', 'document diagnostics'},
     D = {'<Cmd>Telescope lsp_workspace_diagnostics<CR>', 'worskpace diagnostics'}
+  },
+
+  -- trouble
+  x = {
+    name = '+trouble',
+    x = {'<cmd>Trouble<cr>', 'trouble'},
+    w = {"<cmd>Trouble lsp_workspace_diagnostics<cr>", 'workspace diagnostics'},
+    d = {"<cmd>Trouble lsp_document_diagnostics<cr>", 'document diagnostics'},
+    l = {"<cmd>Trouble loclist<cr>", 'loclist'},
+    q = {"<cmd>Trouble quickfix<cr>", 'quickfix'}
   },
 
   s = {
@@ -58,4 +68,4 @@ local keymap = {
   }
 }
 
-wk.register_keymap('leader', keymap)
+wk.register(keymap, {prefix = "<leader>"})

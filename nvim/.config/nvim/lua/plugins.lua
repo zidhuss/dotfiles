@@ -49,8 +49,42 @@ return require('packer').startup(function(use)
   use {'rktjmp/lush.nvim'}
   use {'zidhuss/scrivener'}
 
+  -- disagnostics menu
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function() require("trouble").setup {} end
+  }
+
+  -- higlight comments
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function() require("todo-comments").setup {} end
+  }
+
+  -- gitsigns
+  -- TODO: needs sign highlighting
+  -- use {
+  --   'lewis6991/gitsigns.nvim',
+  --   requires = {'nvim-lua/plenary.nvim'},
+  --   config = function() require('gitsigns').setup() end
+  -- }
+
   -- leader keys
-  use {'AckslD/nvim-whichkey-setup.lua', requires = {'liuchengxu/vim-which-key'}}
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+        plugins = {
+          spelling = {
+            enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+            suggestions = 20 -- how many suggestions should be shown in the list?
+          }
+        }
+      }
+    end
+  }
 
   -- snippets
   use {'hrsh7th/vim-vsnip'}
@@ -58,7 +92,7 @@ return require('packer').startup(function(use)
   use {'golang/vscode-go'}
 
   -- indent lines
-  use {'lukas-reineke/indent-blankline.nvim', disabled = true}
+  -- use {'lukas-reineke/indent-blankline.nvim', disabled = true}
 
   -- TODO: using to quickly get formatting
   use {'dense-analysis/ale'}

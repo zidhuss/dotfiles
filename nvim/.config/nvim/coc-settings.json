@@ -14,11 +14,6 @@
     "terraform" : {
       "command": "terraform-lsp",
       "filetypes": ["tf"]
-    },
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
     }
   },
   "tsserver.trace.server": "verbose",
