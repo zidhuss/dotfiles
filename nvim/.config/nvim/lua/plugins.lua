@@ -45,6 +45,9 @@ return require('packer').startup(function(use)
   -- markdown
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
 
+  -- auto pairs
+  use {"steelsojka/pears.nvim", config = function() require"pears".setup {} end}
+
   -- colour scheme
   use {'rktjmp/lush.nvim'}
   use {'zidhuss/scrivener'}
@@ -90,6 +93,7 @@ return require('packer').startup(function(use)
   use {'hrsh7th/vim-vsnip'}
   use {'hrsh7th/vim-vsnip-integ'}
   use {'golang/vscode-go'}
+  use {'dsznajder/vscode-es7-javascript-react-snippets'}
 
   -- indent lines
   -- use {'lukas-reineke/indent-blankline.nvim', disabled = true}
