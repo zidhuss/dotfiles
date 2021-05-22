@@ -44,7 +44,8 @@ local keymap = {
     w = {"<cmd>Trouble lsp_workspace_diagnostics<cr>", 'workspace diagnostics'},
     d = {"<cmd>Trouble lsp_document_diagnostics<cr>", 'document diagnostics'},
     l = {"<cmd>Trouble loclist<cr>", 'loclist'},
-    q = {"<cmd>Trouble quickfix<cr>", 'quickfix'}
+    q = {"<cmd>Trouble quickfix<cr>", 'quickfix'},
+    t = {"<cmd>TodoTrouble<cr>", 'todo'}
   },
 
   s = {
