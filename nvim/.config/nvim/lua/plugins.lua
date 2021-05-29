@@ -27,6 +27,9 @@ return require('packer').startup(function(use)
   use 'glepnir/lspsaga.nvim'
   use 'kosayoda/nvim-lightbulb'
 
+  -- plain colours
+  use 'andreypopp/vim-colors-plain'
+
   -- text completion
   use 'hrsh7th/nvim-compe'
 
@@ -46,7 +49,8 @@ return require('packer').startup(function(use)
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
 
   -- auto pairs
-  use {"steelsojka/pears.nvim", config = function() require"pears".setup {} end}
+  use {"steelsojka/pears.nvim"}
+  require"pears".setup()
 
   -- colour scheme
   use {'rktjmp/lush.nvim'}

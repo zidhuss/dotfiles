@@ -28,7 +28,7 @@ vim.o.shiftround = true
 vim.cmd [[ autocmd FileType go :setlocal noexpandtab ]]
 
 vim.o.termguicolors = true
-vim.cmd('colorscheme scrivener')
+vim.cmd('colorscheme plain')
 vim.o.background = 'dark'
 
 vim.cmd('set invlist')
