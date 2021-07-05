@@ -83,12 +83,11 @@ return require('packer').startup(function(use)
   }
 
   -- gitsigns
-  -- TODO: needs sign highlighting
-  -- use {
-  --   'lewis6991/gitsigns.nvim',
-  --   requires = {'nvim-lua/plenary.nvim'},
-  --   config = function() require('gitsigns').setup() end
-  -- }
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'}
+  }
+  require('gitsigns').setup()
 
   -- leader keys
   use {
