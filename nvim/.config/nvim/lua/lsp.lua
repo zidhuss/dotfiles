@@ -105,6 +105,12 @@ require'lspconfig'.sumneko_lua.setup {
   }
 }
 
+-- Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.cssls.setup {capabilities = capabilities}
+
 -- TODO: fix on save
 
 -- local prettier = {formatCommand = "npx prettier --stdin-filepath ${INPUT}", formatStdin = true}
