@@ -48,9 +48,21 @@ return require('packer').startup(function(use)
   -- markdown
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
 
+  -- diffconflicts
+  use {'whiteinge/diffconflicts'}
+
   -- auto pairs
   use {"steelsojka/pears.nvim"}
-  require"pears".setup()
+  require"pears".setup(function(conf)
+    conf.preset "tag_matching"
+    conf.on_enter(function(pear_handle)
+      if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
+        vim.api.nvim_feedkeys(vim.fn['compe#confirm']('<CR>'), "n", true)
+      else
+        pear_handle()
+      end
+    end)
+  end)
 
   -- colour scheme
   use {'rktjmp/lush.nvim'}
