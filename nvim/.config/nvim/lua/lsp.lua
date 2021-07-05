@@ -69,7 +69,10 @@ require'lspconfig'.tsserver.setup {
 }
 require'lspconfig'.dockerls.setup {on_attach = on_attach}
 
-require'lspconfig'.yamlls.setup {on_attach = on_attach}
+require'lspconfig'.yamlls.setup {
+  on_attach = on_attach,
+  settings = {yaml = {schemas = {kubernetes = 'k8s/*'}, format = {enable = false}}}
+}
 
 require'lspconfig'.jsonls.setup {on_attach = on_attach}
 
