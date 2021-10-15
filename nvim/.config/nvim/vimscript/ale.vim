@@ -36,8 +36,8 @@ let g:ale_fixers = {
             \   'python': [
             \       'black',
             \   ],
-            \   'c#': [
-            \       'uncrustify',
+            \   'cs': [
+            \       'dotnet-format',
             \   ],
             \   'lua': [
             \       'lua-format',
@@ -48,6 +48,9 @@ let g:ale_fixers = {
             \   'go': [
             \       'gofmt',
             \       'goimports',
+            \   ],
+            \   'json': [
+            \       'fixjson',
             \   ],
             \}
 let g:ale_disable_lsp = 1
