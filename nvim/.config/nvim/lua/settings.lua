@@ -29,7 +29,10 @@ vim.cmd [[ autocmd FileType go :setlocal noexpandtab ]]
 
 vim.o.termguicolors = true
 vim.cmd('colorscheme plain')
-vim.o.background = 'dark'
+vim.o.background = 'light'
+
+-- If connecting over SSH then use the dark theme.
+if vim.env.SSH_CONNECTION then vim.o.background = 'dark' end
 
 vim.cmd('set invlist')
 vim.cmd('set listchars=tab:▸\\ ,eol:¬,trail:⋅,extends:❯,precedes:❮')
@@ -49,20 +52,34 @@ vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_li
 
 vim.cmd [[ autocmd FileType html,css,scss,javascript,json,typescript,typescriptreact,yaml,jsonnet,lua :setlocal sw=2 ts=2 sts=2 ]]
 
-vim.fn.sign_define("LspDiagnosticsSignError",
-                   {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning",
-                   {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"})
-vim.fn.sign_define("LspDiagnosticsSignHint",
-                   {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"})
-vim.fn.sign_define("LspDiagnosticsSignInformation",
-                   {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"})
+vim.fn.sign_define("LspDiagnosticsSignError", {
+    texthl = "LspDiagnosticsSignError",
+    text = "",
+    numhl = "LspDiagnosticsSignError"
+})
+vim.fn.sign_define("LspDiagnosticsSignWarning", {
+    texthl = "LspDiagnosticsSignWarning",
+    text = "",
+    numhl = "LspDiagnosticsSignWarning"
+})
+vim.fn.sign_define("LspDiagnosticsSignHint", {
+    texthl = "LspDiagnosticsSignHint",
+    text = "",
+    numhl = "LspDiagnosticsSignHint"
+})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {
+    texthl = "LspDiagnosticsSignInformation",
+    text = "",
+    numhl = "LspDiagnosticsSignInformation"
+})
 --
 -- symbols for autocomplete
 vim.lsp.protocol.CompletionItemKind = {
-  "   (Text) ", "   (Method)", "   (Function)", "   (Constructor)", " ﴲ  (Field)", "[] (Variable)",
-  "   (Class)", " ﰮ  (Interface)", "   (Module)", " ?  (Property)", "   (Unit)", "   (Value)",
-  "   (Enum)", "   (Keyword)", " ﬌  (Snippet)", "   (Color)", "   (File)", "   (Reference)",
-  "   (Folder)", "   (EnumMember)", " ﲀ  (Constant)", " ﳤ  (Struct)", "   (Event)", "   (Operator)",
-  "   (TypeParameter)"
+    "   (Text) ", "   (Method)", "   (Function)",
+    "   (Constructor)", " ﴲ  (Field)", "[] (Variable)", "   (Class)",
+    " ﰮ  (Interface)", "   (Module)", " ?  (Property)", "   (Unit)",
+    "   (Value)", "   (Enum)", "   (Keyword)", " ﬌  (Snippet)",
+    "   (Color)", "   (File)", "   (Reference)", "   (Folder)",
+    "   (EnumMember)", " ﲀ  (Constant)", " ﳤ  (Struct)", "   (Event)",
+    "   (Operator)", "   (TypeParameter)"
 }

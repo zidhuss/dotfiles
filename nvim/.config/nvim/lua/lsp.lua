@@ -58,14 +58,20 @@ end
 
 require'lspconfig'.gopls.setup {on_attach = on_attach}
 
+-- typescript organize imports
+local function organize_imports()
+  local params = {command = "_typescript.organizeImports", arguments = {vim.api.nvim_buf_get_name(0)}, title = ""}
+  vim.lsp.buf.execute_command(params)
+end
+
 require'lspconfig'.tsserver.setup {
   on_attach = function(client, bufnr)
     -- prefer prettier rather than tsserver for formatting
     client.resolved_capabilities.document_formatting = false
 
     on_attach(client, bufnr)
-
-  end
+  end,
+  commands = {OrganizeImports = {organize_imports, description = "Organize Imports"}}
 }
 require'lspconfig'.dockerls.setup {on_attach = on_attach}
 
@@ -80,6 +86,17 @@ require'lspconfig'.cssls.setup {on_attach = on_attach}
 
 -- python
 require'lspconfig'.pyright.setup {on_attach = on_attach}
+
+local pid = vim.fn.getpid()
+-- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
+local omnisharp_bin = "/usr/bin/omnisharp"
+-- on Windows
+-- local omnisharp_bin = "/path/to/omnisharp/OmniSharp.exe"
+require'lspconfig'.omnisharp.setup {
+  on_attach = on_attach,
+  cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)},
+  ...
+}
 
 require'lspconfig'.sumneko_lua.setup {
   on_attach = on_attach,
@@ -109,6 +126,7 @@ require'lspconfig'.sumneko_lua.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+-- TODO: We have 2 cssls setups
 require'lspconfig'.cssls.setup {capabilities = capabilities}
 
 -- TODO: fix on save
