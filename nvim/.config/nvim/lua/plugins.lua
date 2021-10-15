@@ -31,7 +31,8 @@ return require('packer').startup(function(use)
   use 'andreypopp/vim-colors-plain'
 
   -- text completion
-  use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
 
   -- tpope the man
   use 'tpope/vim-commentary'
@@ -50,19 +51,6 @@ return require('packer').startup(function(use)
 
   -- diffconflicts
   use {'whiteinge/diffconflicts'}
-
-  -- auto pairs
-  use {"steelsojka/pears.nvim"}
-  require"pears".setup(function(conf)
-    conf.preset "tag_matching"
-    conf.on_enter(function(pear_handle)
-      if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
-        vim.api.nvim_feedkeys(vim.fn['compe#confirm']('<CR>'), "n", true)
-      else
-        pear_handle()
-      end
-    end)
-  end)
 
   -- colour scheme
   use {'rktjmp/lush.nvim'}
@@ -83,10 +71,7 @@ return require('packer').startup(function(use)
   }
 
   -- gitsigns
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'}
-  }
+  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
   require('gitsigns').setup()
 
   -- leader keys
@@ -105,8 +90,8 @@ return require('packer').startup(function(use)
   }
 
   -- snippets
-  use {'hrsh7th/vim-vsnip'}
-  use {'hrsh7th/vim-vsnip-integ'}
+  use {'saadparwaiz1/cmp_luasnip'}
+  use {'L3MON4D3/LuaSnip'}
   use {'golang/vscode-go'}
   use {'dsznajder/vscode-es7-javascript-react-snippets'}
 

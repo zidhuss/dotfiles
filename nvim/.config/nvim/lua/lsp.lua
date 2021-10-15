@@ -1,6 +1,11 @@
 -- lsp saga ui
 require'lspsaga'.init_lsp_saga()
 
+-- Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- Runs when buffer attaches to language server
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -56,7 +61,7 @@ local on_attach = function(client, bufnr)
   end
 end
 
-require'lspconfig'.gopls.setup {on_attach = on_attach}
+require'lspconfig'.gopls.setup {on_attach = on_attach, capabilities = capabilities}
 
 -- typescript organize imports
 local function organize_imports()
@@ -71,21 +76,23 @@ require'lspconfig'.tsserver.setup {
 
     on_attach(client, bufnr)
   end,
-  commands = {OrganizeImports = {organize_imports, description = "Organize Imports"}}
+  commands = {OrganizeImports = {organize_imports, description = "Organize Imports"}},
+  capabilities = capabilities
 }
-require'lspconfig'.dockerls.setup {on_attach = on_attach}
+require'lspconfig'.dockerls.setup {on_attach = on_attach, capabilities = capabilities}
 
 require'lspconfig'.yamlls.setup {
   on_attach = on_attach,
-  settings = {yaml = {schemas = {kubernetes = 'k8s/*'}, format = {enable = false}}}
+  settings = {yaml = {schemas = {kubernetes = 'k8s/*'}, format = {enable = false}}},
+  capabilities = capabilities
 }
 
-require'lspconfig'.jsonls.setup {on_attach = on_attach}
+require'lspconfig'.jsonls.setup {on_attach = on_attach, capabilities = capabilities}
 
 require'lspconfig'.eslint.setup {on_attach = on_attach}
 
 -- python
-require'lspconfig'.pyright.setup {on_attach = on_attach}
+require'lspconfig'.pyright.setup {on_attach = on_attach, capabilities = capabilities}
 
 local pid = vim.fn.getpid()
 -- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
@@ -94,6 +101,7 @@ local omnisharp_bin = "/usr/bin/omnisharp"
 -- local omnisharp_bin = "/path/to/omnisharp/OmniSharp.exe"
 require'lspconfig'.omnisharp.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)},
   ...
 }
@@ -121,9 +129,5 @@ require'lspconfig'.sumneko_lua.setup {
     }
   }
 }
-
--- Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require'lspconfig'.cssls.setup {on_attach = on_attach, capabilities = capabilities}
