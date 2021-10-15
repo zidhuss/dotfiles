@@ -82,8 +82,6 @@ require'lspconfig'.yamlls.setup {
 
 require'lspconfig'.jsonls.setup {on_attach = on_attach}
 
-require'lspconfig'.cssls.setup {on_attach = on_attach}
-
 require'lspconfig'.eslint.setup {on_attach = on_attach}
 
 -- python
@@ -128,27 +126,4 @@ require'lspconfig'.sumneko_lua.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
--- TODO: We have 2 cssls setups
-require'lspconfig'.cssls.setup {capabilities = capabilities}
-
--- TODO: fix on save
-
--- local prettier = {formatCommand = "npx prettier --stdin-filepath ${INPUT}", formatStdin = true}
--- require'lspconfig'.efm.setup{
---   log_file = "/tmp/efm.log",
---   init_options = { document_formatting = true, code_action = false },
---   filetypes = { "typescript", "typescriptreact", "scss", "css" },
---   settings = {
---     root_marker = { '.git/' },
---     languages = {
---       typescriptreact = prettier,
---       typescript = prettier,
---       scss = prettier,
---       css = prettier,
---     }
---   },
---   on_attach = function(client, bufnr)
---     client.resolved_capabilities.document_formatting = true
---     on_attach(client, bufnr)
---   end
--- }
+require'lspconfig'.cssls.setup {on_attach = on_attach, capabilities = capabilities}
