@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
   -- text completion
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-path'
 
   -- tpope the man
   use 'tpope/vim-commentary'
