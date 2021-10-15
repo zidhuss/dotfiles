@@ -84,6 +84,8 @@ require'lspconfig'.jsonls.setup {on_attach = on_attach}
 
 require'lspconfig'.cssls.setup {on_attach = on_attach}
 
+require'lspconfig'.eslint.setup {on_attach = on_attach}
+
 -- python
 require'lspconfig'.pyright.setup {on_attach = on_attach}
 
