@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
 
   -- LSP plugins
   use 'neovim/nvim-lspconfig'
-  use 'glepnir/lspsaga.nvim'
+  use 'tami5/lspsaga.nvim'
   use 'kosayoda/nvim-lightbulb'
 
   -- plain colours
