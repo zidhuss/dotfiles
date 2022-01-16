@@ -32,16 +32,16 @@ local normal_keymap = {
   l = {
     name = '+lsp',
     a = {'<Cmd>Lspsaga code_action<CR>', 'code action'},
-    d = {'<Cmd>Telescope lsp_document_diagnostics<CR>', 'document diagnostics'},
-    D = {'<Cmd>Telescope lsp_workspace_diagnostics<CR>', 'worskpace diagnostics'}
+    d = {'<Cmd>Telescope document_diagnostics<CR>', 'document diagnostics'},
+    D = {'<Cmd>Telescope workspace_diagnostics<CR>', 'worskpace diagnostics'}
   },
 
   -- trouble
   x = {
     name = '+trouble',
     x = {'<cmd>Trouble<cr>', 'trouble'},
-    w = {"<cmd>Trouble lsp_workspace_diagnostics<cr>", 'workspace diagnostics'},
-    d = {"<cmd>Trouble lsp_document_diagnostics<cr>", 'document diagnostics'},
+    w = {"<cmd>Trouble workspace_diagnostics<cr>", 'workspace diagnostics'},
+    d = {"<cmd>Trouble document_diagnostics<cr>", 'document diagnostics'},
     l = {"<cmd>Trouble loclist<cr>", 'loclist'},
     q = {"<cmd>Trouble quickfix<cr>", 'quickfix'},
     t = {"<cmd>TodoTrouble<cr>", 'todo'}

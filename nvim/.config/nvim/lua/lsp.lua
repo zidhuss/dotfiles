@@ -26,15 +26,15 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua require("lspsaga.rename").rename()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", opts)
-  buf_set_keymap('n', ']d', "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", opts)
+  buf_set_keymap('n', '<space>e', '<cmd>Lspsaga show_line_diagnostics<cr>', opts)
+  buf_set_keymap('n', '[d', "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
+  buf_set_keymap('n', ']d', "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
   -- experimental
-  buf_set_keymap('n', '<c-f>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', opts)
-  buf_set_keymap('n', '<c-f>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', opts)
+  buf_set_keymap('n', '<c-u>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', {})
+  buf_set_keymap('n', '<c-d>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', {})
   buf_set_keymap('n', 'gs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
   buf_set_keymap('n', 'gh', "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
 
