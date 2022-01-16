@@ -56,5 +56,7 @@ let g:ale_fixers = {
 let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
 
+let g:ale_sql_pgformatter_options = '-g'
+
 let g:ale_linters = {}
 let g:ale_linters_explicit = 1
