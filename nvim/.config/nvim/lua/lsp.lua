@@ -94,6 +94,10 @@ require'lspconfig'.eslint.setup {on_attach = on_attach}
 -- python
 require'lspconfig'.pyright.setup {on_attach = on_attach, capabilities = capabilities}
 
+-- ruby
+require'lspconfig'.solargraph.setup{on_attach = on_attach, capabilities = capabilities}
+
+
 local pid = vim.fn.getpid()
 -- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
 local omnisharp_bin = "/usr/bin/omnisharp"

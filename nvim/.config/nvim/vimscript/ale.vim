@@ -30,6 +30,9 @@ let g:ale_fixers = {
             \   'javascriptreact': [
             \       'prettier',
             \   ],
+            \   'css': [
+            \       'prettier',
+            \   ],
             \   'scss': [
             \       'prettier',
             \   ],
@@ -41,6 +44,9 @@ let g:ale_fixers = {
             \   ],
             \   'lua': [
             \       'lua-format',
+            \   ],
+            \   'ruby': [
+            \       'rubocop',
             \   ],
             \   'sql': [
             \       'pgformatter',
