@@ -29,7 +29,7 @@ vim.cmd [[ autocmd FileType go :setlocal noexpandtab ]]
 
 vim.o.termguicolors = true
 vim.cmd('colorscheme plain')
-vim.o.background = 'light'
+vim.o.background = 'dark'
 
 -- If connecting over SSH then use the dark theme.
 if vim.env.SSH_CONNECTION then vim.o.background = 'dark' end

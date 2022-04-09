@@ -47,6 +47,10 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'nvim-treesitter/playground'}
 
+  use {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end}
+  use {'andymass/vim-matchup'}
+  use {'RRethy/nvim-treesitter-endwise'}
+
   -- markdown
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
 
@@ -55,7 +59,7 @@ return require('packer').startup(function(use)
 
   -- colour scheme
   use {'rktjmp/lush.nvim'}
-  use {'zidhuss/scrivener'}
+  -- use {'zidhuss/scrivener'}
 
   -- disagnostics menu
   use {
