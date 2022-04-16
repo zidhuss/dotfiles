@@ -1,4 +1,0 @@
-# vim: filetype=muttrc
-
-set smtp_url = "smtp://zidhussein@smtp.gmail.com:587/"
-set smtp_pass = `pass mail/google/zidhussein | head -1`
