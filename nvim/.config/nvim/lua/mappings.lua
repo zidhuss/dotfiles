@@ -66,7 +66,9 @@ local normal_keymap = {
       b = {'<Cmd>Telescope git_branches<CR>', 'branches'},
       s = {'<Cmd>Telescope git_status<CR>', 'status'}
     }
-  }
+  },
+
+  t = {name = '+nvim-tree', t = {'<Cmd>NvimTreeToggle<cr>', 'toggle'}, f = {'<Cmd>NvimTreeFocus<cr>', 'focus'}}
 }
 
 local visual_keymap = {y = {'"+y', 'yank clipboard'}}
