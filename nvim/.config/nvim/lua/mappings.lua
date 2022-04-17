@@ -47,6 +47,14 @@ local normal_keymap = {
     t = {"<cmd>TodoTrouble<cr>", 'todo'}
   },
 
+  g = {
+    name = '+git',
+    b = {'<cmd>lua require"gitsigns".blame_line{full=true}<CR>', 'blame'},
+    p = {'<cmd>Gitsigns preview_hunk<CR>', 'preview'},
+    r = {'<cmd>Gitsigns reset_hunk<CR>', 'reset'},
+    s = {'<cmd>Gitsigns stage_hunk<CR>', 'stage'}
+  },
+
   s = {
     name = '+search',
     b = {'<Cmd>Telescope buffers<CR>', 'buffers'},
