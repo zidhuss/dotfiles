@@ -106,8 +106,9 @@ return require('packer').startup(function(use)
   -- snippets
   use {'saadparwaiz1/cmp_luasnip'}
   use {'L3MON4D3/LuaSnip'}
-  use {'golang/vscode-go'}
-  use {'dsznajder/vscode-es7-javascript-react-snippets'}
+  -- use {'golang/vscode-go'}
+  -- use {'dsznajder/vscode-es7-javascript-react-snippets'}
+  use {'rafamadriz/friendly-snippets'}
 
   -- indent lines
   -- use {'lukas-reineke/indent-blankline.nvim', disabled = true}
