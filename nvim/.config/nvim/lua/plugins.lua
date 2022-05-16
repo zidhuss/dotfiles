@@ -116,7 +116,7 @@ return require('packer').startup(function(use)
   use {'rafamadriz/friendly-snippets'}
 
   -- indent lines
-  -- use {'lukas-reineke/indent-blankline.nvim', disabled = true}
+  use {'lukas-reineke/indent-blankline.nvim'}
 
   -- TODO: using to quickly get formatting
   use {'dense-analysis/ale'}
