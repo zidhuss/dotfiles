@@ -50,6 +50,7 @@ local normal_keymap = {
   g = {
     name = '+git',
     b = {'<cmd>lua require"gitsigns".blame_line{full=true}<CR>', 'blame'},
+    g = {'<cmd>LazyGit<CR>', 'lazygit'},
     p = {'<cmd>Gitsigns preview_hunk<CR>', 'preview'},
     r = {'<cmd>Gitsigns reset_hunk<CR>', 'reset'},
     s = {'<cmd>Gitsigns stage_hunk<CR>', 'stage'}
@@ -63,6 +64,7 @@ local normal_keymap = {
     r = {'<Cmd>Telescope resume<CR>', 'resume search'},
     s = {'<Cmd>Telescope live_grep<CR>', 'search with grep'},
     t = {'<Cmd>Telescope treesitter<CR>', 'treesitter symbols'},
+    w = {'<Cmd>Telescope grep_string<CR>', 'search word with grep'},
     c = {
       name = '+commands',
       c = {'<Cmd>Telescope commands<CR>', 'commands'},
