@@ -93,6 +93,10 @@ return require('packer').startup(function(use)
   -- lazyigt
   use 'kdheepak/lazygit.nvim'
 
+  -- link on github
+  use {'ruifm/gitlinker.nvim', requires = 'nvim-lua/plenary.nvim'}
+  require('gitlinker').setup()
+
   -- leader keys
   use {
     "folke/which-key.nvim",
