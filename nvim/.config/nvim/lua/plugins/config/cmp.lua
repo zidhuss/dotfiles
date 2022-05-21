@@ -1,11 +1,6 @@
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+local cmp = require('cmp')
+local luasnip = require('luasnip')
 
--- luasnip setup
-local luasnip = require 'luasnip'
-
--- nvim-cmp setup
-local cmp = require 'cmp'
 cmp.setup {
   snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
   mapping = {
@@ -37,6 +32,7 @@ cmp.setup {
   },
   sources = {{name = 'nvim_lsp'}, {name = 'luasnip'}, {name = 'path'}, {name = 'buffer'}, {name = 'emoji'}}
 }
+
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({map_char = {tex = ''}}))
 

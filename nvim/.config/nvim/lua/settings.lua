@@ -24,6 +24,9 @@ vim.o.expandtab = true
 
 vim.o.shiftround = true
 
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
 -- use tabs in Go code
 vim.cmd [[ autocmd FileType go :setlocal noexpandtab ]]
 
