@@ -86,6 +86,9 @@ return require('packer').startup(function(use)
     config = function() require'nvim-tree'.setup {} end
   }
 
+  -- debugging
+  -- use 'mfussenegger/nvim-dap'
+
   -- gitsigns
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
   require('gitsigns').setup()
@@ -115,12 +118,10 @@ return require('packer').startup(function(use)
   -- snippets
   use {'saadparwaiz1/cmp_luasnip'}
   use {'L3MON4D3/LuaSnip'}
-  -- use {'golang/vscode-go'}
-  -- use {'dsznajder/vscode-es7-javascript-react-snippets'}
   use {'rafamadriz/friendly-snippets'}
 
   -- indent lines
-  use {'lukas-reineke/indent-blankline.nvim'}
+  use {'lukas-reineke/indent-blankline.nvim', config = require 'plugins.config.indentblankline'}
 
   -- TODO: using to quickly get formatting
   use {'dense-analysis/ale'}

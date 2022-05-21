@@ -70,8 +70,6 @@ vim.lsp.protocol.CompletionItemKind = {
   "   (TypeParameter)"
 }
 
-require("indent_blankline").setup {show_current_context = true}
-
 local actions = require('telescope.actions')
 local trouble = require('trouble.providers.telescope')
 local telescope = require('telescope')
