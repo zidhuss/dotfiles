@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   }
 
   -- treesitter
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = require('plugins.config.treesitter')}
   use {'nvim-treesitter/playground'}
 
   use {'windwp/nvim-autopairs', config = require('plugins.config.autopairs')}
