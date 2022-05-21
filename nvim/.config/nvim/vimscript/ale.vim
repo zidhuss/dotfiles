@@ -38,6 +38,7 @@ let g:ale_fixers = {
             \   ],
             \   'python': [
             \       'black',
+            \       'isort',
             \   ],
             \   'cs': [
             \       'dotnet-format',
