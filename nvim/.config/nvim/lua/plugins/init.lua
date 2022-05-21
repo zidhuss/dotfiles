@@ -43,13 +43,17 @@ return require('packer').startup(function(use)
   use "tpope/vim-unimpaired"
 
   -- telescope
-  use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+    config = require('plugins.config.telescope')
+  }
 
   -- treesitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'nvim-treesitter/playground'}
 
-  use {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end}
+  use {'windwp/nvim-autopairs', config = require('plugins.config.autopairs')}
   use {'andymass/vim-matchup'}
   use {'RRethy/nvim-treesitter-endwise'}
 
@@ -64,18 +68,10 @@ return require('packer').startup(function(use)
   -- use {'zidhuss/scrivener'}
 
   -- disagnostics menu
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function() require("trouble").setup {} end
-  }
+  use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", config = require("plugins.config.trouble")}
 
   -- higlight comments
-  use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function() require("todo-comments").setup {} end
-  }
+  use {"folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim", config = require('plugins.config.todocomments')}
 
   -- file explorer
   use {
@@ -83,7 +79,7 @@ return require('packer').startup(function(use)
     requires = {
       'kyazdani42/nvim-web-devicons' -- optional, for file icon
     },
-    config = function() require'nvim-tree'.setup {} end
+    config = require('plugins.config.nvimtree')
   }
 
   -- debugging
@@ -101,19 +97,7 @@ return require('packer').startup(function(use)
   require('gitlinker').setup()
 
   -- leader keys
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {
-        plugins = {
-          spelling = {
-            enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-            suggestions = 20 -- how many suggestions should be shown in the list?
-          }
-        }
-      }
-    end
-  }
+  use {"folke/which-key.nvim", config = require('plugins.config.whichkey')}
 
   -- snippets
   use {'saadparwaiz1/cmp_luasnip'}
@@ -121,7 +105,7 @@ return require('packer').startup(function(use)
   use {'rafamadriz/friendly-snippets'}
 
   -- indent lines
-  use {'lukas-reineke/indent-blankline.nvim', config = require 'plugins.config.indentblankline'}
+  use {'lukas-reineke/indent-blankline.nvim', config = require('plugins.config.indentblankline')}
 
   -- TODO: using to quickly get formatting
   use {'dense-analysis/ale'}
