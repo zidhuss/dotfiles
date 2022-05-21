@@ -24,6 +24,8 @@ vim.o.expandtab = true
 
 vim.o.shiftround = true
 
+vim.o.spell = true
+
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 

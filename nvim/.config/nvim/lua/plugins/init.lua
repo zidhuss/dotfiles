@@ -53,6 +53,8 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = require('plugins.config.treesitter')}
   use {'nvim-treesitter/playground'}
 
+  use {'lewis6991/spellsitter.nvim', config = require('plugins.config.spellsitter')}
+
   use {'windwp/nvim-autopairs', config = require('plugins.config.autopairs')}
   use {'andymass/vim-matchup'}
   use {'RRethy/nvim-treesitter-endwise'}
