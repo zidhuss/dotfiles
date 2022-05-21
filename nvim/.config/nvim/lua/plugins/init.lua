@@ -86,15 +86,13 @@ return require('packer').startup(function(use)
   -- use 'mfussenegger/nvim-dap'
 
   -- gitsigns
-  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
-  require('gitsigns').setup()
+  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = require('plugins.config.gitsigns')}
 
   -- lazyigt
   use 'kdheepak/lazygit.nvim'
 
   -- link on github
-  use {'ruifm/gitlinker.nvim', requires = 'nvim-lua/plenary.nvim'}
-  require('gitlinker').setup()
+  use {'ruifm/gitlinker.nvim', requires = 'nvim-lua/plenary.nvim', config = require('plugins.config.gitlinker')}
 
   -- leader keys
   use {"folke/which-key.nvim", config = require('plugins.config.whichkey')}
