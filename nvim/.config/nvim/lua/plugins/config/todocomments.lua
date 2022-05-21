@@ -1,3 +1,3 @@
 local comments = require("todo-comments")
 
-comments.setup {}
+comments.setup({})

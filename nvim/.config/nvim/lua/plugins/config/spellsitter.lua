@@ -1,5 +1,7 @@
-local ok, spellsitter = pcall(require, 'spellsitter')
+local ok, spellsitter = pcall(require, "spellsitter")
 
-if not ok then return end
+if not ok then
+	return
+end
 
-spellsitter.setup {}
+spellsitter.setup({})

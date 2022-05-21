@@ -1,3 +1,3 @@
-local gitlinker = require('gitlinker')
+local gitlinker = require("gitlinker")
 
-gitlinker.setup {}
+gitlinker.setup({})

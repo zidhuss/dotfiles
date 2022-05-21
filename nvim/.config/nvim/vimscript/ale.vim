@@ -44,7 +44,7 @@ let g:ale_fixers = {
             \       'dotnet-format',
             \   ],
             \   'lua': [
-            \       'lua-format',
+            \       'stylua',
             \   ],
             \   'ruby': [
             \       'rubocop',

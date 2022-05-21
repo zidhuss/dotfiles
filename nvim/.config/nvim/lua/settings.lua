@@ -27,22 +27,24 @@ vim.o.shiftround = true
 vim.o.spell = true
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- use tabs in Go code
-vim.cmd [[ autocmd FileType go :setlocal noexpandtab ]]
+vim.cmd([[ autocmd FileType go :setlocal noexpandtab ]])
 
 vim.o.termguicolors = true
-vim.cmd('colorscheme plain')
-vim.o.background = 'dark'
+vim.cmd("colorscheme scrivener")
+vim.o.background = "dark"
 
 -- If connecting over SSH then use the dark theme.
-if vim.env.SSH_CONNECTION then vim.o.background = 'dark' end
+if vim.env.SSH_CONNECTION then
+	vim.o.background = "dark"
+end
 
-vim.cmd('set invlist')
-vim.cmd('set listchars=tab:▸\\ ,eol:¬,trail:⋅,extends:❯,precedes:❮')
+vim.cmd("set invlist")
+vim.cmd("set listchars=tab:▸\\ ,eol:¬,trail:⋅,extends:❯,precedes:❮")
 
-vim.cmd('set signcolumn=yes')
+vim.cmd("set signcolumn=yes")
 
 -- markdown in firenvim on github: TODO: not working atm
 -- vim.cmd('au BufEnter github.com_*.txt set filetype=markdown')
@@ -52,14 +54,24 @@ vim.cmd('set signcolumn=yes')
 --     vim.o.laststatus = false
 -- end
 
-vim.cmd [[ autocmd FileType html,css,scss,javascript,json,typescript,typescriptreact,yaml,jsonnet,lua :setlocal sw=2 ts=2 sts=2 ]]
+vim.cmd(
+	[[ autocmd FileType html,css,scss,javascript,json,typescript,typescriptreact,yaml,jsonnet,lua :setlocal sw=2 ts=2 sts=2 ]]
+)
 
-vim.fn.sign_define("LspDiagnosticsSignError",
-                   {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning",
-                   {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"})
-vim.fn.sign_define("LspDiagnosticsSignHint",
-                   {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"})
-vim.fn.sign_define("LspDiagnosticsSignInformation",
-                   {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"})
+vim.fn.sign_define(
+	"LspDiagnosticsSignError",
+	{ texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError" }
+)
+vim.fn.sign_define(
+	"LspDiagnosticsSignWarning",
+	{ texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning" }
+)
+vim.fn.sign_define(
+	"LspDiagnosticsSignHint",
+	{ texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
+)
+vim.fn.sign_define(
+	"LspDiagnosticsSignInformation",
+	{ texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
+)
 --

@@ -1,3 +1,3 @@
-local nvimtree = require('nvim-tree')
+local nvimtree = require("nvim-tree")
 
-nvimtree.setup {}
+nvimtree.setup({})
