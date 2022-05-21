@@ -33,7 +33,7 @@ local normal_keymap = {
   -- lsp mappings
   l = {
     name = '+lsp',
-    a = {'<Cmd>Lspsaga code_action<CR>', 'code action'},
+    a = {vim.lsp.buf.code_action, 'code action'},
     d = {'<Cmd>Telescope document_diagnostics<CR>', 'document diagnostics'},
     D = {'<Cmd>Telescope workspace_diagnostics<CR>', 'worskpace diagnostics'}
   },
