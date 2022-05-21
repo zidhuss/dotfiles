@@ -24,6 +24,8 @@ local normal_keymap = {
 
   ['<CR>'] = {'<Cmd>Telescope find_files<CR>', 'find files'},
 
+  c = {'<cmd>TSContextToggle<cr>', 'tree sitter context toggle'},
+
   r = {'<Cmd>luafile ' .. os.getenv('HOME') .. '/.config/nvim/init.lua<cr>', 'reload config'},
 
   p = {'"+p', 'paste clipboard'},

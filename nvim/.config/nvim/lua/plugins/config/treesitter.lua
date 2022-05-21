@@ -9,6 +9,8 @@ treesitter.setup {
   indent = {enable = true},
   autotag = {enable = true},
   endwise = {enable = true},
-  matchup = {enable = true}
+  matchup = {enable = true},
+  context_commentstring = {enable = true}
 }
 
+require('treesitter-context').setup {enabled = true}
