@@ -33,7 +33,10 @@ return require('packer').startup(function(use)
   -- text completion
   use {
     'hrsh7th/nvim-cmp',
-    requires = {use 'hrsh7th/cmp-nvim-lsp', use 'hrsh7th/cmp-path', use 'hrsh7th/cmp-buffer', use 'hrsh7th/cmp-emoji'},
+    requires = {
+      'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-nvim-lsp-signature-help', 'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-emoji', 'hrsh7th/cmp-cmdline', 'ray-x/cmp-treesitter'
+    },
     config = require('plugins.config.cmp')
   }
 
