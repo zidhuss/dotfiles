@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
   -- LSP plugins
   use 'neovim/nvim-lspconfig'
   use 'tami5/lspsaga.nvim'
-  use 'kosayoda/nvim-lightbulb'
+  use {'kosayoda/nvim-lightbulb', config = require('plugins.config.lightbulb')}
 
   -- plain colours
   use 'andreypopp/vim-colors-plain'
