@@ -91,6 +91,13 @@ return require("packer").startup(function(use)
 	use({ "rktjmp/lush.nvim" })
 	use({ "zidhuss/scrivener" })
 
+	use({
+		"cormacrelf/dark-notify",
+		run = function()
+			require("dark_notify").run()
+		end,
+	})
+
 	-- disagnostics menu
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", config = require("plugins.config.trouble") })
 

@@ -33,8 +33,8 @@ vim.o.completeopt = "menuone,noselect"
 vim.cmd([[ autocmd FileType go :setlocal noexpandtab ]])
 
 vim.o.termguicolors = true
+vim.o.background = "light"
 vim.cmd("colorscheme scrivener")
-vim.o.background = "dark"
 
 -- If connecting over SSH then use the dark theme.
 if vim.env.SSH_CONNECTION then
