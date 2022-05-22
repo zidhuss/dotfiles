@@ -82,7 +82,12 @@ return require("packer").startup(function(use)
 	use({ "RRethy/nvim-treesitter-endwise" })
 
 	-- markdown
-	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install" })
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	-- diffconflicts
 	use({ "whiteinge/diffconflicts" })
