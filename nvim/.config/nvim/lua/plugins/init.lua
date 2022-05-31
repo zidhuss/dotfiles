@@ -98,9 +98,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"cormacrelf/dark-notify",
-		run = function()
-			require("dark_notify").run()
-		end,
+		config = require("plugins.config.darknotify"),
 	})
 
 	-- disagnostics menu
