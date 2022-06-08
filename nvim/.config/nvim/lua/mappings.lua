@@ -82,7 +82,23 @@ local normal_keymap = {
 		},
 	},
 
-	t = { name = "+nvim-tree", t = { "<Cmd>NvimTreeToggle<cr>", "toggle" }, f = { "<Cmd>NvimTreeFocus<cr>", "focus" } },
+	f = {
+		name = "+nvim-tree",
+		t = { "<Cmd>NvimTreeToggle<cr>", "toggle" },
+		f = { "<Cmd>NvimTreeFocus<cr>", "focus" },
+	},
+
+	t = {
+		name = "+test",
+		f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "file" },
+		n = { "<cmd>lua require('neotest').run.run()<cr>", "nearest" },
+		-- s = {" <cmd>lua require("neotest").run(vim.fn.getcwd())<CR>", "suite" }
+		-- d = { "<cmd>lua require('neotest').run({strategy = 'dap'})<CR>", "with dap" },
+		a = { "<cmd>lua require('neotest').run.attach()<CR>", "attach" },
+		o = { "<cmd>lua require('neotest').output.open({ enter = true })<CR>", "output" },
+		O = { "<cmd>lua require('neotest').output.open({enter = true, short = true})<CR>", "short output" },
+		p = { "<cmd>lua require('neotest').summary.toggle()<CR>", "print summary" },
+	},
 }
 
 local visual_keymap = { y = { '"+y', "yank clipboard" } }

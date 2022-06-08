@@ -148,6 +148,18 @@ return require("packer").startup(function(use)
 	-- indent lines
 	use({ "lukas-reineke/indent-blankline.nvim", config = require("plugins.config.indentblankline") })
 
+	use({
+		"rcarriga/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"rcarriga/neotest-vim-test",
+			"vim-test/vim-test",
+			"antoinemadec/FixCursorHold.nvim",
+		},
+		config = require("plugins.config.neotest"),
+	})
+
 	-- TODO: using to quickly get formatting
 	use({ "dense-analysis/ale" })
 end)
