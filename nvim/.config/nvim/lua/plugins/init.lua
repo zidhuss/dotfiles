@@ -160,6 +160,10 @@ return require("packer").startup(function(use)
 		config = require("plugins.config.neotest"),
 	})
 
+	use({ "github/copilot.vim" })
+	use({ "zbirenbaum/copilot.lua", config = require("plugins.config.copilot") })
+	use({ "zbirenbaum/copilot-cmp" })
+
 	-- TODO: using to quickly get formatting
 	use({ "dense-analysis/ale" })
 end)

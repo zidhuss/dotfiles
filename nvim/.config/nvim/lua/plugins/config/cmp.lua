@@ -80,6 +80,7 @@ cmp.setup({
 		{ name = "emoji" },
 		{ name = "treesitter" },
 		{ name = "nvim_lsp_signature_help" },
+		{ name = "copilot" },
 	},
 })
 
