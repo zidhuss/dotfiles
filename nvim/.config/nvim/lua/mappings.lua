@@ -86,6 +86,7 @@ local normal_keymap = {
 		name = "+nvim-tree",
 		t = { "<Cmd>NvimTreeToggle<cr>", "toggle" },
 		f = { "<Cmd>NvimTreeFocus<cr>", "focus" },
+		o = { "<Cmd>NvimTreeFindFile<cr>", "open file in tree" },
 	},
 
 	t = {
