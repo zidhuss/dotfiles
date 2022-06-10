@@ -31,6 +31,12 @@ return require("packer").startup(function(use)
 	use("tami5/lspsaga.nvim")
 	use({ "kosayoda/nvim-lightbulb", config = require("plugins.config.lightbulb") })
 
+	-- show lsp progress
+	use({
+		"j-hui/fidget.nvim",
+		config = require("plugins.config.fidget"),
+	})
+
 	-- plain colours
 	use("andreypopp/vim-colors-plain")
 
