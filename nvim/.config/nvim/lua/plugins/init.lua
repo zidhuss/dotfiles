@@ -155,11 +155,12 @@ return require("packer").startup(function(use)
 	use({ "lukas-reineke/indent-blankline.nvim", config = require("plugins.config.indentblankline") })
 
 	use({
-		"rcarriga/neotest",
+		"nvim-neotest/neotest",
 		requires = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			"rcarriga/neotest-vim-test",
+			"nvim-neotest/neotest-python",
+			"nvim-neotest/neotest-vim-test",
 			"vim-test/vim-test",
 			"antoinemadec/FixCursorHold.nvim",
 		},
