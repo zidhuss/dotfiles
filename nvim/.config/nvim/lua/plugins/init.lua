@@ -24,6 +24,7 @@ return require("packer").startup(function(use)
 		run = function()
 			vim.fn["firenvim#install"](0)
 		end,
+		config = require("plugins.config.firenvim"),
 	})
 
 	-- LSP plugins
