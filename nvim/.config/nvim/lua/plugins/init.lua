@@ -171,6 +171,8 @@ return require("packer").startup(function(use)
 	use({ "zbirenbaum/copilot.lua", config = require("plugins.config.copilot") })
 	use({ "zbirenbaum/copilot-cmp" })
 
-	-- TODO: using to quickly get formatting
-	use({ "dense-analysis/ale" })
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = require("plugins.config.nullls"),
+	})
 end)
