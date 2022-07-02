@@ -1,7 +1,7 @@
 [user]
 	name = Hussein Al Abry
 	email = hussein@zidhuss.tech
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhUktjsxUkkZybwH+NWcZajqfhIUEr+tdX1iFWo6YgJ
+	signingkey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhUktjsxUkkZybwH+NWcZajqfhIUEr+tdX1iFWo6YgJ
 [init]
 	defaultBranch = main
 [commit]
@@ -10,7 +10,7 @@
 [merge]
 	conflictstyle = diff3
 [core]
-	excludesfile = /Users/abry/.gitignore
+	excludesfile = ~/.gitignore
     pager = delta
 [interactive]
     diffFilter = delta --color-only
@@ -25,3 +25,7 @@
     light = true    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 [gpg]
 	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed_signers
+[log]
+	showSignature = true
