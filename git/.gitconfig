@@ -29,3 +29,5 @@
 	allowedSignersFile = ~/.config/git/allowed_signers
 [log]
 	showSignature = true
+[url "git@github.com:"]
+    insteadOf = "https://github.com/"
