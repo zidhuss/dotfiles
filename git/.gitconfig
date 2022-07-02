@@ -1,10 +1,12 @@
 [user]
 	name = Hussein Al Abry
 	email = hussein@zidhuss.tech
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhUktjsxUkkZybwH+NWcZajqfhIUEr+tdX1iFWo6YgJ
 [init]
 	defaultBranch = main
 [commit]
 	verbose = true
+	gpgsign = true
 [merge]
 	conflictstyle = diff3
 [core]
@@ -21,3 +23,5 @@
 [delta]
     navigate = true # use n and N to move between diff sections
     light = true    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[gpg]
+	format = ssh
