@@ -31,3 +31,5 @@
 	showSignature = true
 [url "git@github.com:"]
     insteadOf = "https://github.com/"
+[push]
+	autoSetupRemote = true
