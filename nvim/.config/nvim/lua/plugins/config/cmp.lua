@@ -1,33 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-
-local icons = {
-	Text = "",
-	Method = "",
-	Function = "",
-	Constructor = "⌘",
-	Field = "ﰠ",
-	Variable = "",
-	Class = "ﴯ",
-	Interface = "",
-	Module = "",
-	Property = "ﰠ",
-	Unit = " ",
-	Value = "",
-	Enum = "",
-	Keyword = " ",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "פּ",
-	Event = "",
-	Operator = "",
-	TypeParameter = " ",
-}
+local lspkind = require("lspkind")
 
 cmp.setup({
 	experimental = { ghost_text = true },
@@ -38,12 +11,11 @@ cmp.setup({
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
-		format = function(_, vim_item)
-			vim_item.menu = vim_item.kind
-			vim_item.kind = icons[vim_item.kind]
-
-			return vim_item
-		end,
+		format = lspkind.cmp_format({
+			mode = "text_symbol",
+			maxwidth = 50,
+			symbol_map = { Copilot = "" },
+		}),
 	},
 	mapping = {
 		["<C-p>"] = cmp.mapping.select_prev_item(),

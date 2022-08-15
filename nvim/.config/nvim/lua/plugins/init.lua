@@ -52,6 +52,7 @@ return require("packer").startup(function(use)
 			"hrsh7th/cmp-emoji",
 			"hrsh7th/cmp-cmdline",
 			"ray-x/cmp-treesitter",
+			"onsails/lspkind.nvim",
 		},
 		config = require("plugins.config.cmp"),
 	})
