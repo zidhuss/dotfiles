@@ -51,6 +51,7 @@ return require("packer").startup(function(use)
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-emoji",
 			"hrsh7th/cmp-cmdline",
+			"petertriho/cmp-git",
 			"ray-x/cmp-treesitter",
 			"onsails/lspkind.nvim",
 		},

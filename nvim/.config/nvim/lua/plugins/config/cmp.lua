@@ -61,6 +61,7 @@ cmp.setup({
 		{ name = "treesitter" },
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "copilot" },
+		{ name = "git" },
 	},
 })
 
