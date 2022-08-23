@@ -93,6 +93,7 @@ local normal_keymap = {
 		name = "+test",
 		f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "file" },
 		n = { "<cmd>lua require('neotest').run.run()<cr>", "nearest" },
+		l = { "<cmd>lua require('neotest').run.run_last()<cr>", "last" },
 		-- s = {" <cmd>lua require("neotest").run(vim.fn.getcwd())<CR>", "suite" }
 		-- d = { "<cmd>lua require('neotest').run({strategy = 'dap'})<CR>", "with dap" },
 		a = { "<cmd>lua require('neotest').run.attach()<CR>", "attach" },
