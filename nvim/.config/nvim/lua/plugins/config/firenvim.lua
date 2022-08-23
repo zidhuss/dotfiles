@@ -10,7 +10,7 @@ vim.cmd([[
 
   if exists('g:started_by_firenvim')
     set laststatus=0
-    set guifont=Fira_Code:h18
+    set guifont=FiraCode\ Nerd\ Font:h18
   endif
 
 
