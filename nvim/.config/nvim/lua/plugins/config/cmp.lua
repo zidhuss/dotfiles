@@ -65,14 +65,23 @@ cmp.setup({
 	},
 })
 
-cmp.setup.cmdline(
-	"/",
-	{ mapping = cmp.mapping.preset.cmdline(), sources = { { name = "treesitter" }, { name = "buffer" } } }
-)
+cmp.setup.cmdline("/", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "treesitter" },
+		{ name = "buffer" },
+	},
+})
 
-cmp.setup.cmdline(":", { sources = { { name = "cmdline" } }, mapping = cmp.mapping.preset.cmdline() })
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "cmdline" },
+	},
+})
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
 require("luasnip.loaders.from_vscode").lazy_load()
+require("cmp_git").setup()
