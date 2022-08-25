@@ -80,6 +80,7 @@ return require("packer").startup(function(use)
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-context",
+			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 
 		config = require("plugins.config.treesitter"),
