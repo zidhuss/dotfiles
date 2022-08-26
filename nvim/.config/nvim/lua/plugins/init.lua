@@ -185,6 +185,9 @@ return require("packer").startup(function(use)
 		"jose-elias-alvarez/null-ls.nvim",
 		config = require("plugins.config.nullls"),
 	})
+	-- beancount syntax
+	use({ "nathangrigg/vim-beancount" })
+
 	use({
 		"pwntester/octo.nvim",
 		requires = {
