@@ -185,4 +185,13 @@ return require("packer").startup(function(use)
 		"jose-elias-alvarez/null-ls.nvim",
 		config = require("plugins.config.nullls"),
 	})
+	use({
+		"pwntester/octo.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"kyazdani42/nvim-web-devicons",
+		},
+		config = require("plugins.config.octo"),
+	})
 end)
