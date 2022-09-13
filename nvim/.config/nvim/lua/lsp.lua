@@ -69,7 +69,7 @@ end
 require("lspconfig").tsserver.setup({
 	on_attach = function(client, bufnr)
 		-- prefer prettier rather than tsserver for formatting
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
 
 		on_attach(client, bufnr)
 	end,
