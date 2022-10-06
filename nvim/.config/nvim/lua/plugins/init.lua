@@ -21,6 +21,8 @@ return require("packer").startup(function(use)
 	-- package manager
 	use({ "wbthomason/packer.nvim" })
 
+	use("lewis6991/impatient.nvim")
+
 	use("christoomey/vim-tmux-navigator")
 
 	-- firefox integration
