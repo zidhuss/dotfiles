@@ -8,7 +8,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute("packadd packer.nvim")
 end
 
-vim.cmd("autocmd BufWritePost plugins.lua PackerCompile") -- Auto compile when there are changes in plugins.lua
+vim.cmd([[
+augroup Packer
+  autocmd!
+  autocmd BufWritePost init.lua PackerCompile
+augroup end
+]])
 
 require("packer").init({ display = { auto_clean = false }, git = { timeout = 180, clone_timeout = 180 } })
 
@@ -24,18 +29,27 @@ return require("packer").startup(function(use)
 		run = function()
 			vim.fn["firenvim#install"](0)
 		end,
-		config = require("plugins.config.firenvim"),
+		config = function()
+			require("plugins.config.firenvim")
+		end,
 	})
 
 	-- LSP plugins
 	use("neovim/nvim-lspconfig")
 	use("tami5/lspsaga.nvim")
-	use({ "kosayoda/nvim-lightbulb", config = require("plugins.config.lightbulb") })
+	use({
+		"kosayoda/nvim-lightbulb",
+		config = function()
+			require("plugins.config.lightbulb")
+		end,
+	})
 
 	-- show lsp progress
 	use({
 		"j-hui/fidget.nvim",
-		config = require("plugins.config.fidget"),
+		config = function()
+			require("plugins.config.fidget")
+		end,
 	})
 
 	-- plain colours
@@ -55,7 +69,9 @@ return require("packer").startup(function(use)
 			"ray-x/cmp-treesitter",
 			"onsails/lspkind.nvim",
 		},
-		config = require("plugins.config.cmp"),
+		config = function()
+			require("plugins.config.cmp")
+		end,
 	})
 
 	-- tpope the man
@@ -68,7 +84,9 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
-		config = require("plugins.config.telescope"),
+		config = function()
+			require("plugins.config.telescope")
+		end,
 	})
 
 	-- treesitter
@@ -84,12 +102,24 @@ return require("packer").startup(function(use)
 			"windwp/nvim-ts-autotag",
 		},
 
-		config = require("plugins.config.treesitter"),
+		config = function()
+			require("plugins.config.treesitter")
+		end,
 	})
 
-	use({ "lewis6991/spellsitter.nvim", config = require("plugins.config.spellsitter") })
+	use({
+		"lewis6991/spellsitter.nvim",
+		config = function()
+			require("plugins.config.spellsitter")
+		end,
+	})
 
-	use({ "windwp/nvim-autopairs", config = require("plugins.config.autopairs") })
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("plugins.config.autopairs")
+		end,
+	})
 	use({ "andymass/vim-matchup" })
 	use({ "RRethy/nvim-treesitter-endwise" })
 
@@ -110,17 +140,27 @@ return require("packer").startup(function(use)
 
 	use({
 		"cormacrelf/dark-notify",
-		config = require("plugins.config.darknotify"),
+		config = function()
+			require("plugins.config.darknotify")
+		end,
 	})
 
 	-- disagnostics menu
-	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", config = require("plugins.config.trouble") })
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("plugins.config.trouble")
+		end,
+	})
 
 	-- higlight comments
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
-		config = require("plugins.config.todocomments"),
+		config = function()
+			require("plugins.config.todocomments")
+		end,
 	})
 
 	-- file explorer
@@ -129,7 +169,9 @@ return require("packer").startup(function(use)
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
-		config = require("plugins.config.nvimtree"),
+		config = function()
+			require("plugins.config.nvimtree")
+		end,
 	})
 
 	-- debugging
@@ -139,17 +181,30 @@ return require("packer").startup(function(use)
 	use({
 		"lewis6991/gitsigns.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
-		config = require("plugins.config.gitsigns"),
+		config = function()
+			require("plugins.config.gitsigns")
+		end,
 	})
 
 	-- lazyigt
 	use("kdheepak/lazygit.nvim")
 
 	-- link on github
-	use({ "ruifm/gitlinker.nvim", requires = "nvim-lua/plenary.nvim", config = require("plugins.config.gitlinker") })
+	use({
+		"ruifm/gitlinker.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("plugins.config.gitlinker")
+		end,
+	})
 
 	-- leader keys
-	use({ "folke/which-key.nvim", config = require("plugins.config.whichkey") })
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("plugins.config.whichkey")
+		end,
+	})
 
 	-- snippets
 	use({ "saadparwaiz1/cmp_luasnip" })
@@ -158,11 +213,18 @@ return require("packer").startup(function(use)
 
 	use({
 		"rmagatti/auto-session",
-		config = require("plugins.config.autosession"),
+		config = function()
+			require("plugins.config.autosession")
+		end,
 	})
 
 	-- indent lines
-	use({ "lukas-reineke/indent-blankline.nvim", config = require("plugins.config.indentblankline") })
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("plugins.config.indentblankline")
+		end,
+	})
 
 	use({
 		"nvim-neotest/neotest",
@@ -174,17 +236,26 @@ return require("packer").startup(function(use)
 			"antoinemadec/FixCursorHold.nvim",
 			"olimorris/neotest-rspec",
 		},
-		config = require("plugins.config.neotest"),
+		config = function()
+			require("plugins.config.neotest")
+		end,
 	})
 
-	use({ "zbirenbaum/copilot.lua", config = require("plugins.config.copilot") })
+	use({
+		"zbirenbaum/copilot.lua",
+		config = function()
+			require("plugins.config.copilot")
+		end,
+	})
 	use({
 		"zbirenbaum/copilot-cmp",
 	})
 
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		config = require("plugins.config.nullls"),
+		config = function()
+			require("plugins.config.nullls")
+		end,
 	})
 	-- beancount syntax
 	use({ "nathangrigg/vim-beancount" })
@@ -196,6 +267,8 @@ return require("packer").startup(function(use)
 			"nvim-telescope/telescope.nvim",
 			"kyazdani42/nvim-web-devicons",
 		},
-		config = require("plugins.config.octo"),
+		config = function()
+			require("plugins.config.octo")
+		end,
 	})
 end)
