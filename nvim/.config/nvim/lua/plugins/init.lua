@@ -176,9 +176,10 @@ return require("packer").startup(function(use)
 		config = require("plugins.config.neotest"),
 	})
 
-	use({ "github/copilot.vim" })
 	use({ "zbirenbaum/copilot.lua", config = require("plugins.config.copilot") })
-	use({ "zbirenbaum/copilot-cmp" })
+	use({
+		"zbirenbaum/copilot-cmp",
+	})
 
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
