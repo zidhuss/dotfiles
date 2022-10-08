@@ -240,6 +240,7 @@ return require("packer").startup(function(use)
 			"vim-test/vim-test",
 			"antoinemadec/FixCursorHold.nvim",
 			"olimorris/neotest-rspec",
+			"haydenmeade/neotest-jest",
 		},
 		config = function()
 			require("plugins.config.neotest")
