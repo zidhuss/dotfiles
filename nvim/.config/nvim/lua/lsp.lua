@@ -39,23 +39,6 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<c-d>", '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', {})
 	buf_set_keymap("n", "gs", "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
 	buf_set_keymap("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
-
-	-- Set autocommands conditional on server_capabilities
-	if client.server_capabilities.documentFormattingProvider then
-		vim.api.nvim_exec(
-			[[
-      hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-      hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-      hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-			false
-		)
-	end
 end
 
 require("lspconfig").gopls.setup({ on_attach = on_attach, capabilities = capabilities })
