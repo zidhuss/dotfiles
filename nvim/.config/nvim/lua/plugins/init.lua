@@ -253,13 +253,14 @@ return require("packer").startup(function(use)
 	})
 
 	use({
-		"zbirenbaum/copilot.lua",
+		"zbirenbaum/copilot-cmp",
+		requires = {
+			"hrsh7th/nvim-cmp",
+			"zbirenbaum/copilot.lua",
+		},
 		config = function()
 			require("plugins.config.copilot")
 		end,
-	})
-	use({
-		"zbirenbaum/copilot-cmp",
 	})
 
 	use({
