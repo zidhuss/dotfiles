@@ -118,13 +118,6 @@ return require("packer").startup(function(use)
 	})
 
 	use({
-		"lewis6991/spellsitter.nvim",
-		config = function()
-			require("plugins.config.spellsitter")
-		end,
-	})
-
-	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("plugins.config.autopairs")
