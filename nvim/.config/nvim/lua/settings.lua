@@ -30,7 +30,7 @@ vim.o.spell = true
 vim.o.completeopt = "menuone,noselect"
 
 -- use tabs in Go code
-vim.cmd([[ autocmd FileType go :setlocal noexpandtab ]])
+vim.api.nvim_create_autocmd("FileType", { pattern = { "go" }, command = "setlocal noexpandtab" })
 
 vim.o.termguicolors = true
 vim.o.background = "light"
@@ -54,9 +54,10 @@ vim.cmd("set signcolumn=yes")
 --     vim.o.laststatus = false
 -- end
 
-vim.cmd(
-	[[ autocmd FileType html,css,scss,javascript,json,typescript,typescriptreact,yaml,jsonnet,lua :setlocal sw=2 ts=2 sts=2 ]]
-)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "html", "css", "scss", "javascript", "json", "typescript", "typescriptreact", "yaml", "jsonnet", "lua" },
+	command = "setlocal sw=2 ts=2 sts=2",
+})
 
 vim.fn.sign_define(
 	"LspDiagnosticsSignError",
