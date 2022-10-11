@@ -46,14 +46,6 @@ vim.cmd("set listchars=tab:▸\\ ,eol:¬,trail:⋅,extends:❯,precedes:❮")
 
 vim.cmd("set signcolumn=yes")
 
--- markdown in firenvim on github: TODO: not working atm
--- vim.cmd('au BufEnter github.com_*.txt set filetype=markdown')
-
--- remove status bar when neovim is opened in a browser.
--- if vim.g.started_by_firenvim then
---     vim.o.laststatus = false
--- end
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "html", "css", "scss", "javascript", "json", "typescript", "typescriptreact", "yaml", "jsonnet", "lua" },
 	command = "setlocal sw=2 ts=2 sts=2",
