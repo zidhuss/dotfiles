@@ -18,7 +18,12 @@ require("null-ls").setup({
 		formatting.fixjson,
 		formatting.gofmt,
 		formatting.goimports,
-		formatting.pg_format,
+		null_ls.builtins.formatting.sqlfluff.with({
+			extra_args = { "--dialect", "postgres" }, -- change to your dialect
+		}),
+		null_ls.builtins.diagnostics.sqlfluff.with({
+			extra_args = { "--dialect", "postgres" }, -- change to your dialect
+		}),
 		diagnostics.vale,
 	},
 
