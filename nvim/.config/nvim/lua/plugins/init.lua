@@ -215,13 +215,6 @@ return require("packer").startup({
 		use({ "L3MON4D3/LuaSnip" })
 		use({ "rafamadriz/friendly-snippets" })
 
-		use({
-			"rmagatti/auto-session",
-			config = function()
-				require("plugins.config.autosession")
-			end,
-		})
-
 		-- indent lines
 		use({
 			"lukas-reineke/indent-blankline.nvim",
