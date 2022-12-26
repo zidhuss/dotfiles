@@ -3,7 +3,6 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
-local code_actions = null_ls.builtins.code_actions
 
 require("null-ls").setup({
 	sources = {
@@ -12,21 +11,18 @@ require("null-ls").setup({
 		formatting.stylua,
 		formatting.black,
 		formatting.isort,
-		formatting.prettier,
+		formatting.rome,
 		formatting.rubocop,
 		-- formatting.bean_format,
 		formatting.clang_format,
 		formatting.fixjson,
 		formatting.gofmt,
 		formatting.goimports,
-		formatting.sqlfluff.with({
-			extra_args = { "--dialect", "postgres" }, -- change to your dialect
-		}),
+		formatting.pg_format,
 		diagnostics.sqlfluff.with({
 			extra_args = { "--dialect", "postgres" }, -- change to your dialect
 		}),
 		diagnostics.vale,
-		code_actions.gitsigns,
 	},
 
 	on_attach = function(client, bufnr)
