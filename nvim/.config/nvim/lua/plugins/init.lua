@@ -231,9 +231,9 @@ return require("packer").startup({
 				"nvim-neotest/neotest-python",
 				"vim-test/vim-test",
 				"antoinemadec/FixCursorHold.nvim",
-				-- "olimorris/neotest-rspec",
-				"~/src/nvim-neotest/neotest-rspec",
+				"olimorris/neotest-rspec",
 				"haydenmeade/neotest-jest",
+				"nvim-neotest/neotest-go",
 			},
 			config = function()
 				require("plugins.config.neotest")
