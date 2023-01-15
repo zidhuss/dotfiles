@@ -53,6 +53,7 @@ for _, server in ipairs({
 	"go",
 	"json",
 	"lua",
+	"nix",
 	"python",
 	"ruby",
 	"typescript",
