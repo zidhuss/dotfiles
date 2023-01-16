@@ -1,3 +1,5 @@
 local nvimtree = require("nvim-tree")
 
-nvimtree.setup({})
+nvimtree.setup({
+	view = { side = "right" },
+})
