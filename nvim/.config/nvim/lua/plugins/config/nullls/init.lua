@@ -13,15 +13,13 @@ require("null-ls").setup({
 		formatting.isort,
 		formatting.rome,
 		formatting.rubocop,
-		-- formatting.bean_format,
+		formatting.alejandra,
 		formatting.clang_format,
 		formatting.fixjson,
 		formatting.gofmt,
 		formatting.goimports,
 		formatting.pg_format,
-		diagnostics.sqlfluff.with({
-			extra_args = { "--dialect", "postgres" }, -- change to your dialect
-		}),
+		formatting.terraform_fmt,
 		diagnostics.vale,
 	},
 
