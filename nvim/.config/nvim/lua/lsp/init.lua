@@ -56,6 +56,7 @@ for _, server in ipairs({
 	"nix",
 	"python",
 	"ruby",
+	"terraform",
 	"typescript",
 	"yaml",
 }) do
