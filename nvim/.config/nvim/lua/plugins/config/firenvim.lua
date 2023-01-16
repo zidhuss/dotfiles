@@ -1,6 +1,5 @@
 if vim.g.started_by_firenvim then
 	vim.o.laststatus = 0
-	vim.o.cmdheight = 0
 	vim.o.guifont = "FuraCode Nerd Font:h18"
 end
 
