@@ -28,9 +28,6 @@ vim.o.shiftround = true
 
 vim.o.spell = true
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
-
 -- use tabs in Go code
 vim.api.nvim_create_autocmd("FileType", { pattern = { "go" }, command = "setlocal noexpandtab" })
 

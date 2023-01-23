@@ -58,7 +58,7 @@ cmp.setup({
 		{ name = "emoji" },
 		{ name = "treesitter" },
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "copilot" },
+		{ name = "copilot", keyword_length = 0 },
 		{ name = "git" },
 	},
 	sorting = {
