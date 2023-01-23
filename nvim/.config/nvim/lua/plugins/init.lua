@@ -178,6 +178,18 @@ return require("packer").startup({
 			end,
 		})
 
+		-- statusline
+		use({
+			"rebelot/heirline.nvim",
+			config = function()
+				require("plugins.config.heirline")
+			end,
+			requires = {
+				"kyazdani42/nvim-web-devicons",
+				"lewis6991/gitsigns.nvim",
+			},
+		})
+
 		-- debugging
 		-- use 'mfussenegger/nvim-dap'
 
