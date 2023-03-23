@@ -36,3 +36,5 @@
     insteadOf = "https://github.com/"
 [push]
 	autoSetupRemote = true
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
