@@ -19,6 +19,7 @@ require("null-ls").setup({
 		formatting.gofmt,
 		formatting.goimports,
 		formatting.pg_format,
+		-- formatting.prettier,
 		formatting.terraform_fmt,
 		diagnostics.vale,
 	},

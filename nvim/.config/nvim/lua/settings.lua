@@ -49,21 +49,3 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "html", "css", "scss", "javascript", "json", "typescript", "typescriptreact", "yaml", "jsonnet", "lua" },
 	command = "setlocal sw=2 ts=2 sts=2",
 })
-
-vim.fn.sign_define(
-	"LspDiagnosticsSignError",
-	{ texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError" }
-)
-vim.fn.sign_define(
-	"LspDiagnosticsSignWarning",
-	{ texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning" }
-)
-vim.fn.sign_define(
-	"LspDiagnosticsSignHint",
-	{ texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
-)
-vim.fn.sign_define(
-	"LspDiagnosticsSignInformation",
-	{ texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
-)
---
