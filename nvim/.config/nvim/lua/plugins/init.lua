@@ -36,6 +36,8 @@ return require("lazy").setup({
 		"jose-elias-alvarez/typescript.nvim",
 	} },
 
+	{ "folke/neodev.nvim" },
+
 	"tami5/lspsaga.nvim",
 	{
 		"kosayoda/nvim-lightbulb",
@@ -229,6 +231,8 @@ return require("lazy").setup({
 			"olimorris/neotest-rspec",
 			"haydenmeade/neotest-jest",
 			"nvim-neotest/neotest-go",
+			"nvim-neotest/neotest-plenary",
+			{ "zidhuss/neotest-minitest", dir = "~/src/nvim-neotest/neotest-minitest", dev = true },
 		},
 		config = function()
 			require("plugins.config.neotest")

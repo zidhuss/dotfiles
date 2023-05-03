@@ -1,10 +1,12 @@
 require("neotest").setup({
 	adapters = {
 		require("neotest-go"),
+		require("neotest-plenary"),
 		require("neotest-python")({
 			dap = { justMyCode = false },
 		}),
 		require("neotest-rspec"),
+		require("neotest-minitest"),
 		require("neotest-jest")({
 			jestCommand = "npm test --",
 			jestConfigFile = "custom.jest.config.ts",
@@ -13,5 +15,8 @@ require("neotest").setup({
 				return vim.fn.getcwd()
 			end,
 		}),
+	},
+	quickfix = {
+		enabled = false,
 	},
 })
