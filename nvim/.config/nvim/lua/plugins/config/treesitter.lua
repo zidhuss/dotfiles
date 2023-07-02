@@ -2,7 +2,7 @@ local treesitter = require("nvim-treesitter.configs")
 
 treesitter.setup({
 	ensure_installed = "all",
-	ignore_install = { "phpdoc" },
+	ignore_install = { "phpdoc", "wing" },
 	highlight = {
 		enable = true, -- false will disable the whole extension
 	},
