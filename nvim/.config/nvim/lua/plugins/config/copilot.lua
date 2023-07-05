@@ -8,7 +8,5 @@ vim.defer_fn(function()
 		method = "getCompletionsCycling",
 		suggestion = { enabled = false },
 		panel = { enabled = false },
-
-		copilot_node_command = vim.fn.expand("$HOME") .. "/.asdf/installs/nodejs/lts-gallium/bin/node", -- Node version must be < 18
 	})
 end, 100)
