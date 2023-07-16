@@ -46,6 +46,19 @@ vim.cmd("set listchars=tab:▸\\ ,eol:¬,trail:⋅,extends:❯,precedes:❮")
 vim.cmd("set signcolumn=yes")
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "html", "css", "scss", "javascript", "json", "typescript", "typescriptreact", "yaml", "jsonnet", "lua" },
+	pattern = {
+		"css",
+		"html",
+		"javascript",
+		"json",
+		"jsonnet",
+		"lua",
+		"scss",
+		"swift",
+		"typescript",
+		"typescriptreact",
+		"typst",
+		"yaml",
+	},
 	command = "setlocal sw=2 ts=2 sts=2",
 })
