@@ -56,8 +56,11 @@ for _, server in ipairs({
 	"nix",
 	"python",
 	"ruby",
+	"rust",
+	"sourcekit",
 	"terraform",
 	"typescript",
+	"typst",
 	"yaml",
 }) do
 	require("lsp." .. server).setup(on_attach, capabilities)
