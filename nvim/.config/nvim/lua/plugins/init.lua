@@ -118,14 +118,6 @@ return require("lazy").setup({
 		ft = { "ruby", "lua", "vimscript", "bash", "elixir" },
 	},
 
-	-- markdown
-	{
-		"iamcco/markdown-preview.nvim",
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
-
 	-- diffconflicts
 	"whiteinge/diffconflicts",
 
