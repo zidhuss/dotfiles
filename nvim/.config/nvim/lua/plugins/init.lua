@@ -47,6 +47,8 @@ return require("lazy").setup({
 	-- show lsp progress
 	{
 		"j-hui/fidget.nvim",
+		tag = "legacy",
+		event = "LspAttach",
 		config = {},
 	},
 
