@@ -32,13 +32,17 @@ return require("lazy").setup({
 	},
 
 	-- LSP plugins
-	{ "neovim/nvim-lspconfig", dependencies = {
-		"jose-elias-alvarez/typescript.nvim",
-	} },
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			"jose-elias-alvarez/typescript.nvim",
+		},
+	},
 
 	{ "folke/neodev.nvim" },
 
 	"tami5/lspsaga.nvim",
+
 	{
 		"kosayoda/nvim-lightbulb",
 		config = { autocmd = { enabled = true } },
@@ -257,4 +261,16 @@ return require("lazy").setup({
 	},
 	-- beancount syntax
 	"nathangrigg/vim-beancount",
+
+	{
+		"akinsho/flutter-tools.nvim",
+		lazy = false,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"stevearc/dressing.nvim", -- optional for vim.ui.select
+		},
+		opts = {
+			flutter_lookup_cmd = "dirname $(which flutter)", -- example "dirname $(which flutter)" or "asdf where flutter"
+		},
+	},
 })
