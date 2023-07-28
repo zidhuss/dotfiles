@@ -121,7 +121,11 @@ return require("lazy").setup({
 	},
 
 	-- diffconflicts
-	"whiteinge/diffconflicts",
+	{
+		"whiteinge/diffconflicts",
+		lazy = true,
+		cmd = "DiffConflicts",
+	},
 
 	-- colour scheme
 	"rktjmp/lush.nvim",
