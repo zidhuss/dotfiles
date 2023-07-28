@@ -13,7 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
 
-	"christoomey/vim-tmux-navigator",
+	{
+		"aserowy/tmux.nvim",
+		event = "VeryLazy",
+		config = true,
+	},
 
 	-- firefox integration
 	{

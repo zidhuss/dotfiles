@@ -2,15 +2,6 @@
 vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 
-vim.g.tmux_navigator_no_mappings = 1
-vim.g.tmux_navigator_save_on_switch = 1
-
-vim.api.nvim_set_keymap("n", "<c-h>", "<Cmd>TmuxNavigateLeft<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<c-j>", "<Cmd>TmuxNavigateDown<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<c-k>", "<Cmd>TmuxNavigateUp<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<c-l>", "<Cmd>TmuxNavigateRight<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<c-\\>", "<Cmd>TmuxNavigatePrevious<cr>", { noremap = true, silent = true })
-
 -- faster saving
 vim.api.nvim_set_keymap("n", "<c-s>", ":w<CR>", {})
 vim.api.nvim_set_keymap("n", "<c-q>", ":q<CR>", {})
