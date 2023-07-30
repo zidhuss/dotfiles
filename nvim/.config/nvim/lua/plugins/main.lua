@@ -96,33 +96,16 @@ return {
 	},
 
 	{
-		"nvim-neotest/neotest",
-		lazy = true,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-neotest/neotest-python",
-			"vim-test/vim-test",
-			"antoinemadec/FixCursorHold.nvim",
-			"olimorris/neotest-rspec",
-			"haydenmeade/neotest-jest",
-			"nvim-neotest/neotest-go",
-			"nvim-neotest/neotest-plenary",
-			{ "zidhuss/neotest-minitest", dir = "~/src/nvim-neotest/neotest-minitest", dev = true },
-		},
-		config = function()
-			require("plugins.config.neotest")
-		end,
-	},
-
-	{
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
 			require("plugins.config.nullls")
 		end,
 	},
 	-- beancount syntax
-	"nathangrigg/vim-beancount",
+	{
+		"nathangrigg/vim-beancount",
+		ft = "beancount",
+	},
 
 	{
 		"akinsho/flutter-tools.nvim",

@@ -10,6 +10,7 @@ return {
 			["<leader>g"] = { name = "+git" },
 			["<leader>f"] = { name = "+nvim-tree" },
 			["<leader>s"] = { name = "+search", c = { name = "+commands" } },
+			["<leadert>"] = { name = "+test" },
 		})
 
 		wk.register({
