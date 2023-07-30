@@ -15,7 +15,7 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 			"L3MON4D3/LuaSnip",
 		},
-		cmd = { "CmpStatus " },
+		cmd = { "CmpStatus" },
 		event = "InsertEnter",
 		config = function()
 			require("plugins.config.cmp")
@@ -34,17 +34,9 @@ return {
 	},
 
 	{
-		"zbirenbaum/copilot-cmp",
-		lazy = true,
-		dependencies = {
-			"hrsh7th/nvim-cmp",
-			"zbirenbaum/copilot.lua",
-		},
-	},
-
-	{
 		"zbirenbaum/copilot.lua",
-		lazy = true,
+		cmd = { "Copilot" },
+		event = "InsertEnter",
 		opts = {
 			filetypes = {
 				markdown = true,
@@ -52,7 +44,16 @@ return {
 				gitrebase = true,
 			},
 			method = "getCompletionsCycling",
-			suggestion = { enabled = false },
+			suggestion = {
+				enabled = true,
+				auto_trigger = true,
+				keymap = {
+					accept = "<c-y>",
+					next = "<c-n>",
+					prev = "<c-p>",
+					dismiss = "<c-e>",
+				},
+			},
 			panel = { enabled = false },
 		},
 	},

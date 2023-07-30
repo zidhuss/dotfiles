@@ -11,7 +11,6 @@ local has_words_before = function()
 end
 
 cmp.setup({
-	experimental = { ghost_text = true },
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -22,7 +21,6 @@ cmp.setup({
 		format = lspkind.cmp_format({
 			mode = "text_symbol",
 			maxwidth = 50,
-			symbol_map = { Copilot = "" },
 		}),
 	},
 	mapping = {
@@ -58,27 +56,7 @@ cmp.setup({
 		{ name = "emoji" },
 		{ name = "treesitter" },
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "copilot", keyword_length = 0 },
 		{ name = "git" },
-	},
-	sorting = {
-		priority_weight = 2,
-		comparators = {
-			require("copilot_cmp.comparators").prioritize,
-			require("copilot_cmp.comparators").score,
-
-			-- Below is the default comparitor list and order for nvim-cmp
-			cmp.config.compare.offset,
-			-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
-			cmp.config.compare.exact,
-			cmp.config.compare.score,
-			cmp.config.compare.recently_used,
-			cmp.config.compare.locality,
-			cmp.config.compare.kind,
-			cmp.config.compare.sort_text,
-			cmp.config.compare.length,
-			cmp.config.compare.order,
-		},
 	},
 })
 
@@ -101,4 +79,3 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
 require("cmp_git").setup()
-require("copilot_cmp").setup()
