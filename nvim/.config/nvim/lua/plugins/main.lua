@@ -1,18 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-
-return require("lazy").setup({
-
+return {
 	{
 		"aserowy/tmux.nvim",
 		event = "VeryLazy",
@@ -86,19 +72,6 @@ return require("lazy").setup({
 	"tpope/vim-rails",
 	"tpope/vim-repeat",
 
-	-- telescope
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			"nvim-lua/popup.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-ui-select.nvim",
-		},
-		config = function()
-			require("plugins.config.telescope")
-		end,
-	},
-
 	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -135,24 +108,6 @@ return require("lazy").setup({
 		cmd = "DiffConflicts",
 	},
 
-	{
-		"zidhuss/scrivener",
-		dir = "~/src/zidhuss/scrivener",
-		dev = true,
-		lazy = false,
-		priority = 1000,
-		dependencies = {
-			"rktjmp/lush.nvim",
-		},
-	},
-
-	{
-		"cormacrelf/dark-notify",
-		config = function()
-			require("plugins.config.darknotify")
-		end,
-	},
-
 	-- disagnostics menu
 	{
 		"folke/trouble.nvim",
@@ -165,17 +120,6 @@ return require("lazy").setup({
 		"folke/todo-comments.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
 		config = {},
-	},
-
-	-- file explorer
-	{
-		"kyazdani42/nvim-tree.lua",
-		dependencies = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icon
-		},
-		config = function()
-			require("plugins.config.nvimtree")
-		end,
 	},
 
 	-- statusline
@@ -210,14 +154,6 @@ return require("lazy").setup({
 		"ruifm/gitlinker.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
 		config = {},
-	},
-
-	-- leader keys
-	{
-		"folke/which-key.nvim",
-		config = function()
-			require("plugins.config.whichkey")
-		end,
 	},
 
 	-- snippets
@@ -283,4 +219,4 @@ return require("lazy").setup({
 			flutter_lookup_cmd = "dirname $(which flutter)", -- example "dirname $(which flutter)" or "asdf where flutter"
 		},
 	},
-})
+}
