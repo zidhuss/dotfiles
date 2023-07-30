@@ -135,10 +135,16 @@ return require("lazy").setup({
 		cmd = "DiffConflicts",
 	},
 
-	-- colour scheme
-	"rktjmp/lush.nvim",
-	-- { "zidhuss/scrivener", lazy = false, priority=1000 },
-	{ dir = "~/src/zidhuss/scrivener", lazy = false, priority = 1000 },
+	{
+		"zidhuss/scrivener",
+		dir = "~/src/zidhuss/scrivener",
+		dev = true,
+		lazy = false,
+		priority = 1000,
+		dependencies = {
+			"rktjmp/lush.nvim",
+		},
+	},
 
 	{
 		"cormacrelf/dark-notify",
