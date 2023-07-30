@@ -137,25 +137,6 @@ return {
 	-- debugging
 	-- use 'mfussenegger/nvim-dap'
 
-	-- gitsigns
-	{
-		"lewis6991/gitsigns.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("plugins.config.gitsigns")
-		end,
-	},
-
-	-- lazyigt
-	"kdheepak/lazygit.nvim",
-
-	-- link on github
-	{
-		"ruifm/gitlinker.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		config = {},
-	},
-
 	-- snippets
 	"saadparwaiz1/cmp_luasnip",
 	"L3MON4D3/LuaSnip",

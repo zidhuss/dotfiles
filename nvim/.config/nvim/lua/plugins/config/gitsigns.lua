@@ -20,7 +20,7 @@ gitsigns.setup({
 				gs.next_hunk()
 			end)
 			return "<Ignore>"
-		end, { expr = true })
+		end, { expr = true, desc = "next git hunk" })
 
 		map("n", "[c", function()
 			if vim.wo.diff then
@@ -30,6 +30,13 @@ gitsigns.setup({
 				gs.prev_hunk()
 			end)
 			return "<Ignore>"
-		end, { expr = true })
+		end, { expr = true, desc = "prev git hunk" })
+
+		map("n", "<leader>gb", function()
+			gs.blame_line({ full = true })
+		end, { desc = "blame line" })
+		map("n", "<leader>gs", gs.stage_hunk, { desc = "stage hunk" })
+		map("n", "<leader>gr", gs.reset_hunk, { desc = "reset hunk" })
+		map("n", "<leader>gp", gs.preview_hunk, { desc = "preview hunk" })
 	end,
 })

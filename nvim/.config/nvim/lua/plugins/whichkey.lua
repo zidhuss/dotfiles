@@ -7,8 +7,13 @@ return {
 			plugins = { spelling = true },
 		})
 		wk.register({
+			["<leader>g"] = { name = "+git" },
 			["<leader>f"] = { name = "+nvim-tree" },
 			["<leader>s"] = { name = "+search", c = { name = "+commands" } },
 		})
+
+		wk.register({
+			["<leader>g"] = { name = "+git" },
+		}, { mode = "v" })
 	end,
 }

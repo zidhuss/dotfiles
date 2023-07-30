@@ -25,16 +25,6 @@ local normal_keymap = {
 		t = { "<cmd>TodoTrouble<cr>", "todo" },
 	},
 
-	g = {
-		name = "+git",
-		b = { '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', "blame" },
-		g = { "<cmd>LazyGit<CR>", "lazygit" },
-		f = { "<cmd>LazyGitFilterCurrentFile<CR>", "lazygit filter file" },
-		p = { "<cmd>Gitsigns preview_hunk<CR>", "preview" },
-		r = { "<cmd>Gitsigns reset_hunk<CR>", "reset" },
-		s = { "<cmd>Gitsigns stage_hunk<CR>", "stage" },
-	},
-
 	t = {
 		name = "+test",
 		f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "file" },
