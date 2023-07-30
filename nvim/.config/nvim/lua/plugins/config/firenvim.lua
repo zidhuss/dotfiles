@@ -1,9 +1,9 @@
 if vim.g.started_by_firenvim then
 	vim.o.laststatus = 0
 	vim.o.guifont = "FuraCode Nerd Font:h18"
-end
 
-vim.api.nvim_create_autocmd("BufEnter", { pattern = { "github.com_*.txt" }, command = "set filetype=markdown" })
+	vim.api.nvim_create_autocmd("BufEnter", { pattern = { "github.com_*.txt" }, command = "set filetype=markdown" })
+end
 
 vim.g.firenvim_config = {
 	globalSettings = { alt = "all" },
@@ -17,6 +17,10 @@ vim.g.firenvim_config = {
 		},
 		["https?://mail.google.com/"] = { takeover = "never", priority = 1 },
 		["https?://discord.com/"] = { takeover = "never", priority = 1 },
-		["https?://github.com/"] = { takeover = "always", priority = 1 },
+		["https?://github.com/"] = {
+			takeover = "always",
+			selector = "textarea:not([id='read-only-cursor-text-area'])",
+			priority = 1,
+		},
 	},
 }
