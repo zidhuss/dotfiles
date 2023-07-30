@@ -48,13 +48,6 @@ return {
 	"tpope/vim-rails",
 	"tpope/vim-repeat",
 
-	-- diffconflicts
-	{
-		"whiteinge/diffconflicts",
-		lazy = true,
-		cmd = "DiffConflicts",
-	},
-
 	-- disagnostics menu
 	{
 		"folke/trouble.nvim",
