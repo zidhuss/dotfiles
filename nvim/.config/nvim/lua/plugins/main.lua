@@ -156,6 +156,11 @@ return {
 		},
 		opts = {
 			flutter_lookup_cmd = "dirname $(which flutter)", -- example "dirname $(which flutter)" or "asdf where flutter"
+			lsp = {
+				on_attach = function(client, bufnr)
+					require("lsp.callbacks").on_attach(client, bufnr)
+				end,
+			},
 		},
 	},
 }
