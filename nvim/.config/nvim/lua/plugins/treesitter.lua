@@ -1,0 +1,36 @@
+return {
+
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"nvim-treesitter/nvim-treesitter-context",
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"windwp/nvim-ts-autotag",
+		},
+
+		config = function()
+			require("plugins.config.treesitter")
+		end,
+	},
+
+	{
+		"nvim-treesitter/playground",
+		cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
+	},
+
+	{
+		"windwp/nvim-autopairs",
+		opts = {},
+	},
+	{
+		"andymass/vim-matchup",
+		event = "BufReadPost",
+	},
+	{
+		"RRethy/nvim-treesitter-endwise",
+		ft = { "ruby", "lua", "vimscript", "bash", "elixir" },
+	},
+}

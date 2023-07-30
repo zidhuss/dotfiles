@@ -72,35 +72,6 @@ return {
 	"tpope/vim-rails",
 	"tpope/vim-repeat",
 
-	-- treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-
-		dependencies = {
-			"nvim-treesitter/playground",
-			"JoosepAlviste/nvim-ts-context-commentstring",
-			"nvim-treesitter/nvim-treesitter-context",
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"windwp/nvim-ts-autotag",
-		},
-
-		config = function()
-			require("plugins.config.treesitter")
-		end,
-	},
-
-	{
-		"windwp/nvim-autopairs",
-		config = {},
-	},
-	"andymass/vim-matchup",
-	{
-
-		"RRethy/nvim-treesitter-endwise",
-		ft = { "ruby", "lua", "vimscript", "bash", "elixir" },
-	},
-
 	-- diffconflicts
 	{
 		"whiteinge/diffconflicts",
