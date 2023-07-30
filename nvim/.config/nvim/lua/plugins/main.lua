@@ -33,11 +33,6 @@ return {
 
 	"tami5/lspsaga.nvim",
 
-	{
-		"kosayoda/nvim-lightbulb",
-		config = { autocmd = { enabled = true } },
-	},
-
 	-- show lsp progress
 	{
 		"j-hui/fidget.nvim",
