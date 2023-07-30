@@ -46,25 +46,6 @@ return {
 		config = {},
 	},
 
-	-- text completion
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-emoji",
-			"hrsh7th/cmp-cmdline",
-			"petertriho/cmp-git",
-			"ray-x/cmp-treesitter",
-			"onsails/lspkind.nvim",
-		},
-		config = function()
-			require("plugins.config.cmp")
-		end,
-	},
-
 	-- tpope the man
 	"tpope/vim-commentary",
 	"tpope/vim-surround",
@@ -108,11 +89,6 @@ return {
 	-- debugging
 	-- use 'mfussenegger/nvim-dap'
 
-	-- snippets
-	"saadparwaiz1/cmp_luasnip",
-	"L3MON4D3/LuaSnip",
-	"rafamadriz/friendly-snippets",
-
 	-- indent lines
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -136,18 +112,6 @@ return {
 		},
 		config = function()
 			require("plugins.config.neotest")
-		end,
-	},
-
-	{
-		"zbirenbaum/copilot-cmp",
-		event = "VimEnter",
-		dependencies = {
-			"hrsh7th/nvim-cmp",
-			"zbirenbaum/copilot.lua",
-		},
-		config = function()
-			require("plugins.config.copilot")
 		end,
 	},
 
