@@ -18,14 +18,6 @@ if not ok then
 end
 
 lazy.setup("plugins", {
-	checker = {
-		enabled = true,
-		notify = false,
-		frequency = 900,
-	},
-	install = {
-		colorscheme = { "scrivener" },
-	},
 	performance = {
 		rtp = {
 			disabled_plugins = {
