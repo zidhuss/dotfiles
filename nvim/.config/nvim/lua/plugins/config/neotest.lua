@@ -6,6 +6,7 @@ require("neotest").setup({
 			dap = { justMyCode = false },
 		}),
 		require("neotest-rspec"),
+		require("neotest-rust"),
 		require("neotest-minitest"),
 		require("neotest-jest")({
 			jestCommand = "npm test --",

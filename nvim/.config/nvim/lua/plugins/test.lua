@@ -11,6 +11,7 @@ return {
 			"haydenmeade/neotest-jest",
 			"nvim-neotest/neotest-go",
 			"nvim-neotest/neotest-plenary",
+			"rouge8/neotest-rust",
 			{ "zidhuss/neotest-minitest", dir = "~/src/nvim-neotest/neotest-minitest", dev = true },
 		},
 		config = function()
