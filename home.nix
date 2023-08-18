@@ -31,6 +31,8 @@
     # http load testing
     hey
 
+    caddy
+
     lazygit
 
     alejandra
