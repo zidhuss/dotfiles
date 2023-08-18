@@ -18,6 +18,7 @@ for _, server in ipairs({
 	"json",
 	"lua",
 	"nix",
+	"php",
 	"python",
 	"ruby",
 	"rust",
@@ -26,6 +27,7 @@ for _, server in ipairs({
 	"typescript",
 	"typst",
 	"yaml",
+	"zig",
 }) do
 	require("lsp." .. server).setup(on_attach, capabilities)
 end

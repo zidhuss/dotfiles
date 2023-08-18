@@ -29,6 +29,8 @@ M.on_attach = function(client, bufnr)
 
 	buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 
+	buf_set_keymap("n", "<space>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "code action" })
+
 	-- experimental
 	buf_set_keymap("n", "<c-u>", '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', {})
 	buf_set_keymap("n", "<c-d>", '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', {})
