@@ -31,7 +31,13 @@ return {
 
 	{ "folke/neodev.nvim" },
 
-	"tami5/lspsaga.nvim",
+	{
+		"nvimdev/lspsaga.nvim",
+		event = "LspAttach",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+	},
 
 	-- show lsp progress
 	{

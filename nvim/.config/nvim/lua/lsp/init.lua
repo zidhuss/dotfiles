@@ -1,6 +1,3 @@
--- lsp saga ui
-require("lspsaga").init_lsp_saga()
-
 local callbacks = require("lsp.callbacks")
 local capabilities = callbacks.capabilities
 local on_attach = callbacks.on_attach
