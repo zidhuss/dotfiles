@@ -65,3 +65,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	},
 	command = "setlocal sw=2 ts=2 sts=2",
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "gitcommit" },
+	command = "setlocal textwidth=80",
+})
