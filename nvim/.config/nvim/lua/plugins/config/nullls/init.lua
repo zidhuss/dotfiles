@@ -4,14 +4,18 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
+local biome = formatting.rome.with({
+	command = "biome",
+})
+
 require("null-ls").setup({
 	sources = {
+		biome,
 		formatting.trim_newlines,
 		formatting.trim_whitespace,
 		formatting.stylua,
 		formatting.black,
 		formatting.isort,
-		formatting.rome,
 		formatting.rubocop,
 		formatting.alejandra,
 		formatting.clang_format,
