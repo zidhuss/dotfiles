@@ -26,6 +26,7 @@
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript-language-server
     nil
+    terraform-lsp
     zls
 
     # http load testing

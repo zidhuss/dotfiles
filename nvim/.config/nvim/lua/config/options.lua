@@ -58,6 +58,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"lua",
 		"scss",
 		"swift",
+		"terraform",
 		"typescript",
 		"typescriptreact",
 		"typst",
