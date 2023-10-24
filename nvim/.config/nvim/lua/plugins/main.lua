@@ -157,4 +157,12 @@ return {
 			},
 		},
 	},
+
+	{
+		"preservim/vim-textobj-quote",
+		dependencies = {
+			"kana/vim-textobj-user",
+		},
+		ft = { "markdown" },
+	},
 }
