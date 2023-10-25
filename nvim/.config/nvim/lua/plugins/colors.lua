@@ -1,8 +1,6 @@
 return {
 	{
 		"zidhuss/scrivener",
-		dir = "~/src/zidhuss/scrivener",
-		dev = true,
 		lazy = false,
 		priority = 1000,
 		config = function()

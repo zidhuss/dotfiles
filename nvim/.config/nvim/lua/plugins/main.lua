@@ -126,7 +126,8 @@ return {
 	-- indent lines
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		config = { show_current_context = true },
+		main = "ibl",
+		opts = {},
 	},
 
 	{
