@@ -43,10 +43,16 @@ if vim.env.SSH_CONNECTION then
 	vim.o.background = "dark"
 end
 
-vim.cmd("set invlist")
-vim.cmd("set listchars=tab:▸\\ ,eol:¬,trail:⋅,extends:❯,precedes:❮")
+vim.o.list = true
+vim.opt.listchars = {
+	tab = "▸ ",
+	eol = "¬",
+	trail = "⋅",
+	extends = "❯",
+	precedes = "❮",
+}
 
-vim.cmd("set signcolumn=yes")
+vim.o.signcolumn = "yes"
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {

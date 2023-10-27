@@ -131,7 +131,10 @@ return {
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = {
-			indent = { char = "│" },
+			indent = {
+				char = "│",
+				tab_char = "│",
+			},
 		},
 	},
 
