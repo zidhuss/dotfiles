@@ -51,7 +51,10 @@ return {
 	"tpope/vim-commentary",
 	"tpope/vim-surround",
 	"tpope/vim-unimpaired",
-	"tpope/vim-rails",
+	{
+		"tpope/vim-rails",
+		ft = { "ruby", "rspec", "ruby.rake", "eruby", "rbs" },
+	},
 	"tpope/vim-repeat",
 
 	-- disagnostics menu
