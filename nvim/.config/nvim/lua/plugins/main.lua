@@ -132,12 +132,6 @@ return {
 		},
 	},
 
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("plugins.config.nullls")
-		end,
-	},
 	-- beancount syntax
 	{
 		"nathangrigg/vim-beancount",
