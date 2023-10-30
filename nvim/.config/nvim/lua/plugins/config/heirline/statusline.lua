@@ -14,8 +14,8 @@ local LSPActive = {
 
 	provider = function()
 		local names = {}
-		for _, server in pairs(vim.lsp.buf_get_clients(0)) do
-			if server.name ~= "null-ls" and server.name ~= "copilot" then
+		for _, server in pairs(vim.lsp.get_clients({ buffer = 0 })) do
+			if server.name ~= "copilot" then
 				table.insert(names, server.name)
 			end
 		end
