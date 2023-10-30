@@ -35,6 +35,7 @@
     caddy
 
     lazygit
+    lazydocker
 
     alejandra
 
