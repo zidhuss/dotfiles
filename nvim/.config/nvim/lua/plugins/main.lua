@@ -24,9 +24,13 @@ return {
 	-- LSP plugins
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			"jose-elias-alvarez/typescript.nvim",
-		},
+		event = { "BufReadPre", "BufNewFile" },
+	},
+
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		lazy = true,
 	},
 
 	{ "folke/neodev.nvim" },
