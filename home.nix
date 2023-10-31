@@ -22,6 +22,7 @@
   home.packages = with pkgs; [
     # language servers
     beancount-language-server
+    lua-language-server
     nodePackages.yaml-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript-language-server
