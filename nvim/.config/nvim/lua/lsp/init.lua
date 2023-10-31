@@ -14,6 +14,7 @@ for _, server in ipairs({
 	"go",
 	"json",
 	"lua",
+	"markdown",
 	"nix",
 	"php",
 	"python",

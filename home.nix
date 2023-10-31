@@ -23,6 +23,7 @@
     # language servers
     beancount-language-server
     lua-language-server
+    marksman
     nodePackages.yaml-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript-language-server
