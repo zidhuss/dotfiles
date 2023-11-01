@@ -11,11 +11,11 @@ return {
 			formatters_by_ft = {
 				python = { "ruff_fix", "ruff_format" },
 
-				javascript = { "biome" },
-				javascriptreact = { "biome" },
-				typescript = { "biome" },
-				typescriptreact = { "biome" },
-				json = { "biome" },
+				javascript = { { "biome", "prettier" } },
+				javascriptreact = { { "biome", "prettier" } },
+				typescript = { { "biome", "prettier" } },
+				typescriptreact = { { "biome", "prettier" } },
+				json = { "fixjson", { "biome", "prettier" } },
 
 				html = { "prettier" },
 
