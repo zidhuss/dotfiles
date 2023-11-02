@@ -12,6 +12,7 @@ for _, server in ipairs({
 	"docker",
 	"dotnet",
 	"go",
+	"html",
 	"json",
 	"lua",
 	"markdown",
