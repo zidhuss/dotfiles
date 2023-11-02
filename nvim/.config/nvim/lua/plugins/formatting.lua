@@ -19,6 +19,9 @@ return {
 
 				html = { "prettier" },
 
+				css = { "prettier" },
+				scss = { "prettier" },
+
 				lua = { "stylua" },
 
 				ruby = { "rubocop" },
