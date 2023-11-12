@@ -172,4 +172,10 @@ return {
 		},
 		ft = { "markdown" },
 	},
+
+	{
+		"zeioth/garbage-day.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
 }
