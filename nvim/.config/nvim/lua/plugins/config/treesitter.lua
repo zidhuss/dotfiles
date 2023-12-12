@@ -10,7 +10,6 @@ treesitter.setup({
 	autotag = { enable = true },
 	endwise = { enable = true },
 	matchup = { enable = true },
-	context_commentstring = { enable = true },
 
 	-- nvim-treesitter-textobjects
 	textobjects = {

@@ -46,7 +46,6 @@ return {
 	-- show lsp progress
 	{
 		"j-hui/fidget.nvim",
-		tag = "legacy",
 		event = "LspAttach",
 		config = {},
 	},
@@ -138,6 +137,10 @@ return {
 			indent = {
 				char = "│",
 				tab_char = "│",
+			},
+			scope = {
+				show_start = false,
+				show_end = false,
 			},
 		},
 	},
