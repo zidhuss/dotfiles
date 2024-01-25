@@ -47,7 +47,7 @@ return {
 	{
 		"j-hui/fidget.nvim",
 		event = "LspAttach",
-		config = {},
+		opts = {},
 	},
 
 	-- tpope the man

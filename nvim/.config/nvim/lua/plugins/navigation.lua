@@ -97,7 +97,7 @@ return {
 		dependencies = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
-		config = {
+		opts = {
 			view = { side = "right" },
 		},
 		keys = {

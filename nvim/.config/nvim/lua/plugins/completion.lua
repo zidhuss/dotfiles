@@ -25,7 +25,7 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		lazy = true,
-		dpendencies = {
+		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
 		config = function()
