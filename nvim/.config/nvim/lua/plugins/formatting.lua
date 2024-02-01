@@ -18,6 +18,7 @@ return {
 				json = { "fixjson", { "biome", "prettier" } },
 
 				html = { "prettier" },
+				htmldjango = { "djlint" },
 
 				css = { "prettier" },
 				scss = { "prettier" },
