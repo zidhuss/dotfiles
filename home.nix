@@ -36,7 +36,6 @@
 
     caddy
 
-    lazygit
     lazydocker
 
     alejandra
@@ -76,6 +75,29 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  xdg.enable = true;
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui.theme = {
+        lightTheme = true;
+        activeBorderColor = ["black" "bold"];
+        inactiveBorderColor = ["black"];
+        selectedLineBgColor = ["reverse"];
+      };
+      gui.showIcons = true;
+      git = {
+        paging = {
+          colorArg = "always";
+          pager = "delta --line-numbers --dark --paging=never";
+        };
+        autoFetch = false;
+        autoRefresh = false;
+      };
+    };
   };
 
   # Let Home Manager install and manage itself.
