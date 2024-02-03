@@ -89,6 +89,11 @@
 
   xdg.enable = true;
 
+  xdg.configFile."karabiner" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./configs/karabiner;
+    recursive = true;
+  };
+
   programs.lazygit = {
     enable = true;
     settings = {
