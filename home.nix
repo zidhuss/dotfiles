@@ -31,6 +31,14 @@
     terraform-lsp
     zls
 
+    # Formatters & linters
+    alejandra
+    stylua
+    pgformatter
+
+    editorconfig-core-c
+    editorconfig-checker
+
     # http load testing
     hey
 
@@ -38,9 +46,9 @@
 
     lazydocker
 
-    alejandra
-
     direnv
+
+    fd
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
