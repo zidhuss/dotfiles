@@ -27,6 +27,12 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 	},
 
+	-- SchemaStore
+	{
+		"b0o/schemastore.nvim",
+		lazy = true,
+	},
+
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
