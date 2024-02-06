@@ -16,6 +16,7 @@ return {
 				typescript = { { "biome", "prettier" } },
 				typescriptreact = { { "biome", "prettier" } },
 				json = { "fixjson", { "biome", "prettier" } },
+				jsonc = { "fixjson", { "biome", "prettier" } },
 
 				html = { "prettier" },
 				htmldjango = { "djlint" },
