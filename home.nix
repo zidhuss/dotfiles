@@ -35,20 +35,25 @@
     alejandra
     stylua
     pgformatter
+    nodePackages.fixjson
 
+    # Other editor related
     editorconfig-core-c
     editorconfig-checker
 
-    # http load testing
+    # http
     hey
-
     caddy
 
+    # Containers
     lazydocker
+    docker-client
 
+    # tools
     direnv
-
     fd
+    ripgrep
+    delta
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -107,7 +112,7 @@
       git = {
         paging = {
           colorArg = "always";
-          pager = "delta --line-numbers --dark --paging=never";
+          pager = "delta --line-numbers --paging=never";
         };
         autoFetch = false;
         autoRefresh = false;
@@ -126,6 +131,8 @@
       };
     };
   };
+
+  programs.bat.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
