@@ -1,2 +1,2 @@
-vim/.vim/plugged
 packer_compiled.lua
+**/nvim/spell/
