@@ -12,10 +12,32 @@ return {
 			"nvim-neotest/neotest-go",
 			"nvim-neotest/neotest-plenary",
 			"rouge8/neotest-rust",
-			{ "zidhuss/neotest-minitest", dir = "~/src/nvim-neotest/neotest-minitest", dev = true },
+			{ "zidhuss/neotest-minitest", dir = "~/src/nvim-neotest/neotest-minitest" },
 		},
 		config = function()
-			require("plugins.config.neotest")
+			require("neotest").setup({
+				adapters = {
+					require("neotest-go"),
+					require("neotest-plenary"),
+					require("neotest-python")({
+						dap = { justMyCode = false },
+					}),
+					require("neotest-rspec"),
+					require("neotest-rust"),
+					require("neotest-minitest"),
+					require("neotest-jest")({
+						jestCommand = "npm test --",
+						jestConfigFile = "custom.jest.config.ts",
+						env = { CI = true },
+						cwd = function(path)
+							return vim.fn.getcwd()
+						end,
+					}),
+				},
+				quickfix = {
+					enabled = false,
+				},
+			})
 		end,
 		keys = {
 			{
