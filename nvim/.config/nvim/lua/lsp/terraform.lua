@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup = function(on_attach, capabilities)
-	require("lspconfig").terraform_lsp.setup({
+	require("lspconfig").terraformls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
