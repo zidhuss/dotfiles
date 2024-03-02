@@ -1,28 +1,44 @@
 {
-  description = "Home Manager configuration of abry";
+  description = "Nix config for my machines";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = {
-    nixpkgs,
+  outputs = inputs @ {
+    nix-darwin,
     home-manager,
     ...
   }: let
-    system = "aarch64-darwin";
-    pkgs = nixpkgs.legacyPackages.${system};
+    overlays = [
+      inputs.neovim-nightly-overlay.overlay
+    ];
   in {
-    homeConfigurations."abry" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+    darwinConfigurations."Husseins-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+      modules = [
+        ./configuration.nix
+        home-manager.darwinModules.home-manager
+        {
+          users.users."abry" = {
+            home = "/Users/abry";
+          };
 
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
-      modules = [./home.nix];
+          nixpkgs.overlays = overlays;
+
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users."abry" = import ./home.nix;
+        }
+      ];
     };
   };
 }

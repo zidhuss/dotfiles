@@ -17,6 +17,10 @@
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
+  # For splitting up configuration into multiple files
+  imports = [
+  ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -30,6 +34,8 @@
     nil
     terraform-lsp
     zls
+    pyright
+    typescript
 
     # Formatters & linters
     alejandra
@@ -50,10 +56,10 @@
     docker-client
 
     # tools
-    direnv
     fd
     ripgrep
     delta
+    ranger
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -99,13 +105,14 @@
     recursive = true;
   };
 
+  programs.git = {
+    enable = true;
+  };
+
   programs.lazygit = {
     enable = true;
     settings = {
       gui.theme = {
-        lightTheme = true;
-        activeBorderColor = ["black" "bold"];
-        inactiveBorderColor = ["black"];
         selectedLineBgColor = ["reverse"];
       };
       gui.showIcons = true;
@@ -118,6 +125,11 @@
         autoRefresh = false;
       };
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 
   programs.gh = {
@@ -133,6 +145,48 @@
   };
 
   programs.bat.enable = true;
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
+  programs.fish = {
+    enable = true;
+
+    shellInit = ''
+      set -gx PATH "$HOME/bin" $PATH
+    '';
+
+    interactiveShellInit = ''
+      eval (/opt/homebrew/bin/brew shellenv)
+    '';
+  };
+
+  programs.starship = {
+    enable = true;
+    enableTransience = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+    dotDir = ".config/zsh";
+
+    initExtra = ''
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+      export PATH"=$HOME/bin:$PATH"
+    '';
+  };
+
+  programs.fzf = {
+    enable = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    package = pkgs.neovim-nightly;
+  };
+
+  programs.tmux.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
