@@ -195,6 +195,17 @@
   programs.fish = {
     enable = true;
 
+    plugins =
+      map
+      (pkg: {
+        name = pkg.name;
+        src = pkg.src;
+      })
+      (with pkgs.fishPlugins; [
+        sponge
+        autopair-fish
+      ]);
+
     shellInit = ''
       set -gx PATH "$HOME/bin" $PATH
     '';
