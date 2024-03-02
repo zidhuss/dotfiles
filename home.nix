@@ -135,7 +135,10 @@
       init.defaultBranch = "main";
       gpg = {
         format = "ssh";
-        ssh.allowedSignersFile = "${config.xdg.configHome}/git/allowed_signers";
+        ssh = {
+          allowedSignersFile = "${config.xdg.configHome}/git/allowed_signers";
+          program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+        };
       };
       pull.rebase = true;
       fetch.prune = true;
