@@ -58,7 +58,6 @@
     # tools
     fd
     ripgrep
-    delta
     ranger
 
     # # You can also create simple shell scripts directly inside your
@@ -105,8 +104,44 @@
     recursive = true;
   };
 
+  xdg.configFile."git/allowed_signers".text = ''
+    hussein@zidhuss.tech ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhUktjsxUkkZybwH+NWcZajqfhIUEr+tdX1iFWo6YgJ
+  '';
+
   programs.git = {
     enable = true;
+    userName = "Hussein Al Abry";
+    userEmail = "hussein@zidhuss.tech";
+    signing = {
+      key = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhUktjsxUkkZybwH+NWcZajqfhIUEr+tdX1iFWo6YgJ";
+      signByDefault = true;
+    };
+
+    delta = {
+      enable = true;
+      options.navigate = true;
+    };
+
+    ignores = [
+      ".DS_Store"
+    ];
+
+    extraConfig = {
+      init.defaultBranch = "main";
+      gpg = {
+        format = "ssh";
+        ssh.allowedSignersFile = "${config.xdg.configHome}/git/allowed_signers";
+      };
+      pull.rebase = true;
+      fetch.prune = true;
+      rebase.autoStash = true;
+      rebase.updateRefs = true;
+      log.showSignature = true;
+      push.autoSeutpRemote = true;
+      commit.verbose = true;
+      merge.conflictStyle = "diff3";
+      url."git@github.com:".insteadOf = "https://github.com/";
+    };
   };
 
   programs.lazygit = {
@@ -134,6 +169,8 @@
 
   programs.gh = {
     enable = true;
+
+    gitCredentialHelper.enable = false;
 
     settings = {
       git_protocol = "ssh";
