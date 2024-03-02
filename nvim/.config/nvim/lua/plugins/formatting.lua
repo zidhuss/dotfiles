@@ -30,9 +30,9 @@ return {
 
 				nix = { "alejandra" },
 
-				terraform = { "terraform_fmt" },
-				tf = { "terraform_fmt" },
-				["terraform-vars"] = { "terraform_fmt" },
+				terraform = { "tofu_fmt" },
+				tf = { "tofu_fmt" },
+				["terraform-vars"] = { "tofu_fmt" },
 
 				go = { "goimports", "gofmt" },
 
