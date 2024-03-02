@@ -104,6 +104,11 @@
     recursive = true;
   };
 
+  xdg.configFile."nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./configs/nvim;
+    recursive = true;
+  };
+
   xdg.configFile."git/allowed_signers".text = ''
     hussein@zidhuss.tech ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhUktjsxUkkZybwH+NWcZajqfhIUEr+tdX1iFWo6YgJ
   '';

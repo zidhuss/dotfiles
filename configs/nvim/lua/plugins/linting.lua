@@ -8,7 +8,7 @@ return {
 				scss = { "stylelint" },
 			}
 
-			vim.api.nvim_create_autocmd({ "BufReadPost", "InsertLeave", "TextChanged", "FocusGained" }, {
+			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 				callback = function()
 					require("lint").try_lint()
 				end,
