@@ -6,6 +6,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     nodejs_21
+    curlHTTP3
   ];
 
   # # Auto upgrade nix package and the daemon service.
