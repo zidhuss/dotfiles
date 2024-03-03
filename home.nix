@@ -209,6 +209,12 @@
         autopair-fish
       ]);
 
+    functions.fish_user_key_bindings = {
+      body = ''
+        bind -M insert \cy accept-autosuggestion
+      '';
+    };
+
     shellInit = ''
       set -gx PATH "$HOME/bin" $PATH
     '';
