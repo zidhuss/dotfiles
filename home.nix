@@ -248,7 +248,95 @@
     package = pkgs.neovim-nightly;
   };
 
-  programs.tmux.enable = true;
+  programs.tmux = {
+    enable = true;
+    keyMode = "vi";
+    baseIndex = 1;
+    aggressiveResize = true;
+    escapeTime = 0;
+    shortcut = "a";
+    terminal = "wezterm";
+
+    extraConfig = ''
+      set -g renumber-windows on
+      set -g allow-rename off
+
+      # Stay in directory on slits
+      bind '%' split-window -h -c '#{pane_current_path}'  # Split panes horizontal
+      bind '"' split-window -v -c '#{pane_current_path}'  # Split panes vertically
+      bind c new-window -c '#{pane_current_path}' # Create new window
+
+      # Undercurl
+      set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
+      set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
+
+      # Shift-movement keys will resize panes
+      bind -r H resize-pane -L 2
+      bind -r J resize-pane -D 2
+      bind -r K resize-pane -U 2
+      bind -r L resize-pane -R 2
+
+      # tmux battery
+      set -g @batt_icon_charge_tier8 ""
+      set -g @batt_icon_charge_tier7 ""
+      set -g @batt_icon_charge_tier6 ""
+      set -g @batt_icon_charge_tier5 ""
+      set -g @batt_icon_charge_tier4 ""
+      set -g @batt_icon_charge_tier3 ""
+      set -g @batt_icon_charge_tier2 ""
+      set -g @batt_icon_charge_tier1 ""
+      set -g @batt_icon_status_charged " "
+      set -g @batt_icon_status_charging "  "
+      set -g @batt_icon_status_discharging " "
+      set -g @batt_icon_status_attached " "
+      set -g @batt_icon_status_unknown " "
+
+
+      # default light colours
+      color_bg="#f0f0f0"
+      color_fg="#fafafa"
+      color_green="#1da912"
+      color_yellow="#eea825"
+      color_red="#e05661"
+      color_blue="#118dc3"
+      color_cyan="#56b6c2"
+      color_purple="#9a77cf"
+      color_gray="#bebebe"
+      color_buffer="#6a6a6a"
+      color_selection="#bfceff"
+
+      # Statusline
+      set -g status on
+      set -g status-justify centre
+      set -g status-position bottom
+      setw -g mode-style bg=$color_purple,fg=$color_bg
+      setw -g window-status-separator "   "
+      set -g status-style "bg=$color_fg"
+      set -g message-style bg=$color_blue,fg=$color_bg
+      set -g status-left "#[fg=$color_gray]#(hostname)"
+      set -g status-right "#[fg=$color_gray]#{battery_icon_charge}  #{battery_percentage}#{battery_icon_status}"
+
+      setw -g window-status-format "#[fg=$color_gray,italics]#I #[noitalics]#W  "
+      setw -g window-status-current-format "#[fg=$color_purple,italics]• #[noitalics,bold]#W  "
+    '';
+
+    plugins = with pkgs.tmuxPlugins; [
+      vim-tmux-navigator
+      battery
+      tmux-thumbs
+      resurrect
+      continuum
+      better-mouse-mode
+    ];
+  };
+
+  xdg.configFile."tmux/light.conf" = {
+    source = ./configs/tmux/light.conf;
+  };
+
+  xdg.configFile."tmux/dark.conf" = {
+    source = ./configs/tmux/dark.conf;
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
