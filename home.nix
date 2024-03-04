@@ -148,6 +148,7 @@
       push.autoSeutpRemote = true;
       commit.verbose = true;
       merge.conflictStyle = "diff3";
+      rerere.enabled = true;
       url."git@github.com:".insteadOf = "https://github.com/";
     };
   };
