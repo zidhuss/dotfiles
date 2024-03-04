@@ -7,6 +7,7 @@
   environment.systemPackages = with pkgs; [
     nodejs_21
     curlHTTP3
+    mosh
   ];
 
   # # Auto upgrade nix package and the daemon service.
