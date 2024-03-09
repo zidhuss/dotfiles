@@ -59,6 +59,7 @@
     fd
     ripgrep
     ranger
+    dogdns
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -105,7 +106,7 @@
   };
 
   xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./configs/nvim;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/src/zidhuss/dotfiles/configs/nvim";
     recursive = true;
   };
 
