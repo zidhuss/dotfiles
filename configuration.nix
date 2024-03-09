@@ -16,6 +16,10 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
+  # Allow building linux packages on darwin.
+  nix.linux-builder.enable = true;
+  nix.settings.trusted-users = ["@admin"];
+
   programs.zsh.enable = true;
   programs.fish.enable = true;
   security.pam.enableSudoTouchIdAuth = true;
