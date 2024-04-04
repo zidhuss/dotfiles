@@ -123,9 +123,8 @@
       signByDefault = true;
     };
 
-    delta = {
+    difftastic = {
       enable = true;
-      options.navigate = true;
     };
 
     ignores = [
@@ -163,8 +162,7 @@
       gui.showIcons = true;
       git = {
         paging = {
-          colorArg = "always";
-          pager = "delta --line-numbers --paging=never";
+          externalDiffCommand = "difft --color=always";
         };
         autoFetch = false;
         autoRefresh = false;
