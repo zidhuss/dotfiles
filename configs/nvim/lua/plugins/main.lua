@@ -39,7 +39,7 @@ return {
 		lazy = true,
 	},
 
-	{ "folke/neodev.nvim" },
+	{ "folke/neodev.nvim", opts = {} },
 
 	{
 		"nvimdev/lspsaga.nvim",
