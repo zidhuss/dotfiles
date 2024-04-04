@@ -41,7 +41,6 @@
     alejandra
     stylua
     pgformatter
-    nodePackages.fixjson
 
     # Other editor related
     editorconfig-core-c
