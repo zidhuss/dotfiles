@@ -90,6 +90,8 @@
       ".DS_Store"
     ];
 
+    attributes = ["*.lockb binary diff=lockb"];
+
     extraConfig = {
       init.defaultBranch = "main";
       gpg = {
@@ -109,6 +111,10 @@
       merge.conflictStyle = "diff3";
       rerere.enabled = true;
       url."git@github.com:".insteadOf = "https://github.com/";
+      diff.lockb = {
+        textconv = "bun";
+        binary = true;
+      };
     };
   };
 
