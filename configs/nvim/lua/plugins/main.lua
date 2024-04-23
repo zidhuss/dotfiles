@@ -56,8 +56,6 @@ return {
 		opts = {},
 	},
 
-	-- tpope the man
-	"tpope/vim-commentary",
 	"tpope/vim-surround",
 	"tpope/vim-unimpaired",
 	{
@@ -105,18 +103,6 @@ return {
 				end,
 				desc = "Next trouble/quickfix item",
 			},
-		},
-	},
-
-	-- higlight comments
-	{
-		"folke/todo-comments.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		opts = {},
-		cmd = { "TodoTrouble", "TodoTelescope" },
-		event = { "BufReadPost", "BufNewFile" },
-		keys = {
-			{ "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
 		},
 	},
 

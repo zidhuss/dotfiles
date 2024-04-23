@@ -6,7 +6,6 @@ return {
 		build = ":TSUpdate",
 
 		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-context",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"windwp/nvim-ts-autotag",
