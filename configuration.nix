@@ -8,6 +8,7 @@
     nodejs_21
     curlHTTP3
     mosh
+    wezterm
   ];
 
   # # Auto upgrade nix package and the daemon service.
