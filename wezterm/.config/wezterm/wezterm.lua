@@ -1,5 +1,7 @@
 local wezterm = require("wezterm")
 
+local config = wezterm.config_builder()
+
 local function scheme_for_appearance(appearance)
 	if appearance:find("Dark") then
 		return "VibrantInk"
@@ -18,9 +20,24 @@ wezterm.on("window-config-reloaded", function(window, pane)
 	end
 end)
 
-return {
-	font = wezterm.font("FuraCode Nerd Font"),
-	hide_tab_bar_if_only_one_tab = true,
-	send_composed_key_when_left_alt_is_pressed = true,
-	term = "wezterm",
-}
+config.font = wezterm.font("FuraCode Nerd Font")
+config.hide_tab_bar_if_only_one_tab = true
+config.send_composed_key_when_left_alt_is_pressed = true
+config.term = "wezterm"
+
+config.leader = { key = "a", mods = "CTRL" }
+config.tab_bar_at_bottom = true
+
+local wez_tmux = require("plugins.wez-tmux")
+local smart_splits = require("plugins.smart-splits")
+
+wez_tmux.apply_to_config(config)
+smart_splits.apply_to_config(config)
+
+table.insert(config.keys, {
+	key = "w",
+	mods = "CMD",
+	action = wezterm.action.CloseCurrentPane({ confirm = true }),
+})
+
+return config

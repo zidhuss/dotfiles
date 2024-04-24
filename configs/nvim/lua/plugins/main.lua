@@ -1,10 +1,4 @@
 return {
-	{
-		"aserowy/tmux.nvim",
-		event = "VeryLazy",
-		config = true,
-	},
-
 	-- LSP plugins
 	{
 		"neovim/nvim-lspconfig",
