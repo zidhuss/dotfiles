@@ -20,7 +20,10 @@ wezterm.on("window-config-reloaded", function(window, pane)
 	end
 end)
 
-config.font = wezterm.font("FuraCode Nerd Font")
+config.font = wezterm.font_with_fallback({
+	"FuraCode Nerd Font",
+})
+
 config.hide_tab_bar_if_only_one_tab = true
 config.send_composed_key_when_left_alt_is_pressed = true
 config.term = "wezterm"
@@ -38,6 +41,12 @@ table.insert(config.keys, {
 	key = "w",
 	mods = "CMD",
 	action = wezterm.action.CloseCurrentPane({ confirm = true }),
+})
+
+table.insert(config.keys, {
+	key = "k",
+	mods = "CMD",
+	action = wezterm.action.ActivateCommandPalette,
 })
 
 return config
