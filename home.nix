@@ -172,16 +172,6 @@
     enableTransience = true;
   };
 
-  programs.zsh = {
-    enable = true;
-    dotDir = ".config/zsh";
-
-    initExtra = ''
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-      export PATH"=$HOME/bin:$PATH"
-    '';
-  };
-
   programs.fzf = {
     enable = true;
   };
