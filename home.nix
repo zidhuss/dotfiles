@@ -212,6 +212,9 @@
       # Other editor related
       editorconfig-core-c
       editorconfig-checker
+
+      # Needed for copilot
+      nodejs_21
     ];
   };
 
