@@ -20,28 +20,6 @@
   ];
 
   home.packages = with pkgs; [
-    # language servers
-    beancount-language-server
-    lua-language-server
-    marksman
-    nodePackages.yaml-language-server
-    nodePackages.vscode-langservers-extracted
-    nodePackages.typescript-language-server
-    nil
-    terraform-lsp
-    zls
-    pyright
-    typescript
-
-    # Formatters & linters
-    alejandra
-    stylua
-    pgformatter
-
-    # Other editor related
-    editorconfig-core-c
-    editorconfig-checker
-
     # http
     hey
     caddy
@@ -211,6 +189,30 @@
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
+
+    extraPackages = with pkgs; [
+      # language servers
+      beancount-language-server
+      lua-language-server
+      marksman
+      nodePackages.yaml-language-server
+      nodePackages.vscode-langservers-extracted
+      nodePackages.typescript-language-server
+      nil
+      zls
+      pyright
+      terraform-lsp
+      typescript
+
+      # Formatters & linters
+      alejandra
+      stylua
+      pgformatter
+
+      # Other editor related
+      editorconfig-core-c
+      editorconfig-checker
+    ];
   };
 
   programs.tmux = {
