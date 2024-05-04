@@ -191,7 +191,7 @@
       nil
       zls
       pyright
-      terraform-lsp
+      terraform-ls
       typescript
 
       # Formatters & linters
