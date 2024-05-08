@@ -161,10 +161,6 @@
     shellInit = ''
       set -gx PATH "$HOME/bin" $PATH
     '';
-
-    interactiveShellInit = ''
-      eval (/opt/homebrew/bin/brew shellenv)
-    '';
   };
 
   programs.starship = {
