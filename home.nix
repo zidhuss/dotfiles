@@ -136,6 +136,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    SSH_AUTH_SOCK = "${config.home.homeDirectory}/.1password/agent.sock";
   };
 
   programs.fish = {
