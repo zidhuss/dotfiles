@@ -201,7 +201,7 @@
       editorconfig-checker
 
       # Needed for copilot
-      nodejs_21
+      nodejs_22
     ];
   };
 
