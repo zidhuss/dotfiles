@@ -8,7 +8,6 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-context",
 			"nvim-treesitter/nvim-treesitter-textobjects",
-			"windwp/nvim-ts-autotag",
 		},
 
 		config = function()
@@ -33,5 +32,9 @@ return {
 	{
 		"RRethy/nvim-treesitter-endwise",
 		ft = { "ruby", "lua", "vimscript", "bash", "elixir" },
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		opts = {},
 	},
 }

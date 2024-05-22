@@ -7,7 +7,6 @@ treesitter.setup({
 		enable = true, -- false will disable the whole extension
 	},
 	indent = { enable = true },
-	autotag = { enable = true },
 	endwise = { enable = true },
 	matchup = { enable = true },
 
