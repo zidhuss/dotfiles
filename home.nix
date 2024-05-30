@@ -189,6 +189,7 @@
       nil
       zls
       pyright
+      tailwindcss-language-server
       terraform-ls
       typescript
 
