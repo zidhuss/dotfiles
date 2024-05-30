@@ -23,6 +23,7 @@ for _, server in ipairs({
 	"rust",
 	"sourcekit",
 	"terraform",
+	"toml",
 	"typescript",
 	"typst",
 	"yaml",

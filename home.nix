@@ -190,6 +190,7 @@
       zls
       pyright
       tailwindcss-language-server
+      taplo
       terraform-ls
       typescript
 
