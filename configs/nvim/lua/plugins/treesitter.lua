@@ -101,4 +101,11 @@ return {
 		"windwp/nvim-ts-autotag",
 		opts = {},
 	},
+
+	{
+		"axelvc/template-string.nvim",
+		ft = { "javascript", "typescript", "typescriptreact" },
+		event = "InsertEnter",
+		opts = {},
+	},
 }
