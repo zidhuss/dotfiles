@@ -180,6 +180,7 @@
     extraPackages = with pkgs; [
       # language servers
       beancount-language-server
+      emmet-language-server
       lua-language-server
       marksman
       nodePackages.yaml-language-server
