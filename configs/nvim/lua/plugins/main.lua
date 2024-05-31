@@ -42,22 +42,49 @@ return {
 	},
 	"tpope/vim-repeat",
 
-	-- disagnostics menu
+	-- diagnostics menu
 	{
 		"folke/trouble.nvim",
 		dependencies = "kyazdani42/nvim-web-devicons",
 		opts = {},
-		cmd = { "TroubleToggle", "Trouble" },
+		cmd = { "Trouble" },
 		keys = {
-			{ "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-			{ "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-			{ "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-			{ "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>cs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xl",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xq",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+
 			{
 				"[q",
 				function()
 					if require("trouble").is_open() then
-						require("trouble").previous({ skip_groups = true, jump = true })
+						require("trouble").prev({ skip_groups = true, jump = true })
 					else
 						local ok, err = pcall(vim.cmd.cprev)
 						if not ok then
