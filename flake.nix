@@ -20,7 +20,7 @@
     ...
   }: let
     overlays = [
-      inputs.neovim-nightly-overlay.overlay
+      inputs.neovim-nightly-overlay.overlays.default
     ];
   in {
     darwinConfigurations."Husseins-MacBook-Pro" = nix-darwin.lib.darwinSystem {
