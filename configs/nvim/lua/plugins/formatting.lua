@@ -25,6 +25,8 @@ return {
 				-- typescriptreact = { { "biome", "prettier" } },
 				-- json = { { "biome", "prettier" } },
 
+				swift = { "swift_format" },
+
 				html = { "prettier" },
 				htmldjango = { "djlint" },
 
