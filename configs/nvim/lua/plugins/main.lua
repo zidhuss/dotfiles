@@ -17,7 +17,11 @@ return {
 		lazy = true,
 	},
 
-	{ "folke/neodev.nvim", opts = {} },
+	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {},
+	},
 
 	{
 		"nvimdev/lspsaga.nvim",
