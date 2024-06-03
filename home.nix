@@ -189,6 +189,7 @@
       nil
       zls
       pyright
+      ruff-lsp
       tailwindcss-language-server
       taplo
       terraform-ls
