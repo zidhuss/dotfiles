@@ -6,6 +6,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     curlHTTP3
+    imagemagick
     mosh
     wezterm
   ];
