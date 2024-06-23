@@ -16,6 +16,11 @@ M.setup = function(on_attach, capabilities)
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
+
+	require("lspconfig").eslint.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
 end
 
 return M
