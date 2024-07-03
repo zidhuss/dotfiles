@@ -19,12 +19,6 @@ return {
 			formatters_by_ft = {
 				python = { "ruff_fix", "ruff_format" },
 
-				-- javascript = { { "biome", "prettier" } },
-				-- javascriptreact = { { "biome", "prettier" } },
-				-- typescript = { { "biome", "prettier" } },
-				-- typescriptreact = { { "biome", "prettier" } },
-				-- json = { { "biome", "prettier" } },
-
 				swift = { "swift_format" },
 
 				html = { "prettier" },
