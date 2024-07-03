@@ -157,6 +157,8 @@ return {
 					next = "<c-n>",
 					prev = "<c-p>",
 					dismiss = "<c-e>",
+					accept_word = "<c-m>",
+					accept_line = "<c-]>",
 				},
 			},
 			panel = { enabled = false },
