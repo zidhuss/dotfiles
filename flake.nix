@@ -17,6 +17,7 @@
   outputs = inputs @ {
     nix-darwin,
     home-manager,
+    nixpkgs,
     ...
   }: let
     overlays = [
@@ -39,6 +40,9 @@
           home-manager.users."abry" = import ./home.nix;
         }
       ];
+      specialArgs = {
+        inherit nixpkgs;
+      };
     };
   };
 }

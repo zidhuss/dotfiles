@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  nixpkgs,
+  ...
+}: {
   users.users."abry" = {
     home = "/Users/abry";
   };
@@ -16,6 +20,9 @@
   # nix.package = pkgs.nix;
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
+
+  # Flake pinning
+  nix.registry.nixpkgs.flake = nixpkgs;
 
   # Allow building linux packages on darwin.
   nix.linux-builder.enable = true;
