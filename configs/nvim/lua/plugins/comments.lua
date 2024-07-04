@@ -1,5 +1,5 @@
 return {
-	"tpope/vim-commentary",
+	{ "numToStr/Comment.nvim", opts = {} },
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	{
 		"folke/todo-comments.nvim",
