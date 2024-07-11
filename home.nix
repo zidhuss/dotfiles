@@ -25,6 +25,7 @@
     caddy
 
     # Containers
+    colima
     lazydocker
     docker-client
 
