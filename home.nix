@@ -84,7 +84,6 @@
       fetch.prune = true;
       rebase.autoStash = true;
       rebase.updateRefs = true;
-      log.showSignature = true;
       push.autoSeutpRemote = true;
       commit.verbose = true;
       merge.conflictStyle = "diff3";
