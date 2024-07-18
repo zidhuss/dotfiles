@@ -57,10 +57,10 @@ return {
 				if args.bang then
 					-- FormatDisable! will disable formatting just for this buffer
 					vim.b.disable_autoformat = true
-					vim.notify("Autoformat disabled for this buffer", "info", { title = "Conform" })
+					vim.notify("Autoformat disabled for this buffer", vim.log.levels.INFO, { title = "Conform" })
 				else
 					vim.g.disable_autoformat = true
-					vim.notify("Autoformat disabled", "info", { title = "Conform" })
+					vim.notify("Autoformat disabled", vim.log.levels.INFO, { title = "Conform" })
 				end
 			end, {
 				desc = "Disable autoformat-on-save",
@@ -70,7 +70,7 @@ return {
 			vim.api.nvim_create_user_command("FormatEnable", function()
 				vim.b.disable_autoformat = false
 				vim.g.disable_autoformat = false
-				vim.notify("Autoformat enabled", "info", { title = "Conform" })
+				vim.notify("Autoformat enabled", vim.log.levels.INFO, { title = "Conform" })
 			end, {
 				desc = "Re-enable autoformat-on-save",
 			})
