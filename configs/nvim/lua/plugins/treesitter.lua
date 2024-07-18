@@ -97,15 +97,29 @@ return {
 		"RRethy/nvim-treesitter-endwise",
 		ft = { "ruby", "lua", "vimscript", "bash", "elixir" },
 	},
-	{
-		"windwp/nvim-ts-autotag",
-		opts = {},
-	},
+	{ "windwp/nvim-ts-autotag", opts = {} },
 
 	{
 		"axelvc/template-string.nvim",
 		ft = { "javascript", "typescript", "typescriptreact" },
 		event = "InsertEnter",
 		opts = {},
+	},
+	{
+		"Wansmer/treesj",
+		lazy = true,
+		keys = {
+			{
+				"<space>j",
+				function()
+					require("treesj").toggle()
+				end,
+				desc = "toggle split/join",
+			},
+		},
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {
+			use_default_keymaps = false,
+		},
 	},
 }
