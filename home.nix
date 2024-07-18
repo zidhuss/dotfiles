@@ -123,6 +123,10 @@
 
     gitCredentialHelper.enable = false;
 
+    extensions = [
+      pkgs.gh-poi
+    ];
+
     settings = {
       git_protocol = "ssh";
       prompt = "enabled";
