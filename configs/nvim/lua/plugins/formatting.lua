@@ -17,8 +17,6 @@ return {
 			end,
 
 			formatters_by_ft = {
-				python = { "ruff_fix", "ruff_format" },
-
 				html = { "prettier" },
 				htmldjango = { "djlint" },
 
