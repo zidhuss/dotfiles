@@ -188,6 +188,7 @@
       nodePackages.typescript-language-server
       nil
       zls
+      phpactor
       pyright
       ruff-lsp
       tailwindcss-language-server
