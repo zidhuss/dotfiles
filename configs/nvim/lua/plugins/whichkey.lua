@@ -6,15 +6,18 @@ return {
 		wk.setup({
 			plugins = { spelling = true },
 		})
-		wk.register({
-			["<leader>g"] = { name = "+git" },
-			["<leader>f"] = { name = "+nvim-tree" },
-			["<leader>s"] = { name = "+search", c = { name = "+commands" } },
-			["<leadert>"] = { name = "+test" },
+		wk.add({
+			{ "<leader>f", group = "nvim-tree" },
+			{ "<leader>g", group = "git" },
+			{ "<leader>s", group = "search" },
+			{ "<leader>sc", group = "commands" },
+			{ "<leader>t", group = "test" },
 		})
 
-		wk.register({
-			["<leader>g"] = { name = "+git" },
-		}, { mode = "v" })
+		wk.add({
+			"<leader>g",
+			group = "git",
+			mode = "v",
+		})
 	end,
 }
