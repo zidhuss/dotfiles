@@ -21,7 +21,7 @@ wezterm.on("window-config-reloaded", function(window, pane)
 end)
 
 config.font = wezterm.font_with_fallback({
-	"FuraCode Nerd Font",
+	"Berkeley Mono",
 })
 
 config.hide_tab_bar_if_only_one_tab = true
