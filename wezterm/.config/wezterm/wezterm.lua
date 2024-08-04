@@ -22,6 +22,7 @@ end)
 
 config.font = wezterm.font_with_fallback({
 	"Berkeley Mono",
+	"FuraCode Nerd Font",
 })
 
 config.hide_tab_bar_if_only_one_tab = true
