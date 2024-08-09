@@ -23,8 +23,26 @@ M.on_attach = function(client, bufnr)
 	buf_set_keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 
 	buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-
 	buf_set_keymap("n", "<space>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "code action" })
+
+	---@param code_action_kind string
+	local code_action_on_save = function(code_action_kind)
+		local actions = vim.tbl_get(client.server_capabilities, "codeActionProvider", "codeActionKinds")
+		if actions ~= nil and vim.tbl_contains(actions, code_action_kind) then
+			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.code_action({
+						context = { only = { code_action_kind }, diagnostics = {} },
+						apply = true,
+					})
+				end,
+			})
+		end
+	end
+
+	-- code_action_on_save("source.fixAll")
+	code_action_on_save("source.organizeImports")
 end
 
 M.capabilities = vim.tbl_deep_extend(
