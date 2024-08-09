@@ -18,6 +18,7 @@ return {
 
 			formatters_by_ft = {
 				html = { "prettier" },
+				htmlangular = { "prettier" },
 				htmldjango = { "djlint" },
 
 				css = { "prettier" },
