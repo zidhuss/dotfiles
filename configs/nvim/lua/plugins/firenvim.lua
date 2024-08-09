@@ -2,9 +2,7 @@ return {
 	{
 		"glacambre/firenvim",
 		lazy = not vim.g.started_by_firenvim,
-		build = function()
-			vim.fn["firenvim#install"](0)
-		end,
+		build = ":call firenvim#install(0)",
 		config = function()
 			if vim.g.started_by_firenvim then
 				vim.o.laststatus = 0
