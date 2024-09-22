@@ -34,6 +34,7 @@
     ripgrep
     ranger
     dogdns
+    pngpaste
   ];
 
   xdg.enable = true;
