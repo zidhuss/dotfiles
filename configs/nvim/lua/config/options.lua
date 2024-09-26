@@ -60,6 +60,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"html",
 		"javascript",
 		"json",
+		"jsonc",
 		"jsonnet",
 		"lua",
 		"scss",
