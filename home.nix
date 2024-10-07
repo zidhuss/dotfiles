@@ -28,6 +28,7 @@
     colima
     lazydocker
     docker-client
+    k9s
 
     # tools
     fd
