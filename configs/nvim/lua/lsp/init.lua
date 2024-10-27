@@ -26,6 +26,7 @@ for _, server in ipairs({
 	"toml",
 	"typescript",
 	"typst",
+	"xml",
 	"yaml",
 	"zig",
 }) do

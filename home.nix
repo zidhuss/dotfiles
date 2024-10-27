@@ -188,6 +188,7 @@
       # language servers
       beancount-language-server
       emmet-language-server
+      lemminx
       lua-language-server
       marksman
       nodePackages.yaml-language-server
