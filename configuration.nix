@@ -11,7 +11,6 @@
   environment.systemPackages = with pkgs; [
     curlHTTP3
     imagemagick
-    mosh
     wezterm
   ];
 
@@ -54,4 +53,6 @@
       }
     ];
   };
+
+  system.stateVersion = 5;
 }
