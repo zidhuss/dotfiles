@@ -19,6 +19,7 @@ for _, server in ipairs({
 	"nix",
 	"php",
 	"python",
+	"rego",
 	"ruby",
 	"rust",
 	"sourcekit",
