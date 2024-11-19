@@ -24,7 +24,7 @@
   nix.registry.nixpkgs.flake = nixpkgs;
 
   # Allow building linux packages on darwin.
-  nix.linux-builder.enable = true;
+  nix.linux-builder.enable = false;
   nix.settings.trusted-users = ["@admin"];
   nix.settings.substituters = ["ssh://eu.nixbuild.net"];
   nix.settings.trusted-public-keys = ["nixbuild.net/WA6DCE-1:QJWjvXvACfwkrqte0z4IL0B9ZXZMmaQgmCEmmjScUGM="];
