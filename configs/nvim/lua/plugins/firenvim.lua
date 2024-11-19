@@ -23,9 +23,8 @@ return {
 						selector = "textarea",
 						takeover = "never",
 					},
-					["https?://mail.google.com/"] = { takeover = "never", priority = 1 },
-					["https?://discord.com/"] = { takeover = "never", priority = 1 },
 					["https?://github.com/"] = {
+						cmdline = "firenvim",
 						takeover = "always",
 						selector = "textarea:not([id='read-only-cursor-text-area'])",
 						priority = 1,
