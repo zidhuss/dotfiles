@@ -3,7 +3,7 @@ local M = {}
 M.setup = function(on_attach, capabilities)
 	require("lspconfig").pyright.setup({ on_attach = on_attach, capabilities = capabilities })
 
-	require("lspconfig").ruff_lsp.setup({
+	require("lspconfig").ruff.setup({
 		on_attach = function(client, bufnr)
 			on_attach(client, bufnr)
 			client.server_capabilities.hoverProvider = false
