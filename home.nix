@@ -188,6 +188,7 @@
       # language servers
       beancount-language-server
       emmet-language-server
+      jdt-language-server
       lemminx
       lua-language-server
       marksman
