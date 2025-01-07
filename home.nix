@@ -205,6 +205,7 @@
       tailwindcss-language-server
       taplo
       terraform-ls
+      tinymist
       typescript
 
       # Formatters & linters
