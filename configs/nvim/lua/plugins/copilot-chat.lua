@@ -4,6 +4,7 @@ return {
 		{ "zbirenbaum/copilot.lua" },
 		{ "nvim-lua/plenary.nvim" },
 	},
+	branch = "main",
 	opts = {},
 	keys = function()
 		local select = require("CopilotChat.select")
