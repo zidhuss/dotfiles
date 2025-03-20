@@ -14,20 +14,10 @@
     wezterm
   ];
 
-  # # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
-  # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
 
   # Flake pinning
   nix.registry.nixpkgs.flake = nixpkgs;
-
-  # Allow building linux packages on darwin.
-  nix.linux-builder.enable = false;
-  nix.settings.trusted-users = ["@admin"];
-  nix.settings.substituters = ["ssh://eu.nixbuild.net"];
-  nix.settings.trusted-public-keys = ["nixbuild.net/WA6DCE-1:QJWjvXvACfwkrqte0z4IL0B9ZXZMmaQgmCEmmjScUGM="];
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
@@ -52,6 +42,14 @@
         supportedFeatures = ["benchmark" "big-parallel"];
       }
     ];
+
+    settings = {
+      experimental-features = "nix-command flakes";
+      trusted-users = ["@admin"];
+      substituters = ["ssh://eu.nixbuild.net"];
+      trusted-public-keys = ["nixbuild.net/WA6DCE-1:QJWjvXvACfwkrqte0z4IL0B9ZXZMmaQgmCEmmjScUGM="];
+      builders-use-substitutes = true;
+    };
   };
 
   system.stateVersion = 5;
