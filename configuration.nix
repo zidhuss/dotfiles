@@ -14,14 +14,12 @@
     wezterm
   ];
 
-  services.nix-daemon.enable = true;
-
   # Flake pinning
   nix.registry.nixpkgs.flake = nixpkgs;
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -33,6 +31,7 @@
   };
 
   nix = {
+    enable = true;
     distributedBuilds = true;
     buildMachines = [
       {
@@ -52,5 +51,6 @@
     };
   };
 
+  ids.gids.nixbld = 30000;
   system.stateVersion = 5;
 }
