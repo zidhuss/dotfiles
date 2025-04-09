@@ -183,6 +183,8 @@ return {
 	{
 		"zeioth/garbage-day.nvim",
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+			grace_period = 30 * 60,
+		},
 	},
 }
