@@ -201,7 +201,6 @@
       pyright
       regal
       rubyPackages_3_3.solargraph
-      ruff-lsp
       tailwindcss-language-server
       taplo
       terraform-ls
