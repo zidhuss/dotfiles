@@ -187,6 +187,7 @@
     extraPackages = with pkgs; [
       # language servers
       beancount-language-server
+      copilot-language-server
       emmet-language-server
       jdt-language-server
       lemminx
@@ -215,9 +216,6 @@
       # Other editor related
       editorconfig-core-c
       editorconfig-checker
-
-      # Needed for copilot
-      nodejs_22
     ];
   };
 

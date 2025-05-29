@@ -1,6 +1,7 @@
 {
   pkgs,
   nixpkgs,
+  lib,
   ...
 }: {
   users.users."abry" = {
@@ -22,6 +23,11 @@
   security.pam.services.sudo_local.touchIdAuth = true;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "copilot-language-server"
+    ];
 
   programs.ssh.knownHosts = {
     nixbuild = {

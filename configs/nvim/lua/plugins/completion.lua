@@ -143,6 +143,10 @@ return {
 		cmd = { "Copilot" },
 		event = "InsertEnter",
 		opts = {
+			server = {
+				type = "binary",
+				custom_server_filepath = "copilot-language-server",
+			},
 			filetypes = {
 				markdown = true,
 				gitcommit = true,
