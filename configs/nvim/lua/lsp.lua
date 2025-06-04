@@ -4,7 +4,7 @@ vim.lsp.enable({
 	"cssls",
 	"emmet_language_server",
 	"eslint",
-	"go",
+	"gopls",
 	"html",
 	"jsonls",
 	"lemminx",
