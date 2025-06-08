@@ -194,6 +194,7 @@
       beancount-language-server
       copilot-language-server
       emmet-language-server
+      gopls
       jdt-language-server
       lemminx
       lua-language-server
