@@ -51,7 +51,7 @@
   };
 
   xdg.configFile."wezterm" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./configs/wezterm;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/src/zidhuss/dotfiles/configs/wezterm";
     recursive = true;
   };
 
