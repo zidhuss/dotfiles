@@ -20,8 +20,8 @@ vim.lsp.enable({
 	"taplo",
 	"tailwindcss",
 	"terraformls",
+	"tinymist",
 	"ts_ls",
-	"typst_lsp",
 	"yamlls",
 	"zls",
 })
