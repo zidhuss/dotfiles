@@ -216,6 +216,7 @@
 
       # Formatters & linters
       alejandra
+      gotools
       stylua
       pgformatter
 
