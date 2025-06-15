@@ -27,9 +27,14 @@ return {
 	{
 		"ruifm/gitlinker.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
-		opts = {
-			mappings = nil,
-		},
+		config = function()
+			require("gitlinker").setup({
+				mappings = nil,
+				callbacks = {
+					["gitlab.omantel.om"] = require("gitlinker.hosts").get_gitlab_type_url,
+				},
+			})
+		end,
 		keys = {
 			{
 				"<leader>gy",
