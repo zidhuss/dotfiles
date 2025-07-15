@@ -5,6 +5,8 @@ vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", { noremap = true, silent = true
 -- hidden buffers
 vim.o.hidden = true
 
+vim.o.foldenable = false
+
 -- no backups or swap file
 vim.o.swapfile = false
 vim.o.backup = false
@@ -79,3 +81,5 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "gitcommit" },
 	command = "setlocal textwidth=80",
 })
+
+
