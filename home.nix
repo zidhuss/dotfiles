@@ -91,7 +91,7 @@
       fetch.prune = true;
       rebase.autoStash = true;
       rebase.updateRefs = true;
-      push.autoSeutpRemote = true;
+      push.autoSetupRemote = true;
       commit.verbose = true;
       merge.conflictStyle = "diff3";
       rerere.enabled = true;
