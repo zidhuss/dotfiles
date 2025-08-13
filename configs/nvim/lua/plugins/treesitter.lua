@@ -8,6 +8,7 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-context",
 			"nvim-treesitter/nvim-treesitter-textobjects",
+			"OXY2DEV/markview.nvim",
 		},
 
 		config = function()
