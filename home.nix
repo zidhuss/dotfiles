@@ -59,6 +59,22 @@
     hussein@zidhuss.tech ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhUktjsxUkkZybwH+NWcZajqfhIUEr+tdX1iFWo6YgJ
   '';
 
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Hussein Al Abry";
+        email = "hussein@zidhuss.tech";
+      };
+      signing = {
+        behavior = "own";
+        backend = "ssh";
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhUktjsxUkkZybwH+NWcZajqfhIUEr+tdX1iFWo6YgJ hussein@zidhuss.tech";
+        backends.ssh.allowed-signers = "${config.xdg.configHome}/git/allowed_signers";
+      };
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "Hussein Al Abry";
