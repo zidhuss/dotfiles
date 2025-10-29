@@ -75,17 +75,17 @@
     };
   };
 
+  programs.difftastic = {
+    enable = true;
+    git.enable = true;
+  };
+
   programs.git = {
     enable = true;
-    userName = "Hussein Al Abry";
-    userEmail = "hussein@zidhuss.tech";
+
     signing = {
       key = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhUktjsxUkkZybwH+NWcZajqfhIUEr+tdX1iFWo6YgJ";
       signByDefault = true;
-    };
-
-    difftastic = {
-      enable = true;
     };
 
     ignores = [
@@ -94,7 +94,11 @@
 
     attributes = ["*.lockb binary diff=lockb"];
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Hussein Al Abry";
+        email = "hussein@zidhuss.tech";
+      };
       init.defaultBranch = "main";
       gpg = {
         format = "ssh";
@@ -176,10 +180,12 @@
         name = pkg.name;
         src = pkg.src;
       })
-      (with pkgs.fishPlugins; [
-        sponge
-        autopair-fish
-      ]);
+      (
+        with pkgs.fishPlugins; [
+          sponge
+          autopair-fish
+        ]
+      );
 
     functions.fish_user_key_bindings = {
       body = ''

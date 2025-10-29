@@ -9,7 +9,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    curlHTTP3
+    curl
     imagemagick
     wezterm
     nh
