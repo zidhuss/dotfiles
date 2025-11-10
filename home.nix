@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   home.username = "abry";
@@ -198,9 +199,55 @@
     '';
   };
 
-  programs.starship = {
+  programs.starship = let
+    getPreset = name: (with builtins; removeAttrs (fromTOML (readFile "${pkgs.starship}/share/starship/presets/${name}.toml")) ["\"$schema\""]);
+  in {
     enable = true;
     enableTransience = true;
+    settings =
+      lib.recursiveUpdate
+      (lib.mergeAttrsList [
+        (getPreset "nerd-font-symbols")
+      ])
+      {
+        gcloud = {
+          disabled = true;
+        };
+
+        custom.jj = {
+          command = "prompt";
+          format = "$output";
+          ignore_timeout = true;
+          shell = ["${pkgs.starship-jj}/bin/starship-jj" "--ignore-working-copy" "starship"];
+          use_stdin = false;
+          when = true;
+        };
+
+        git_branch = {
+          disabled = true;
+        };
+        custom.git_branch = {
+          when = "! jj --ignore-working-copy root";
+          command = "starship module git_branch";
+          description = "only show if we're not in a jj repo";
+        };
+        git_state = {
+          disabled = true;
+        };
+        custom.git_state = {
+          when = "! jj --ignore-working-copy root";
+          command = "starship module git_state";
+          description = "only show if we're not in a jj repo";
+        };
+        git_status = {
+          disabled = true;
+        };
+        custom.git_status = {
+          when = "! jj --ignore-working-copy root";
+          command = "starship module git_status";
+          description = "only show if we're not in a jj repo";
+        };
+      };
   };
 
   programs.fzf = {

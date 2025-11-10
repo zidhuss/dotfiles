@@ -12,6 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    starship-jj = {
+      url = "gitlab:lanastara_foss/starship-jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -22,6 +27,7 @@
   }: let
     overlays = [
       inputs.neovim-nightly-overlay.overlays.default
+      inputs.starship-jj.overlays.default
     ];
   in {
     darwinConfigurations."Husseins-MacBook-Pro" = nix-darwin.lib.darwinSystem {
