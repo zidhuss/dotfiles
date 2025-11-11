@@ -63,6 +63,7 @@
   programs.jujutsu = {
     enable = true;
     settings = {
+      ui.paginate = "never";
       user = {
         name = "Hussein Al Abry";
         email = "hussein@zidhuss.tech";
