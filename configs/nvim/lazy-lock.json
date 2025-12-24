@@ -21,7 +21,6 @@
   "firenvim": { "branch": "master", "commit": "a18ef908ac06b52ad9333b70e3e630b0a56ecb3d" },
   "flutter-tools.nvim": { "branch": "main", "commit": "539e84f5a652d96917f0afc1341c20f0d59dd789" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
-  "garbage-day.nvim": { "branch": "main", "commit": "9c6abdedc0407ca517745a5c8e34214fc7dafaf4" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "5813e4878748805f1518cee7abb50fd7205a3a48" },
   "heirline.nvim": { "branch": "master", "commit": "fae936abb5e0345b85c3a03ecf38525b0828b992" },

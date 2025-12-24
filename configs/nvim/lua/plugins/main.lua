@@ -173,12 +173,4 @@ return {
 		},
 		ft = { "markdown" },
 	},
-
-	{
-		"zeioth/garbage-day.nvim",
-		event = "VeryLazy",
-		opts = {
-			grace_period = 30 * 60,
-		},
-	},
 }
