@@ -20,7 +20,10 @@
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
-  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    watchIdAuth = true;
+  };
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
