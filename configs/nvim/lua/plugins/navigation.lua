@@ -48,9 +48,11 @@ return {
 						n = { ["<c-t>"] = trouble.open },
 					},
 				},
-				extensions = { ["ui-select"] = {
-					require("telescope.themes").get_dropdown({}),
-				} },
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown({}),
+					}
+				},
 			})
 
 			telescope.load_extension("ui-select")
@@ -124,9 +126,9 @@ return {
 
 	-- file explorer
 	{
-		"kyazdani42/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua",
 		dependencies = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icon
+			"nvim-tree/nvim-web-devicons", -- optional, for file icon
 		},
 		opts = {
 			view = { side = "right" },

@@ -43,7 +43,7 @@ return {
 	-- diagnostics menu
 	{
 		"folke/trouble.nvim",
-		dependencies = "kyazdani42/nvim-web-devicons",
+		dependencies = "nvim-tree/nvim-web-devicons",
 		opts = {},
 		cmd = { "Trouble" },
 		keys = {
@@ -113,7 +113,7 @@ return {
 	{
 		"rebelot/heirline.nvim",
 		dependencies = {
-			"kyazdani42/nvim-web-devicons",
+			"nvim-tree/nvim-web-devicons",
 			"lewis6991/gitsigns.nvim",
 		},
 		config = function()
