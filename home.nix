@@ -285,6 +285,7 @@
       lua-language-server
       marksman
       nodePackages.yaml-language-server
+      nodePackages."@astrojs/language-server"
       nodePackages.vscode-langservers-extracted
       nodePackages.typescript-language-server
       nil
