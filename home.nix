@@ -36,7 +36,7 @@
     fd
     ripgrep
     ranger
-    dogdns
+    doggo
     pngpaste
   ];
 
