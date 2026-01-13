@@ -79,12 +79,6 @@ return {
 			},
 		},
 	},
-
-	{
-		"nvim-treesitter/playground",
-		cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
-	},
-
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
