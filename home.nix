@@ -93,6 +93,7 @@
 
     ignores = [
       ".DS_Store"
+      ".claude"
     ];
 
     attributes = [ "*.lockb binary diff=lockb" ];
