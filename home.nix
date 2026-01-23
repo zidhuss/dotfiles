@@ -22,10 +22,6 @@
   ];
 
   home.packages = with pkgs; [
-    # http
-    hey
-    caddy
-
     # Containers
     colima
     lazydocker
@@ -33,9 +29,6 @@
     k9s
 
     # tools
-    fd
-    ripgrep
-    ranger
     doggo
     pngpaste
   ];
@@ -168,6 +161,8 @@
   };
 
   programs.bat.enable = true;
+  programs.fd.enable = true;
+  programs.ripgrep.enable = true;
 
   home.sessionVariables = {
     EDITOR = "nvim";
