@@ -10,9 +10,21 @@ return {
 					return
 				end
 
+				-- Prefer configured formatters when available (e.g. loaded via direnv),
+				-- otherwise fall back to LSP (e.g. globally installed via nix).
+				-- Exclude always-available builtins from the check.
+				local builtins = { trim_newlines = true, trim_whitespace = true }
+				local has_formatter = false
+				for _, fmt in ipairs(require("conform").list_formatters(bufnr)) do
+					if fmt.available and not builtins[fmt.name] then
+						has_formatter = true
+						break
+					end
+				end
+
 				return {
 					timeout_ms = 500,
-					lsp_format = "prefer",
+					lsp_format = has_formatter and "fallback" or "prefer",
 				}
 			end,
 
