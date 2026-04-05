@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   home.username = "abry";
   home.homeDirectory = "/Users/abry";
 
@@ -89,7 +88,7 @@
       ".claude"
     ];
 
-    attributes = [ "*.lockb binary diff=lockb" ];
+    attributes = ["*.lockb binary diff=lockb"];
 
     settings = {
       user = {
@@ -124,12 +123,12 @@
     enable = true;
     settings = {
       gui.theme = {
-        selectedLineBgColor = [ "reverse" ];
+        selectedLineBgColor = ["reverse"];
       };
       gui.showIcons = true;
       git = {
         pagers = [
-          { externalDiffCommand = "difft --color=always"; }
+          {externalDiffCommand = "difft --color=always";}
         ];
         autoFetch = false;
         autoRefresh = false;
@@ -175,17 +174,16 @@
 
     plugins =
       map
-        (pkg: {
-          name = pkg.name;
-          src = pkg.src;
-        })
-        (
-          with pkgs.fishPlugins;
-          [
-            sponge
-            autopair-fish
-          ]
-        );
+      (pkg: {
+        name = pkg.name;
+        src = pkg.src;
+      })
+      (
+        with pkgs.fishPlugins; [
+          sponge
+          autopair-fish
+        ]
+      );
 
     functions.fish_user_key_bindings = {
       body = ''
@@ -198,69 +196,65 @@
     '';
   };
 
-  programs.starship =
-    let
-      getPreset =
-        name:
-        (
-          with builtins;
-          removeAttrs (fromTOML (readFile "${pkgs.starship}/share/starship/presets/${name}.toml")) [
-            "\"$schema\""
-          ]
-        );
-    in
-    {
-      enable = true;
-      enableTransience = true;
-      settings =
-        lib.recursiveUpdate
-          (lib.mergeAttrsList [
-            (getPreset "nerd-font-symbols")
-          ])
-          {
-            gcloud = {
-              disabled = true;
-            };
+  programs.starship = let
+    getPreset = name: (
+      with builtins;
+        removeAttrs (fromTOML (readFile "${pkgs.starship}/share/starship/presets/${name}.toml")) [
+          "\"$schema\""
+        ]
+    );
+  in {
+    enable = true;
+    enableTransience = true;
+    settings =
+      lib.recursiveUpdate
+      (lib.mergeAttrsList [
+        (getPreset "nerd-font-symbols")
+      ])
+      {
+        gcloud = {
+          disabled = true;
+        };
 
-            custom.jj = {
-              command = "prompt";
-              format = "$output";
-              ignore_timeout = true;
-              shell = [
-                "${pkgs.starship-jj}/bin/starship-jj"
-                "--ignore-working-copy"
-                "starship"
-              ];
-              use_stdin = false;
-              when = true;
-            };
+        custom.jj = {
+          command = "prompt";
+          format = "$output";
+          ignore_timeout = true;
+          shell = [
+            "${pkgs.starship-jj}/bin/starship-jj"
+            "--ignore-working-copy"
+            "starship"
+          ];
+          use_stdin = false;
+          when = true;
+        };
 
-            git_branch = {
-              disabled = true;
-            };
-            custom.git_branch = {
-              when = "! jj --ignore-working-copy root";
-              command = "starship module git_branch";
-              description = "only show if we're not in a jj repo";
-            };
-            git_state = {
-              disabled = true;
-            };
-            custom.git_state = {
-              when = "! jj --ignore-working-copy root";
-              command = "starship module git_state";
-              description = "only show if we're not in a jj repo";
-            };
-            git_status = {
-              disabled = true;
-            };
-            custom.git_status = {
-              when = "! jj --ignore-working-copy root";
-              command = "starship module git_status";
-              description = "only show if we're not in a jj repo";
-            };
-          };
-    };
+        git_branch = {
+          disabled = true;
+        };
+        custom.git_branch = {
+          when = "! jj --ignore-working-copy root";
+          command = "starship module git_branch";
+          description = "only show if we're not in a jj repo";
+        };
+        git_state = {
+          disabled = true;
+        };
+        custom.git_state = {
+          when = "! jj --ignore-working-copy root";
+          command = "starship module git_state";
+          description = "only show if we're not in a jj repo";
+        };
+        git_status = {
+          disabled = true;
+        };
+        custom.git_status = {
+          when = "! jj --ignore-working-copy root";
+          command = "starship module git_status";
+          description = "only show if we're not in a jj repo";
+        };
+      };
+  };
 
   programs.fzf = {
     enable = true;
@@ -280,10 +274,10 @@
       lemminx
       lua-language-server
       marksman
-      nodePackages.yaml-language-server
-      nodePackages."@astrojs/language-server"
-      nodePackages.vscode-langservers-extracted
-      nodePackages.typescript-language-server
+      yaml-language-server
+      astro-language-server
+      vscode-langservers-extracted
+      typescript-language-server
       nil
       zls
       phpactor
