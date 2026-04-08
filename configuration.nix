@@ -44,6 +44,15 @@
     distributedBuilds = true;
     buildMachines = [
       {
+        hostName = "nickel";
+        protocol = "ssh-ng";
+        sshUser = "root";
+        systems = ["aarch64-linux"];
+        maxJobs = 8;
+        speedFactor = 2;
+        supportedFeatures = ["big-parallel"];
+      }
+      {
         hostName = "eu.nixbuild.net";
         systems = [
           "x86_64-linux"
