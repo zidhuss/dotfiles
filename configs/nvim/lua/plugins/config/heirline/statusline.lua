@@ -15,9 +15,7 @@ local LSPActive = {
 	provider = function()
 		local names = {}
 		for _, server in pairs(vim.lsp.get_clients({ buffer = 0 })) do
-			if server.name ~= "copilot" then
-				table.insert(names, server.name)
-			end
+			table.insert(names, server.name)
 		end
 		return " [" .. table.concat(names, " ") .. "]"
 	end,

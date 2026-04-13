@@ -129,36 +129,4 @@ return {
 			require("luasnip.loaders.from_vscode").lazy_load()
 		end,
 	},
-
-	{
-		"zbirenbaum/copilot.lua",
-		enabled = false,
-		cmd = { "Copilot" },
-		event = "InsertEnter",
-		opts = {
-			server = {
-				type = "binary",
-				custom_server_filepath = "copilot-language-server",
-			},
-			filetypes = {
-				markdown = true,
-				gitcommit = true,
-				gitrebase = true,
-			},
-			method = "getCompletionsCycling",
-			suggestion = {
-				enabled = true,
-				auto_trigger = true,
-				keymap = {
-					accept = "<c-y>",
-					next = "<c-n>",
-					prev = "<c-p>",
-					dismiss = "<c-e>",
-					accept_word = "<c-m>",
-					accept_line = "<c-]>",
-				},
-			},
-			panel = { enabled = false },
-		},
-	},
 }

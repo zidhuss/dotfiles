@@ -270,7 +270,6 @@
     extraPackages = with pkgs; [
       # language servers
       beancount-language-server
-      copilot-language-server
       emmet-language-server
       gopls
       jdt-language-server
