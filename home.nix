@@ -266,6 +266,7 @@
     package = pkgs.neovim;
     withRuby = false;
     withPython3 = false;
+    sideloadInitLua = true;
 
     extraPackages = with pkgs; [
       # language servers
