@@ -30,6 +30,9 @@
     # tools
     doggo
     pngpaste
+
+    # desktop
+    signal-desktop
   ];
 
   xdg.enable = true;
