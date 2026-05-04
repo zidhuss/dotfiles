@@ -73,6 +73,5 @@
     };
   };
 
-  ids.gids.nixbld = 30000;
   system.stateVersion = 5;
 }

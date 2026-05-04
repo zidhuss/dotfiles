@@ -29,23 +29,38 @@
       inputs.neovim-nightly-overlay.overlays.default
       inputs.starship-jj.overlays.default
     ];
+
+    sharedModules = [
+      ./configuration.nix
+      home-manager.darwinModules.home-manager
+      {
+        users.users."abry" = {
+          home = "/Users/abry";
+        };
+
+        nixpkgs.overlays = overlays;
+
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users."abry" = import ./home.nix;
+      }
+    ];
   in {
     darwinConfigurations."Husseins-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      modules = [
-        ./configuration.nix
-        home-manager.darwinModules.home-manager
-        {
-          users.users."abry" = {
-            home = "/Users/abry";
-          };
+      modules =
+        sharedModules
+        ++ [
+          {
+            ids.gids.nixbld = 30000;
+          }
+        ];
+      specialArgs = {
+        inherit nixpkgs;
+      };
+    };
 
-          nixpkgs.overlays = overlays;
-
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users."abry" = import ./home.nix;
-        }
-      ];
+    darwinConfigurations."Husseins-M4" = nix-darwin.lib.darwinSystem {
+      modules = sharedModules;
       specialArgs = {
         inherit nixpkgs;
       };
