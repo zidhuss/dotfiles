@@ -64,6 +64,26 @@
         "type": "github"
       }
     },
+    "fonts": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778133624,
+        "narHash": "sha256-JqJMYnQHDhaM146SkmVp1ngwvxAkvQB1VfdihcBHmsU=",
+        "ref": "refs/heads/main",
+        "rev": "280f1914384073cad0bc314aa51dd5dd936845f5",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/zidhuss/fonts.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/zidhuss/fonts.git"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -175,6 +195,7 @@
     },
     "root": {
       "inputs": {
+        "fonts": "fonts",
         "home-manager": "home-manager",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-darwin": "nix-darwin",

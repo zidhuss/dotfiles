@@ -17,6 +17,11 @@
       url = "gitlab:lanastara_foss/starship-jj";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fonts = {
+      url = "git+ssh://git@github.com/zidhuss/fonts.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -33,17 +38,24 @@
     sharedModules = [
       ./configuration.nix
       home-manager.darwinModules.home-manager
-      {
+      ({
+        pkgs,
+        ...
+      }: {
         users.users."abry" = {
           home = "/Users/abry";
         };
 
         nixpkgs.overlays = overlays;
 
+        fonts.packages = [
+          inputs.fonts.packages.${pkgs.stdenv.hostPlatform.system}.all
+        ];
+
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users."abry" = import ./home.nix;
-      }
+      })
     ];
   in {
     darwinConfigurations."Husseins-MacBook-Pro" = nix-darwin.lib.darwinSystem {
