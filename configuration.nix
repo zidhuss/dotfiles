@@ -6,7 +6,10 @@
 }: {
   users.users."abry" = {
     home = "/Users/abry";
+    uid = 501;
+    shell = pkgs.fish;
   };
+  users.knownUsers = ["abry"];
 
   environment.systemPackages = with pkgs; [
     curl
