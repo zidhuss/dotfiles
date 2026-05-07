@@ -327,6 +327,7 @@ in {
       dark-notify
       editorconfig-core-c
       editorconfig-checker
+      tree-sitter
       websocat # typst-preview
     ];
   };
