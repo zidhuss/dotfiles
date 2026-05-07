@@ -163,6 +163,21 @@
     };
   };
 
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    matchBlocks = {
+      "*".setEnv.TERM = "xterm-256color";
+      "eu.nixbuild.net" = {
+        serverAliveInterval = 60;
+        extraOptions = {
+          PubkeyAcceptedKeyTypes = "ssh-ed25519";
+          IPQoS = "throughput";
+        };
+      };
+    };
+  };
+
   programs.bat.enable = true;
   programs.fd.enable = true;
   programs.ripgrep.enable = true;
