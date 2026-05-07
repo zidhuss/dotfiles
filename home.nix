@@ -3,7 +3,9 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  dark-notify = import ./pkgs/dark-notify.nix {inherit pkgs lib;};
+in {
   home.username = "abry";
   home.homeDirectory = "/Users/abry";
 
@@ -322,6 +324,7 @@
       pgformatter
 
       # Other editor related
+      dark-notify
       editorconfig-core-c
       editorconfig-checker
       websocat # typst-preview
