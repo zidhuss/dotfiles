@@ -178,6 +178,10 @@
     };
   };
 
+  home.file.".1password/agent.sock" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+  };
+
   programs.bat.enable = true;
   programs.fd.enable = true;
   programs.ripgrep.enable = true;
