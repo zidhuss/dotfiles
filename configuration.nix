@@ -10,6 +10,12 @@
     shell = pkgs.fish;
   };
   users.knownUsers = ["abry"];
+  system.primaryUser = "abry";
+
+  system.defaults.menuExtraClock = {
+    Show24Hour = true;
+    ShowAMPM = false;
+  };
 
   environment.systemPackages = with pkgs; [
     curl
