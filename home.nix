@@ -191,7 +191,6 @@ in {
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    SSH_AUTH_SOCK = "${config.home.homeDirectory}/.1password/agent.sock";
     DO_NOT_TRACK = 1;
   };
 
@@ -219,6 +218,10 @@ in {
 
     shellInit = ''
       set -gx PATH "$HOME/bin" $PATH
+
+      if not set -q SSH_CONNECTION
+        set -gx SSH_AUTH_SOCK "$HOME/.1password/agent.sock"
+      end
     '';
   };
 
