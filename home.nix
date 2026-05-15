@@ -170,7 +170,7 @@ in {
     enable = true;
     enableDefaultConfig = false;
     matchBlocks = {
-      "*".setEnv.TERM = "xterm-256color";
+      # "*".setEnv.TERM = "xterm-256color";
       "eu.nixbuild.net" = {
         serverAliveInterval = 60;
         extraOptions = {
