@@ -12,9 +12,48 @@
   users.knownUsers = ["abry"];
   system.primaryUser = "abry";
 
-  system.defaults.menuExtraClock = {
-    Show24Hour = true;
-    ShowAMPM = false;
+  system.defaults = {
+    menuExtraClock = {
+      Show24Hour = true;
+      ShowAMPM = false;
+    };
+
+    NSGlobalDomain = {
+      AppleInterfaceStyleSwitchesAutomatically = true;
+      AppleICUForce24HourTime = true;
+      AppleMeasurementUnits = "Centimeters";
+      AppleMetricUnits = 1;
+      AppleTemperatureUnit = "Celsius";
+      InitialKeyRepeat = 25;
+      KeyRepeat = 5;
+    };
+
+    dock = {
+      autohide = true;
+      tilesize = 66;
+      largesize = 99;
+      magnification = true;
+      show-recents = false;
+      expose-group-apps = true;
+      wvous-br-corner = 11;
+    };
+
+    finder = {
+      FXDefaultSearchScope = "SCcf";
+      CreateDesktop = false;
+    };
+
+    WindowManager = {
+      AppWindowGroupingBehavior = true;
+      EnableTiledWindowMargins = false;
+    };
+
+    trackpad = {
+      Clicking = false;
+      Dragging = false;
+      TrackpadRightClick = true;
+      TrackpadThreeFingerDrag = false;
+    };
   };
 
   environment.systemPackages = with pkgs; [
