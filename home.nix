@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  osConfig,
   ...
 }: let
   dark-notify = import ./pkgs/dark-notify.nix {inherit pkgs lib;};
@@ -22,6 +23,14 @@ in {
   # For splitting up configuration into multiple files
   imports = [
   ];
+
+  xdg.configFile."attic/config.toml".text = ''
+    default-server = "zidhuss"
+
+    [servers.zidhuss]
+    endpoint = "https://attic.zidhuss.tech/"
+    token-file = "${osConfig.sops.secrets."attic/token".path}"
+  '';
 
   home.packages = with pkgs; [
     # Containers

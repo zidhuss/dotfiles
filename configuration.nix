@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   nixpkgs,
   lib,
@@ -57,14 +58,27 @@
   };
 
   environment.systemPackages = with pkgs; [
+    attic-client
     curl
     imagemagick
     wezterm
     nh
+    sops
   ];
 
   # Flake pinning
   nix.registry.nixpkgs.flake = nixpkgs;
+
+  sops = {
+    age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+    defaultSopsFile = ./secrets.yaml;
+    secrets."attic/token" = {
+      owner = "abry";
+    };
+    templates."nix-attic-netrc".content = ''
+      machine attic.zidhuss.tech password ${config.sops.placeholder."attic/token"}
+    '';
+  };
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
@@ -115,8 +129,15 @@
     settings = {
       experimental-features = "nix-command flakes";
       trusted-users = ["@admin"];
-      substituters = ["ssh://eu.nixbuild.net"];
-      trusted-public-keys = ["nixbuild.net/WA6DCE-1:QJWjvXvACfwkrqte0z4IL0B9ZXZMmaQgmCEmmjScUGM="];
+      substituters = [
+        "https://attic.zidhuss.tech/zidhuss"
+        "ssh://eu.nixbuild.net"
+      ];
+      trusted-public-keys = [
+        "zidhuss:VD+JftXXvyvnIzY1xdnxwAZhNaGnaYpMwDaFzb88g5M="
+        "nixbuild.net/WA6DCE-1:QJWjvXvACfwkrqte0z4IL0B9ZXZMmaQgmCEmmjScUGM="
+      ];
+      netrc-file = config.sops.templates."nix-attic-netrc".path;
       builders-use-substitutes = true;
     };
   };

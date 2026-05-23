@@ -1,0 +1,9 @@
+keys:
+  - &husseinsmacbookpro age18fwuk0ljptaumwu5rlyqhtsstpgj7t8v6hwhmhwzsgdzm3xvz9sqt3lkux
+  - &hussiensm4 age1jw3auqgm89vhvzmg738u8dr0wapd4xyepfspud2rmqqcdjn2r4us5weujc
+creation_rules:
+  - path_regex: secrets.yaml
+    key_groups:
+      - age:
+          - *husseinsmacbookpro
+          - *hussiensm4

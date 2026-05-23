@@ -11,6 +11,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     starship-jj = {
@@ -28,6 +32,7 @@
     nix-darwin,
     home-manager,
     nixpkgs,
+    sops-nix,
     ...
   }: let
     overlays = [
@@ -36,6 +41,7 @@
     ];
 
     sharedModules = [
+      sops-nix.darwinModules.sops
       ./configuration.nix
       home-manager.darwinModules.home-manager
       ({
