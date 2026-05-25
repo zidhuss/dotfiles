@@ -178,14 +178,12 @@ in {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       # "*".setEnv.TERM = "xterm-256color";
       "eu.nixbuild.net" = {
-        serverAliveInterval = 60;
-        extraOptions = {
-          PubkeyAcceptedKeyTypes = "ssh-ed25519";
-          IPQoS = "throughput";
-        };
+        ServerAliveInterval = 60;
+        PubkeyAcceptedKeyTypes = "ssh-ed25519";
+        IPQoS = "throughput";
       };
     };
   };
