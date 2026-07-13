@@ -94,13 +94,6 @@
       "claude-code"
     ];
 
-  programs.ssh.knownHosts = {
-    nixbuild = {
-      hostNames = ["eu.nixbuild.net"];
-      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPIQCZc54poJ8vqawd8TraNryQeJnvH1eLpIDgbiqymM";
-    };
-  };
-
   nix = {
     enable = true;
     distributedBuilds = true;
@@ -114,16 +107,6 @@
         speedFactor = 2;
         supportedFeatures = ["big-parallel"];
       }
-      {
-        hostName = "eu.nixbuild.net";
-        systems = [
-          "x86_64-linux"
-          "aarch64-linux"
-          "armv7l-linux"
-        ];
-        maxJobs = 100;
-        supportedFeatures = ["benchmark" "big-parallel"];
-      }
     ];
 
     settings = {
@@ -131,11 +114,9 @@
       trusted-users = ["@admin"];
       substituters = [
         "https://attic.zidhuss.tech/zidhuss"
-        "ssh://eu.nixbuild.net"
       ];
       trusted-public-keys = [
         "zidhuss:VD+JftXXvyvnIzY1xdnxwAZhNaGnaYpMwDaFzb88g5M="
-        "nixbuild.net/WA6DCE-1:QJWjvXvACfwkrqte0z4IL0B9ZXZMmaQgmCEmmjScUGM="
       ];
       netrc-file = config.sops.templates."nix-attic-netrc".path;
       builders-use-substitutes = true;

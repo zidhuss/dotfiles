@@ -180,11 +180,6 @@ in {
     enableDefaultConfig = false;
     settings = {
       # "*".setEnv.TERM = "xterm-256color";
-      "eu.nixbuild.net" = {
-        ServerAliveInterval = 60;
-        PubkeyAcceptedKeyTypes = "ssh-ed25519";
-        IPQoS = "throughput";
-      };
     };
   };
 
