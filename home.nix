@@ -34,7 +34,7 @@ in {
 
   home.packages = with pkgs; [
     # Containers
-    # colima
+    colima
     lazydocker
     docker-client
     k9s
