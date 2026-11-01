@@ -315,7 +315,7 @@ in {
       phpactor
       pyright
       regal
-      rubyPackages_3_3.solargraph
+      rubyPackages_3_4.solargraph
       tailwindcss-language-server
       taplo
       terraform-ls
@@ -337,7 +337,10 @@ in {
     ];
   };
 
-  programs.claude-code.enable = true;
+  programs.claude-code = {
+    enable = true;
+    configDir = "${config.xdg.configHome}/claude";
+  };
   programs.codex.enable = true;
 
   # Let Home Manager install and manage itself.
